@@ -1,6 +1,7 @@
 {
     "name": "crazycodr/standard-exceptions",
     "description": "This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interroperability between projects.",
+    "license": "MIT",
     "authors": [
         {
             "name": "Mathieu Dumoulin",
