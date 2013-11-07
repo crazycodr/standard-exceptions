@@ -1,7 +1,7 @@
 <?php
 namespace StandardExceptions\Runtime;
 
-class InvalidOperationException
+class InvalidOperationException extends \RuntimeException
 {
     
 }
