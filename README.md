@@ -34,41 +34,49 @@ Proposed structure based on namespacing
     - BadFunctionCallException extends \BadFunctionCallException
     - BadMethodCallException extends \BadMethodCallException
   - InvalidCode (namespace)
-    - IllegalValueException extends \DomainException
     - IllegalArgumentTypeException extends \InvalidArgumentException
+    - IllegalValueException extends \DomainException
   - Runtime (namespace)
-    - ValueOverflowException extends \OverflowException
-    - UnexpectedReturnValueException extends \UnexpectedValueException
+    - ArrayUnderflowException extends \UnderflowException
+    - IncorrectLengthException extends \LengthException
     - InvalidOperationException
-      - ArrayAlreadyEmptyException extends \UnderflowException
-    - InvalidIndexException extends \OutOfRangeException
+      - ArrayAlreadyEmptyException
     - InvalidKeyException extends \OutOfBoundsException
+    - InvalidIndexException extends \OutOfRangeException
     - InvalidValueException extends \RangeException
       - InvalidLengthException
-    - IncorrectLengthException extends \LengthException
+    - UnexpectedReturnValueException extends \UnexpectedValueException
+    - ValueOverflowException extends \OverflowException
 
 Idiocracies
 -----------
-The LengthException which should theorically be an InvalidValueException/RangeException due to it's validation use stays in the old logic exception branch. Since the IncorrectLengthException is used to map to LengthException, it cannot be under InvalidValueException although it should. To fix this, \Exceptions\Runtime\IncorrectLengthException will be automatically marked @deprecated in favor of \Exceptions\Runtime\InvalidLengthException.
+The LengthException which should theorically be an InvalidValueException/RangeException due to it's validation use stays in the old logic exception branch. Since the IncorrectLengthException is used to map to LengthException, it cannot be under InvalidValueException although it should. To fix this, \StandardExceptions\Runtime\IncorrectLengthException will be automatically marked @deprecated in favor of \StandardExceptions\Runtime\InvalidLengthException.
 
 Automatically deprecated exceptions
 -----------------------------------
-\Exceptions\Callback\BadMethodCallException in favor of \Exceptions\Callback\BadFunctionCallException
-\Exceptions\InvalidCode\IllegalValueException in favor of \Exceptions\Runtime\InvalidValueException
-\Exceptions\Runtime\InvalidKeyException in favor of \Exceptions\Runtime\InvalidIndexException
-\Exceptions\Runtime\IncorrectLengthException in favor of \Exceptions\Runtime\InvalidLengthException
+- \StandardExceptions\Callback\BadMethodCallException in favor of \StandardExceptions\Callback\BadFunctionCallException
+- \StandardExceptions\InvalidCode\IllegalValueException in favor of \StandardExceptions\Runtime\InvalidValueException
+- \StandardExceptions\Runtime\ArrayUnderflowException in favor of \StandardExceptions\Runtime\ArrayAlreadyEmptyException
+- \StandardExceptions\Runtime\IncorrectLengthException in favor of \StandardExceptions\Runtime\InvalidLengthException
+- \StandardExceptions\Runtime\InvalidKeyException in favor of \StandardExceptions\Runtime\InvalidIndexException
 
 New exceptions and namespaces
 =============================
 There are many missing runtime exceptions in the default spl package. Many exceptions that we often see re-create over and over again and it doesn't make sense to do that. Apart from SQL Query writting, exception writing is possibly the most annoying and useless thing to do when writing software. If we can alleviate that by providing a more complete set of finer grained exceptions, it might be beneficial to all php programmers out there.
 
-InvalidValueExceptions as RangeException
-----------------------------------------
+InvalidValueException as RangeException
+---------------------------------------
 Lets face it, RangeException is an highly unortodox name to use for domain validation that failed at runtime. This package will feature a whole branch dedicated at providing invalid value exceptions as runtime exceptions.
 
-IOExceptions
-------------
-How many applications or framework actually throw IO related exceptions such as connection failures, connection loss, connection interrupted, file not found, file not writable... These can apply to all sorts of IO based operations be it files, databases, servers, web services, and more. Yet, there are no exceptions governing all this... none at all!
+IO exceptions
+-------------
+There are so many applications or framework that actually throw IO related exceptions such as connection failures, connection loss, connection interruption, file not found, file not writable, etc. 
+
+These examples can apply to all sorts of IO based operations be it files, databases, servers, web services, and more. Yet, there are no exceptions governing all this... none at all!
+
+Validation exceptions
+---------------------
+There are many validation functions or libraries, but each throw their own exceptions or return boolean values depending on the style of validation they adopt. The validation exceptions should be used to provide a standard set of validation exceptions thrown back by these validation systems such as InvalidEmailException, InvalidFormatException, InvalidPostalCodeException, etc.
 
 Contribution notes
 ==================
