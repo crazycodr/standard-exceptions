@@ -17,4 +17,9 @@ namespace StandardExceptions\Validation;
 class IncorrectLengthException extends \LengthException
 {
     
+    public function __construct($message = 'The length of the passed data is invalid for the requested operation', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

@@ -15,4 +15,9 @@ namespace StandardExceptions\Validation;
 class InvalidValueException extends \RangeException
 {
     
+    public function __construct($message = 'The data passed on is invalid for this operation', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

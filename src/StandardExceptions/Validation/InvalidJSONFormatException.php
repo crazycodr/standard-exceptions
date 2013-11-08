@@ -16,4 +16,9 @@ namespace StandardExceptions\Validation;
 class InvalidJSONFormatException extends InvalidFormatException
 {
     
+    public function __construct($message = 'JSON data could not be parsed', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

@@ -17,4 +17,9 @@ namespace StandardExceptions\Validation;
 class InvalidEmailFormatException extends InvalidFormatException
 {
     
+    public function __construct($message = 'Email could not be parsed', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

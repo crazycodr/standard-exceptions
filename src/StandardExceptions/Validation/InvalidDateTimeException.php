@@ -17,4 +17,9 @@ namespace StandardExceptions\Validation;
 class InvalidDateTimeException extends InvalidValueException
 {
     
+    public function __construct($message = 'The data is not a valid datetime for this operation', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

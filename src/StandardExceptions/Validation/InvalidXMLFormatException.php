@@ -22,4 +22,9 @@ namespace StandardExceptions\Validation;
 class InvalidXMLFormatException extends InvalidFormatException
 {
     
+    public function __construct($message = 'XML data could not be parsed', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

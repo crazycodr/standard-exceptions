@@ -19,4 +19,9 @@ namespace StandardExceptions\Validation;
 class InvalidFormatException extends InvalidValueException
 {
     
+    public function __construct($message = 'Data could not be parsed because of format error', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

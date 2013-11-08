@@ -16,4 +16,9 @@ namespace StandardExceptions\Validation;
 class InvalidRegexFormatException extends InvalidFormatException
 {
     
+    public function __construct($message = 'Regular expression could not be parsed', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

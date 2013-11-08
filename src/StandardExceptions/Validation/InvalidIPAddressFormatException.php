@@ -18,4 +18,9 @@ namespace StandardExceptions\Validation;
 class InvalidIPAddressFormatException extends InvalidFormatException
 {
     
+    public function __construct($message = 'IP Address could not be parsed', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

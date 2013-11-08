@@ -15,4 +15,9 @@ namespace StandardExceptions\Validation;
 class InvalidDateTimeFormatException extends InvalidFormatException
 {
     
+    public function __construct($message = 'Date/Time data could not be parsed into real date', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }
