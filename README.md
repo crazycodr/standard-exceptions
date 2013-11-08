@@ -42,12 +42,23 @@ Proposed class tree
 
   - Array (namespace)
     - ArrayUnderflowException
-    - ArrayAlreadyEmptyException
+    - ArrayIsEmptyException
+    - ArrayIsFullException
+    - IndexNotFoundException
     - InvalidKeyException
-    - InvalidIndexException
+    - KeyAlreadyExistsException
+    - KeyNotFoundException
+    - ReadOnlyArrayException
+    - ReadOnlyArrayItemException
 
   - IO (namespace)
+    - ConnectionLostException
+    - ConnectionRefusedException
     - FileNotFoundException
+    - FileNotReadableException
+    - FileNotWritableException
+    - UnexpectedResponseException
+    - UnknownHostException
 
   - Logic (namespace)
     - IllegalArgumentTypeException
@@ -63,16 +74,25 @@ Proposed class tree
 
   - Validation (namespace)
     - IncorrectLengthException
+    - InvalidDateTimeException
+    - InvalidEmailException
+    - InvalidFormatException
+    - InvalidIPAddressException
+    - InvalidJSONException
     - InvalidLengthException
+    - InvalidNumberException
+    - InvalidPostalCodeException
+    - InvalidRegexException
     - InvalidValueException
+    - InvalidXMLException
 
 Automatically deprecated exceptions
 -----------------------------------
 - BadMethodCallException in favor of BadFunctionCallException
 - IllegalValueException in favor of InvalidValueException
-- ArrayUnderflowException in favor of ArrayAlreadyEmptyException
+- ArrayUnderflowException in favor of ArrayIsEmptyException
 - IncorrectLengthException in favor of InvalidLengthException
-- InvalidKeyException in favor of InvalidIndexException
+- InvalidIndexException in favor of InvalidKeyException
 
 New exceptions and namespaces
 =============================

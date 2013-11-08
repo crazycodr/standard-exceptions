@@ -2,7 +2,7 @@
 namespace StandardExceptions\Array;
 
 /**
-* @deprecated \StandardExceptions\Array\ArrayAlreadyEmptyException
+* @deprecated \StandardExceptions\Array\ArrayIsEmptyException
 */
 class ArrayUnderflowException extends \UnderflowException
 {
