@@ -54,9 +54,14 @@ Proposed class tree
   - IO (namespace)
     - ConnectionLostException
     - ConnectionRefusedException
+    - DirectoryNotFoundException
+    - DirectoryNotReadableException
+    - DirectoryNotWritableException
     - FileNotFoundException
     - FileNotReadableException
     - FileNotWritableException
+    - NotADirectoryException
+    - NotAFileException
     - UnexpectedResponseException
     - UnknownHostException
 
