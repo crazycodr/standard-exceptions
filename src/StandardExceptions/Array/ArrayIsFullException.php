@@ -13,4 +13,9 @@ namespace StandardExceptions\Array;
 class ArrayIsFullException extends \RuntimeException
 {
     
+    public function __construct($message = 'Cannot add items to array/collection, it is already full', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

@@ -15,4 +15,9 @@ namespace StandardExceptions\Array;
 class InvalidKeyException extends \RuntimeException
 {
     
+    public function __construct($message = 'Format of key is invalid for this array/collection', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

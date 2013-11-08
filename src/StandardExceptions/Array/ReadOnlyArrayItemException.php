@@ -12,4 +12,9 @@ namespace StandardExceptions\Array;
 class ReadOnlyArrayItemException extends \RuntimeException
 {
     
+    public function __construct($message = 'Array/Collection item is read-only, you cannot modify it', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

@@ -12,4 +12,9 @@ namespace StandardExceptions\Array;
 class ArrayIsEmptyException extends \RuntimeException
 {
     
+    public function __construct($message = 'Cannot remove items from array/collection, it is already empty', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+
 }

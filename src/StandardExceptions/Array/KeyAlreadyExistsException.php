@@ -12,4 +12,9 @@ namespace StandardExceptions\Array;
 class KeyAlreadyExistsException extends \RuntimeException
 {
     
+    public function __construct($message = 'Key already exists in array/collection', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

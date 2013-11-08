@@ -18,4 +18,9 @@ namespace StandardExceptions\Array;
 class IndexNotFoundException extends \OutOfRangeException
 {
     
+    public function __construct($message = 'Index not found in array/collection', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

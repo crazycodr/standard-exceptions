@@ -12,4 +12,9 @@ namespace StandardExceptions\Array;
 class KeyNotFoundException extends \OutOfBoundsException
 {
     
+    public function __construct($message = 'Key not found in array/collection', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }
