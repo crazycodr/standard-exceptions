@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\InvalidCode;
+namespace StandardExceptions\Logic;
 
 /**
 * @deprecated \StandardExceptions\Runtime\InvalidValueException

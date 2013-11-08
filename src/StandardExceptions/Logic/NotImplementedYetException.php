@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\InvalidCode;
+namespace StandardExceptions\Logic;
 
 class NotImplementedYetException extends \LogicException
 {

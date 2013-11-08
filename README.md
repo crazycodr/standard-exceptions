@@ -33,7 +33,7 @@ Proposed structure based on namespacing
   - Callback (namespace)
     - BadFunctionCallException extends \BadFunctionCallException
     - BadMethodCallException extends \BadMethodCallException
-  - InvalidCode (namespace)
+  - Logic (namespace)
     - IllegalArgumentTypeException extends \InvalidArgumentException
     - IllegalValueException extends \DomainException
   - Runtime (namespace)
@@ -55,7 +55,7 @@ The LengthException which should theorically be an InvalidValueException/RangeEx
 Automatically deprecated exceptions
 -----------------------------------
 - \StandardExceptions\Callback\BadMethodCallException in favor of \StandardExceptions\Callback\BadFunctionCallException
-- \StandardExceptions\InvalidCode\IllegalValueException in favor of \StandardExceptions\Runtime\InvalidValueException
+- \StandardExceptions\Logic\IllegalValueException in favor of \StandardExceptions\Runtime\InvalidValueException
 - \StandardExceptions\Runtime\ArrayUnderflowException in favor of \StandardExceptions\Runtime\ArrayAlreadyEmptyException
 - \StandardExceptions\Runtime\IncorrectLengthException in favor of \StandardExceptions\Runtime\InvalidLengthException
 - \StandardExceptions\Runtime\InvalidKeyException in favor of \StandardExceptions\Runtime\InvalidIndexException
