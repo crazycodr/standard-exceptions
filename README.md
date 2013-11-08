@@ -39,12 +39,12 @@ Proposed namespace structure
 
 Proposed class tree
 -------------------
-- Exceptions (namespace)
+- StandardExceptions (namespace)
 
-  - Array (namespace)
-    - ArrayUnderflowException
+  - ArrayExceptions (namespace)
     - ArrayIsEmptyException
     - ArrayIsFullException
+    - ArrayUnderflowException
     - IndexNotFoundException
     - InvalidKeyException
     - KeyAlreadyExistsException
@@ -52,7 +52,7 @@ Proposed class tree
     - ReadOnlyArrayException
     - ReadOnlyArrayItemException
 
-  - IO (namespace)
+  - IOExceptions (namespace)
     - ConnectionLostException
     - ConnectionRefusedException
     - DirectoryNotFoundException
@@ -66,19 +66,19 @@ Proposed class tree
     - UnexpectedResponseException
     - UnknownHostException
 
-  - Logic (namespace)
+  - LogicExceptions (namespace)
     - IllegalArgumentTypeException
     - IllegalValueException
 
-  - Operation (namespace)
+  - OperationExceptions (namespace)
     - BadFunctionCallException
     - BadMethodCallException
     - InvalidOperationException
     - NotImplementedYetException
-    - UnexpectedReturnValueException
     - OverflowException
+    - UnexpectedReturnValueException
 
-  - Validation (namespace)
+  - ValidationExceptions (namespace)
     - IncorrectLengthException
     - InvalidBooleanException
     - InvalidDateTimeException
@@ -97,11 +97,12 @@ Proposed class tree
 
 Automatically deprecated exceptions
 -----------------------------------
-- BadMethodCallException in favor of BadFunctionCallException
-- IllegalValueException in favor of InvalidValueException
 - ArrayUnderflowException in favor of ArrayIsEmptyException
+- BadMethodCallException in favor of BadFunctionCallException
+- BadFunctionCallException in favor of InvalidOperationException
+- IllegalValueException in favor of InvalidValueException
 - IncorrectLengthException in favor of InvalidLengthException
-- InvalidIndexException in favor of InvalidKeyException
+- IndexNotFoundException in favor of KeyNotFoundException
 
 New exceptions and namespaces
 =============================
