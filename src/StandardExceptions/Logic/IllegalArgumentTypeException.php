@@ -17,4 +17,9 @@ namespace StandardExceptions\Logic;
 class IllegalArgumentTypeException extends \InvalidArgumentException
 {
     
+    public function __construct($message = 'Argument passed to function is not of expected type', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

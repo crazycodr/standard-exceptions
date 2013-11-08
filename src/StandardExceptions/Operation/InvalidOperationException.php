@@ -19,4 +19,9 @@ namespace StandardExceptions\Operation;
 class InvalidOperationException extends \RuntimeException
 {
     
+    public function __construct($message = 'The attempted operation resulted in an unexpected/invalid state and cannot continue', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

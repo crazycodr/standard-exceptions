@@ -20,4 +20,9 @@ namespace StandardExceptions\Operation;
 class BadFunctionCallException extends \BadFunctionCallException
 {
     
+    public function __construct($message = 'The call to specified function is invalid because of argument mismatch', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

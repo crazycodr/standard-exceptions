@@ -20,4 +20,9 @@ namespace StandardExceptions\Logic;
 class IllegalValueException extends \DomainException
 {
     
+    public function __construct($message = 'Value doesn\'t fit into the allowed domain values (Ex: division by zero, 8th day of a week, etc)', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

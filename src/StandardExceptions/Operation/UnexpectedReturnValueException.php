@@ -18,4 +18,9 @@ namespace StandardExceptions\Operation;
 class UnexpectedReturnValueException extends \UnexpectedValueException
 {
     
+    public function __construct($message = 'Unexpected value returned by internal call', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

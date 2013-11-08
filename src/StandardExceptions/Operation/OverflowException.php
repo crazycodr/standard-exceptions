@@ -18,4 +18,9 @@ namespace StandardExceptions\Operation;
 class OverflowException extends \OverflowException
 {
     
+    public function __construct($message = 'Operation resulted in a value overflow', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

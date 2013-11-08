@@ -14,4 +14,9 @@ namespace StandardExceptions\Operation;
 class NotImplementedYetException extends InvalidOperationException
 {
     
+    public function __construct($message = 'Feature not implemented yet', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }
