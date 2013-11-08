@@ -27,52 +27,72 @@ Existing exceptions
     - UnderflowException
     - UnexpectedValueException
 
-Proposed structure based on namespacing
----------------------------------------
+Proposed namespace structure
+----------------------------
 - Exceptions (namespace)
-  - Callback (namespace)
-    - BadFunctionCallException extends \BadFunctionCallException
-    - BadMethodCallException extends \BadMethodCallException
+  - Array (namespace)
+  - IO (namespace)
   - Logic (namespace)
-    - IllegalArgumentTypeException extends \InvalidArgumentException
-    - IllegalValueException extends \DomainException
-  - Runtime (namespace)
-    - ArrayUnderflowException extends \UnderflowException
-    - IncorrectLengthException extends \LengthException
-    - InvalidOperationException
-      - ArrayAlreadyEmptyException
-    - InvalidKeyException extends \OutOfBoundsException
-    - InvalidIndexException extends \OutOfRangeException
-    - InvalidValueException extends \RangeException
-      - InvalidLengthException
-    - UnexpectedReturnValueException extends \UnexpectedValueException
-    - ValueOverflowException extends \OverflowException
+  - Operation (namespace)
+  - Validation (namespace)
 
-Idiocracies
------------
-The LengthException which should theorically be an InvalidValueException/RangeException due to it's validation use stays in the old logic exception branch. Since the IncorrectLengthException is used to map to LengthException, it cannot be under InvalidValueException although it should. To fix this, \StandardExceptions\Runtime\IncorrectLengthException will be automatically marked @deprecated in favor of \StandardExceptions\Runtime\InvalidLengthException.
+Proposed class tree
+-------------------
+- Exceptions (namespace)
+
+  - Array (namespace)
+    - ArrayUnderflowException
+    - ArrayAlreadyEmptyException
+    - InvalidKeyException
+    - InvalidIndexException
+
+  - IO (namespace)
+    - FileNotFoundException
+
+  - Logic (namespace)
+    - IllegalArgumentTypeException
+    - IllegalValueException
+
+  - Operation (namespace)
+    - BadFunctionCallException
+    - BadMethodCallException
+    - InvalidOperationException
+    - NotImplementedYetException
+    - UnexpectedReturnValueException
+    - OverflowException
+
+  - Validation (namespace)
+    - IncorrectLengthException
+    - InvalidLengthException
+    - InvalidValueException
 
 Automatically deprecated exceptions
 -----------------------------------
-- \StandardExceptions\Callback\BadMethodCallException in favor of \StandardExceptions\Callback\BadFunctionCallException
-- \StandardExceptions\Logic\IllegalValueException in favor of \StandardExceptions\Runtime\InvalidValueException
-- \StandardExceptions\Runtime\ArrayUnderflowException in favor of \StandardExceptions\Runtime\ArrayAlreadyEmptyException
-- \StandardExceptions\Runtime\IncorrectLengthException in favor of \StandardExceptions\Runtime\InvalidLengthException
-- \StandardExceptions\Runtime\InvalidKeyException in favor of \StandardExceptions\Runtime\InvalidIndexException
+- BadMethodCallException in favor of BadFunctionCallException
+- IllegalValueException in favor of InvalidValueException
+- ArrayUnderflowException in favor of ArrayAlreadyEmptyException
+- IncorrectLengthException in favor of InvalidLengthException
+- InvalidKeyException in favor of InvalidIndexException
 
 New exceptions and namespaces
 =============================
-There are many missing runtime exceptions in the default spl package. Many exceptions that we often see re-create over and over again and it doesn't make sense to do that. Apart from SQL Query writting, exception writing is possibly the most annoying and useless thing to do when writing software. If we can alleviate that by providing a more complete set of finer grained exceptions, it might be beneficial to all php programmers out there.
+There are many missing runtime exceptions in the default spl package. Many exceptions that we often see re-created over and over again and it doesn't make sense to do that. Apart from SQL Query writting, exception writing is possibly the most annoying and useless thing to do when writing software. If we can alleviate that by providing a more complete set of finer grained exceptions, it will be beneficial to all php programmers out there.
 
 InvalidValueException as RangeException
 ---------------------------------------
-Lets face it, RangeException is an highly unortodox name to use for domain validation that failed at runtime. This package will feature a whole branch dedicated at providing invalid value exceptions as runtime exceptions.
+Lets face it, RangeException is an highly unortodox name to use for domain validation that failed at runtime. This package will feature a whole branch dedicated at providing invalid value exceptions as runtime exceptions and the first and topmost one is the InvalidValueException.
+
+Array exceptions
+----------------
+There are many array based operations out there, collections classes, array access objects, iterators, etc. Why aren't there any exceptions related to array manipulations? Does everything pertain to \RuntimeException? This whole branch of exceptions will focus on providing clear and concise, finer grained exceptions for Array manipulations.
 
 IO exceptions
 -------------
-There are so many applications or framework that actually throw IO related exceptions such as connection failures, connection loss, connection interruption, file not found, file not writable, etc. 
+There are so many applications or framework that actually throw IO related exceptions such as connection failures, connection loss, connection interruption, file not found, file not writable, etc. These examples can apply to all sorts of IO based operations be it files, databases, servers, web services, and more... Yet, there are no exceptions governing all this... none at all!
 
-These examples can apply to all sorts of IO based operations be it files, databases, servers, web services, and more. Yet, there are no exceptions governing all this... none at all!
+Operation exceptions
+--------------------
+How many times have you thrown a \RuntimeException or a simple \Exception when something didn't work out correctly? Calling a function incorrectly, or when a behavior doesn't end up too well should return something more precise than \RuntimeException. Operation exceptions are there for that. Anything that goes wrong? Throw an Operation exception that matches what went wrong.
 
 Validation exceptions
 ---------------------

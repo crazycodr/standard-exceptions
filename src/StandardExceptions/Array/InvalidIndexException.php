@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\Runtime;
+namespace StandardExceptions\Array;
 
 class InvalidIndexException extends \OutOfRangeException
 {

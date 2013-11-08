@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\Runtime;
+namespace StandardExceptions\Operation;
 
 class UnexpectedReturnValueException extends \UnexpectedValueException
 {
