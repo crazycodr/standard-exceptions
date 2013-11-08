@@ -1,3 +1,4 @@
+[![Latest Stable Version](https://poser.pugx.org/crazycodr/standard-exceptions/version.png)](https://packagist.org/packages/crazycodr/standard-exceptions) [![Total Downloads](https://poser.pugx.org/crazycodr/standard-exceptions/downloads.png)](https://packagist.org/packages/crazycodr/standard-exceptions) [![Build Status](https://travis-ci.org/crazycodr/standard-exceptions.png?branch=master)](https://travis-ci.org/crazycodr/standard-exceptions)
 Standard Exception Package
 ==========================
 This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interroperability between projects.
@@ -79,17 +80,20 @@ Proposed class tree
 
   - Validation (namespace)
     - IncorrectLengthException
+    - InvalidBooleanException
     - InvalidDateTimeException
-    - InvalidEmailException
+    - InvalidDateTimeFormatException
+    - InvalidEmailFormatException
     - InvalidFormatException
-    - InvalidIPAddressException
-    - InvalidJSONException
+    - InvalidIPAddressFormatException
+    - InvalidJSONFormatException
     - InvalidLengthException
     - InvalidNumberException
-    - InvalidPostalCodeException
-    - InvalidRegexException
+    - InvalidPostalCodeFormatException
+    - InvalidRegexFormatException
+    - InvalidStringException
     - InvalidValueException
-    - InvalidXMLException
+    - InvalidXMLFormatException
 
 Automatically deprecated exceptions
 -----------------------------------
