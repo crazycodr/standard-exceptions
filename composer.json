@@ -4,9 +4,10 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Mathieu Dumoulin",
-            "alias": "CrazyCodr",
-            "email": "crazyone@crazycoders.net"
+            "name": "Mathieu Dumoulin aka crazycodr",
+            "homepage": "http://www.crazycoders.net/",
+            "email": "crazyone@crazycoders.net",
+            "role": "Developer"
         }
     ],
     "autoload": {
