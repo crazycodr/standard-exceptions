@@ -12,4 +12,9 @@ namespace StandardExceptions\IO;
 class DirectoryNotFoundException extends \RuntimeException
 {
     
+    public function __construct($message = 'Cannot find specified directory resource', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

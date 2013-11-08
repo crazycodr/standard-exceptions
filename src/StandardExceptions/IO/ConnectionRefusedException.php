@@ -12,4 +12,9 @@ namespace StandardExceptions\IO;
 class ConnectionRefusedException extends \RuntimeException
 {
     
+    public function __construct($message = 'Connection to remote host was refused', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

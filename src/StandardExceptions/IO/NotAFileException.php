@@ -12,4 +12,9 @@ namespace StandardExceptions\IO;
 class NotAFileException extends \RuntimeException
 {
     
+    public function __construct($message = 'Target resource is not a file', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

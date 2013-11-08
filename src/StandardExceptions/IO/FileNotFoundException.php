@@ -12,4 +12,9 @@ namespace StandardExceptions\IO;
 class FileNotFoundException extends \RuntimeException
 {
     
+    public function __construct($message = 'Cannot find specified file resource', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

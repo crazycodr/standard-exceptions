@@ -16,4 +16,9 @@ namespace StandardExceptions\IO;
 class UnexpectedResponseException extends \RuntimeException
 {
     
+    public function __construct($message = 'Unexpected response received while communicating with remote host', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

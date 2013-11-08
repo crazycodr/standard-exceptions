@@ -12,4 +12,9 @@ namespace StandardExceptions\IO;
 class DirectoryNotReadableException extends \RuntimeException
 {
     
+    public function __construct($message = 'Cannot read from specified directory resource', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

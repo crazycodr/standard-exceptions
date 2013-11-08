@@ -12,4 +12,9 @@ namespace StandardExceptions\IO;
 class UnknownHostException extends \RuntimeException
 {
     
+    public function __construct($message = 'The specified resource\'s hostname could not be resolved', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }

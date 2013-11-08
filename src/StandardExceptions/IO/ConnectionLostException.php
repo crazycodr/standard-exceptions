@@ -12,4 +12,9 @@ namespace StandardExceptions\IO;
 class ConnectionLostException extends \RuntimeException
 {
     
+    public function __construct($message = 'Connection lost while exchanging data with remote host', $code = 0, $previous = NULL)
+    {
+    	parent::__construct($message, $code, $previous);
+    }
+    
 }
