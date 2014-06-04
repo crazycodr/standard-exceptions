@@ -100,6 +100,20 @@ class ArrayExceptionsTest extends PHPUnit_Framework_TestCase
         }
     }
 
+    public function testItemNotFoundException()
+    {
+        try
+        {
+            throw new \StandardExceptions\ArrayExceptions\ItemNotFoundException('Test message passed', 92837, $previousException = new \Exception('test'));
+        }
+        catch(\StandardExceptions\ArrayExceptions\ItemNotFoundException $ex)
+        {
+            $this->assertEquals('Test message passed', $ex->getMessage());
+            $this->assertEquals(92837, $ex->getCode());
+            $this->assertEquals($previousException, $ex->getPrevious());
+        }
+    }
+
     public function testReadOnlyArrayException()
     {
         try
