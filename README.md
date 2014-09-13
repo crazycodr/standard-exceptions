@@ -34,6 +34,7 @@ Proposed namespace structure
   - Array (namespace)
   - IO (namespace)
   - Logic (namespace)
+  - HTTP (namespace)
   - Operation (namespace)
   - Validation (namespace)
 
@@ -77,6 +78,15 @@ Proposed class tree
     - NotImplementedYetException
     - OverflowException
     - UnexpectedReturnValueException
+
+  - HTTPExceptions (namespace)
+    - BadRequestException
+    - ForbiddenException
+    - MethodNotAllowedException
+    - NotAcceptableException
+    - NotFoundException
+    - UnauthorizedAccessException
+    - UnprocessableEntityException
 
   - ValidationExceptions (namespace)
     - IncorrectLengthException
@@ -123,6 +133,12 @@ There are so many applications or framework that actually throw IO related excep
 Operation exceptions
 --------------------
 How many times have you thrown a \RuntimeException or a simple \Exception when something didn't work out correctly? Calling a function incorrectly, or when a behavior doesn't end up too well should return something more precise than \RuntimeException. Operation exceptions are there for that. Anything that goes wrong? Throw an Operation exception that matches what went wrong.
+
+HTTP exceptions
+---------------
+There are many cases in which applications want to tell the upper code that something went wrong regarding the HTTP request that was issued. In many cases, these classes are request parsers, format negotiators and so on talking to their controllers. These classes need to report that something went wrong, but InvalidOperationException is just not enough and ValidationExceptions or ArrayExceptions are not suited for this. In this very case, using the HTTPExceptions is the right path to go.
+
+Just remember not to use HTTPExceptions in a validator, remember, a validator can be used in another context...
 
 Validation exceptions
 ---------------------
