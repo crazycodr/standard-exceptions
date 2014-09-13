@@ -8,7 +8,7 @@ class HTTPExceptionsTest extends PHPUnit_Framework_TestCase
         {
             throw new \StandardExceptions\HTTPExceptions\BadRequestException('Test message passed', 92837, $previousException = new \Exception('test'));
         }
-        catch(\StandardExceptions\HTTPExceptions\IllegalArgumentTypeException $ex)
+        catch(\StandardExceptions\HTTPExceptions\BadRequestException $ex)
         {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
