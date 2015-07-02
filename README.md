@@ -1,4 +1,9 @@
 [![Latest Stable Version](https://poser.pugx.org/crazycodr/standard-exceptions/version.png)](https://packagist.org/packages/crazycodr/standard-exceptions) [![Total Downloads](https://poser.pugx.org/crazycodr/standard-exceptions/downloads.png)](https://packagist.org/packages/crazycodr/standard-exceptions) [![Build Status](https://travis-ci.org/crazycodr/standard-exceptions.png?branch=master)](https://travis-ci.org/crazycodr/standard-exceptions)
+
+> I have created a PSR Draft related to this library. It would be a cleaner and simpler library with many less exceptions. Furthermore it would not focus on SPL backward compatibility, it would seek to replace existing SPL exceptions per se if they just don't map.
+
+> Check out [The PSR standard fork](https://github.com/crazycodr/fig-standards/blob/master/proposed/exception-base-library.md) i made relative to that.
+
 Standard Exception Package
 ==========================
 This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interroperability between projects.
