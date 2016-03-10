@@ -1,32 +1,27 @@
 <?php
-namespace StandardExceptions\HttpExceptions;
+
+namespace StandardExceptions\HTTPExceptions;
 
 /**
-* Use this exception when an operation relative to HTTP
-* results in an unauthorized exception. Note that Forbidden relates
-* permissions missing in an authenticated scenario. If the user
-* is not authorized due to missing credentials, use the UnauthorizedAccessException!
-* 
-* Note that you should not mix HTTP and validation. A validation class
-* can be used in another context than an HTTP request. But if your controler
-* needs to warn you that your http request is invalid, use this.
-*
-* Generally speaking a validator returns a validation except caught by the controller
-* and the controller throws an HTTP exception that signals the return of an
-* HTTP error response (400 or 500).
-*
-* The HttpException is not a valid response, it's a signal!
-*
-* @package  Standard-Exceptions
-* @author   Mathieu Dumoulin aka CrazyCodr <crazyone@crazycoders.net>
-* @license  MIT
-*/
+ * Use this exception when in an HTTP context where the request results in an incorrect sequence of operations
+ * that cannot be allowed. Could be related to the permissions of the user or to the state of the application.
+ *
+ * This would map to a 403 but should not be returned as is to the user.
+ *
+ * Always consider using a layer that converts potential exceptions to standardized HTTP responses. Sending back an
+ * exception text is not considered a valid response. Remember that an exception result is not a protocol compliant
+ * message unless you make it so!
+ *
+ * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @license  MIT
+ */
 class ForbiddenException extends \RuntimeException
 {
-    
-    public function __construct($message = 'Authorization and credentials where sufficient but the operation is still forbidden due to your permissions', $code = 0, $previous = NULL)
-    {
-    	parent::__construct($message, $code, $previous);
+    public function __construct(
+        $message = 'Authorization and credentials where sufficient but the operation is still forbidden due to your permissions',
+        $code = 0,
+        $previous = null
+    ) {
+        parent::__construct($message, $code, $previous);
     }
-
 }

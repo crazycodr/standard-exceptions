@@ -10,9 +10,23 @@
          stopOnFailure="false"
          syntaxCheck="false"
 >
+
     <testsuites>
-        <testsuite name="Crazy Codr Standard Exceptions Test Suite">
+        <testsuite name="CrazyCodr/Standard-Exceptions Test Suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>src</directory>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" target="tests/report" charset="UTF-8" lowUpperBound="50" highLowerBound="80"/>
+        <log type="coverage-clover" target="tests/report/coverage.xml"/>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+    </logging>
+
 </phpunit>

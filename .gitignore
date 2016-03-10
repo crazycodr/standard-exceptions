@@ -1,1 +1,3 @@
-sftp-config.json
+.idea
+composer.lock
+tests/report

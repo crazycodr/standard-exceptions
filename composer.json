@@ -1,21 +1,22 @@
 {
-    "name": "crazycodr/standard-exceptions",
-    "description": "This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interroperability between projects.",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Mathieu Dumoulin aka crazycodr",
-            "homepage": "http://www.crazycoders.net/",
-            "email": "crazyone@crazycoders.net",
-            "role": "Developer"
-        }
-    ],
-    "autoload": {
-        "psr-0": {
-            "StandardExceptions\\": "src/"
-        }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "3.7.*"
+  "name": "crazycodr/standard-exceptions",
+  "description": "This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interroperability between projects.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mathieu Dumoulin aka crazycodr",
+      "homepage": "http://www.crazycoders.net/",
+      "email": "thecrazycodr@gmail.com",
+      "role": "Developer"
     }
+  ],
+  "autoload": {
+    "psr-0": {
+      "StandardExceptions\\": "src/"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.*",
+    "fabpot/php-cs-fixer": "1.*"
+  }
 }
