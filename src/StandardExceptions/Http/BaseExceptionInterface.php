@@ -40,4 +40,5 @@ interface BaseExceptionInterface
      * @return string
      */
     function getHttpMessage();
+
 }

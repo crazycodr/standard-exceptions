@@ -1,8 +1,8 @@
 <?php
-namespace Exceptions\Http;
+namespace Exceptions\Http\Client;
 
 /**
- * The server encountered an unexpected condition which prevented it from fulfilling the request.
+ * The request requires user authentication.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -10,21 +10,21 @@ namespace Exceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class InternalServerErrorException extends ServerErrorException
+class UnauthorizedException extends ClientException
 {
 
     /**
      * Returns the HTTP error code for that exception
      */
-    const HTTP_CODE = 500;
+    const HTTP_CODE = 401;
 
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'Internal Server Error: The server encountered an unexpected condition which prevented it from fulfilling the request.';
+    const HTTP_MESSAGE = 'Unauthorized: The request requires user authentication.';
 
     /**
-     * InternalServerErrorException constructor.
+     * UnauthorizedException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

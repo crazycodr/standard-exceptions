@@ -1,8 +1,8 @@
 <?php
-namespace Exceptions\Http;
+namespace Exceptions\Http\Client;
 
 /**
- * Server cannot return a response because the range-specifier values do not overlap the current extent of the selected resource, and the request did not include an If-Range request-header field.
+ * The request was well-formed but was unable to be followed due to semantic errors, validation errors or domain constraints such as uniqueness of values.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -10,21 +10,21 @@ namespace Exceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class RequestedRangeNotSatisfiableException extends ClientErrorException
+class UnsupportedMediaTypeException extends ClientException
 {
 
     /**
      * Returns the HTTP error code for that exception
      */
-    const HTTP_CODE = 416;
+    const HTTP_CODE = 415;
 
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'Requested Range Not Satisfiable: Server cannot return a response because the range-specifier values do not overlap the current extent of the selected resource, and the request did not include an If-Range request-header field.';
+    const HTTP_MESSAGE = 'Unsupported Media Type: The server is refusing to service the request because the entity of the request is in a format not supported by the requested resource for the requested method.';
 
     /**
-     * RequestedRangeNotSatisfiableException constructor.
+     * UnsupportedMediaTypeException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

@@ -15,7 +15,7 @@ $ composer require crazycodr/standard-exceptions
 And then just throw them
 
 ```php
-throw new DataNotFoundException();
+throw new \Exceptions\Data\NotFoundException();
 ```
 
 New exceptions and namespaces
@@ -55,9 +55,33 @@ There are many array/collection based operations out there, collections classes,
 
 Http exceptions
 ---------------
-There are many cases in which applications want to tell the upper code that something went wrong regarding the HTTP request that was issued. In many cases, these classes are request parsers, format negotiators and so on talking to their controllers. These classes need to report that something went wrong, but InvalidOperationException is just not enough and ValidationExceptions or ArrayExceptions are not suited for this. In this very case, using the HTTPExceptions is the right path to go.
+Many frameworks and applications redefine Http exceptions that map to Http status codes. These should not be redefined or they become different accross two projects and portability of your code suffers. This namespace contains most if not all Http exceptions you'll ever need.
+    
+> Note: Standard Exceptions 1 used the namespace `HTTPExceptions\`, this has been renamed to `Http\` and new sub namespaces have been added to it: `Client\` and `Server\`. Each sub namespace map to a general class of Http status codes 4xx and 5xx.
 
-Just remember not to use HTTPExceptions in a validator, remember, a validator can be used in another context...
+- Http
+    - BaseException.php
+    - BaseExceptionInterface.php
+    - Client
+        - ClientErrorException.php
+        - ClientErrorExceptionInterface.php
+        - BadRequestException.php (400)
+        - UnauthorizedException.php (401)
+        - ForbiddenException.php (403)
+        - NotFoundException.php (404)
+        - MethodNotAllowedException.php (405)
+        - NotAcceptableException.php (406)
+        - ConflictException.php (409)
+        - RequestEntityTooLargeException.php (413)
+        - UnsupportedMediaTypeException.php (415)
+        - RequestedRangeNotSatisfiableException.php (416)
+        - UnprocessableEntityException.php (422)
+    - Server
+        - ServerErrorException.php
+        - ServerErrorExceptionInterface.php
+        - InternalServerErrorException.php (500)
+        - NotImplementedException.php (501)
+        - ServiceUnavailableException.php (503)
 
 Data exceptions
 --------------

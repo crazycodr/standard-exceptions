@@ -1,8 +1,8 @@
 <?php
-namespace Exceptions\Http;
+namespace Exceptions\Http\Client;
 
 /**
- * The server does not support the functionality required to fulfill the request.
+ * The method specified in the Request-Line is not allowed for the resource identified by the Request-URI.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -10,21 +10,21 @@ namespace Exceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class NotImplementedException extends ServerErrorException
+class MethodNotAllowedException extends ClientException
 {
 
     /**
      * Returns the HTTP error code for that exception
      */
-    const HTTP_CODE = 501;
+    const HTTP_CODE = 405;
 
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'Not Implemented: The server does not support the functionality required to fulfill the request.';
+    const HTTP_MESSAGE = 'Method Not Allowed: The method specified in the request is not allowed for the requested resource. The resource was found and is accessible, but cannot be accessed using this method.';
 
     /**
-     * InternalServerErrorException constructor.
+     * MethodNotAllowedException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

@@ -1,9 +1,8 @@
 <?php
-namespace Exceptions\Http;
+namespace Exceptions\Http\Client;
 
 /**
- * The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request
- * without modifications.
+ * Server cannot return a response because the range-specifier values do not overlap the current extent of the selected resource, and the request did not include an If-Range request-header field.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -11,21 +10,21 @@ namespace Exceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class BadRequestException extends ClientErrorException
+class RequestedRangeNotSatisfiableException extends ClientException
 {
 
     /**
      * Returns the HTTP error code for that exception
      */
-    const HTTP_CODE = 400;
+    const HTTP_CODE = 416;
 
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'Bad Request: The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.';
+    const HTTP_MESSAGE = 'Requested Range Not Satisfiable: Server cannot return a response because the range-specifier values do not overlap the current extent of the selected resource, and the request did not include an If-Range request-header field.';
 
     /**
-     * BadRequestException constructor.
+     * RequestedRangeNotSatisfiableException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

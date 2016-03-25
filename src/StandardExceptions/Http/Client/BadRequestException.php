@@ -1,8 +1,9 @@
 <?php
-namespace Exceptions\Http;
+namespace Exceptions\Http\Client;
 
 /**
- * The request was well-formed but was unable to be followed due to semantic errors, validation errors or domain constraints such as uniqueness of values.
+ * The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request
+ * without modifications.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -10,21 +11,21 @@ namespace Exceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnsupportedMediaTypeException extends ClientErrorException
+class BadRequestException extends ClientException
 {
 
     /**
      * Returns the HTTP error code for that exception
      */
-    const HTTP_CODE = 415;
+    const HTTP_CODE = 400;
 
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'Unsupported Media Type: The server is refusing to service the request because the entity of the request is in a format not supported by the requested resource for the requested method.';
+    const HTTP_MESSAGE = 'Bad Request: The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.';
 
     /**
-     * UnsupportedMediaTypeException constructor.
+     * BadRequestException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

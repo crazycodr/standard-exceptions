@@ -1,8 +1,8 @@
 <?php
-namespace Exceptions\Http;
+namespace Exceptions\Http\Client;
 
 /**
- * The method specified in the Request-Line is not allowed for the resource identified by the Request-URI.
+ * The request was well-formed but was unable to be followed due to semantic errors, validation errors or domain constraints such as uniqueness of values.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -10,21 +10,21 @@ namespace Exceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class MethodNotAllowedException extends ClientErrorException
+class UnprocessableEntityException extends ClientException
 {
 
     /**
      * Returns the HTTP error code for that exception
      */
-    const HTTP_CODE = 405;
+    const HTTP_CODE = 422;
 
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'Method Not Allowed: The method specified in the request is not allowed for the requested resource. The resource was found and is accessible, but cannot be accessed using this method.';
+    const HTTP_MESSAGE = 'Unprocessable Entity: The request was well-formed but was unable to be followed due to semantic errors, validation errors or domain constraints such as uniqueness of values.';
 
     /**
-     * MethodNotAllowedException constructor.
+     * UnprocessableEntityException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

@@ -1,8 +1,8 @@
 <?php
-namespace Exceptions\Http;
+namespace Exceptions\Http\Client;
 
 /**
- * The request could not be completed due to a conflict with the current state of the resource.
+ * The server has not found anything matching the Request-URI.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -10,21 +10,21 @@ namespace Exceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ConflictException extends ClientErrorException
+class NotFoundException extends ClientException
 {
 
     /**
      * Returns the HTTP error code for that exception
      */
-    const HTTP_CODE = 409;
+    const HTTP_CODE = 404;
 
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'Conflict: The request could not be completed due to a conflict with the current state of the resource. Fix the errors that are producing the conflict and then try again. This error is often caused by desynchronized states between client and server, something changed on one or the other and the resources are out of sync.';
+    const HTTP_MESSAGE = 'Not found: The requested entity cannot be found, this may be returned because entity is not accessible using requested credentials, because of a recent state change or because entity cannot be found at all.';
 
     /**
-     * ConflictException constructor.
+     * NotFoundException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

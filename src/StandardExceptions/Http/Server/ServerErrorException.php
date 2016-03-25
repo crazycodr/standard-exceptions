@@ -1,11 +1,13 @@
 <?php
-namespace Exceptions\Http;
+namespace Exceptions\Http\Server;
+
+use Exceptions\Http\BaseException;
 
 /**
  * All server error http exceptions extend this class and save you the trouble of setting up the method that returns
  * the error class code.
  */
-abstract class ServerErrorException extends BaseErrorException implements ServerErrorExceptionInterface
+abstract class ServerException extends BaseException implements ServerErrorExceptionInterface
 {
 
     /**

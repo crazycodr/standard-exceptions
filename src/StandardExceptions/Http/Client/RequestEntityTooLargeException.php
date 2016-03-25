@@ -1,9 +1,8 @@
 <?php
-namespace Exceptions\Http;
+namespace Exceptions\Http\Client;
 
 /**
- * The server understood the request, but is refusing to fulfill it. Authorization will not help and the request
- * SHOULD NOT be repeated.
+ * The server is refusing to process a request because the request entity is larger than the server is willing or able to process.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -11,21 +10,21 @@ namespace Exceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ForbiddenException extends ClientErrorException
+class RequestEntityTooLargeException extends ClientException
 {
 
     /**
      * Returns the HTTP error code for that exception
      */
-    const HTTP_CODE = 403;
+    const HTTP_CODE = 413;
 
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'Forbidden: The server understood the request, but is refusing to fulfill it. Authorization will not help and the request SHOULD NOT be repeated.';
+    const HTTP_MESSAGE = 'Request Entity Too Large: The server is refusing to process a request because the request entity is larger than the server is willing or able to process.';
 
     /**
-     * ForbiddenException constructor.
+     * RequestEntityTooLargeException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

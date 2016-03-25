@@ -1,5 +1,7 @@
 <?php
-namespace Exceptions\Http;
+namespace Exceptions\Http\Server;
+
+use Exceptions\Http\BaseExceptionInterface;
 
 /**
  * This is a tag interface used to group together all potential Server Error HTTP exceptions (500 class)
