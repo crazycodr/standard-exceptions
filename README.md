@@ -52,6 +52,8 @@ There are many array/collection based operations out there, collections classes,
     - ReadOnlyCollectionItemException
     
 > Note: Standard Exceptions 1 defined `InvalidKeyException` in the `ArrayExceptions\` namespace, this has been moved to the `Validation\` namespace.
+    
+> Note: Standard Exceptions 1 made `KeyNotFoundException` extend the native PHP `OutOfBoundsException`, this has been moved to the `BaseException` which is a `RuntimeException`.
 
 Http exceptions
 ---------------
@@ -60,28 +62,28 @@ Many frameworks and applications redefine Http exceptions that map to Http statu
 > Note: Standard Exceptions 1 used the namespace `HTTPExceptions\`, this has been renamed to `Http\` and new sub namespaces have been added to it: `Client\` and `Server\`. Each sub namespace map to a general class of Http status codes 4xx and 5xx.
 
 - Http
-    - BaseException.php
-    - BaseExceptionInterface.php
+    - BaseException
+    - BaseExceptionInterface
     - Client
-        - ClientErrorException.php
-        - ClientErrorExceptionInterface.php
-        - BadRequestException.php (400)
-        - UnauthorizedException.php (401)
-        - ForbiddenException.php (403)
-        - NotFoundException.php (404)
-        - MethodNotAllowedException.php (405)
-        - NotAcceptableException.php (406)
-        - ConflictException.php (409)
-        - RequestEntityTooLargeException.php (413)
-        - UnsupportedMediaTypeException.php (415)
-        - RequestedRangeNotSatisfiableException.php (416)
-        - UnprocessableEntityException.php (422)
+        - ClientErrorException
+        - ClientErrorExceptionInterface
+        - BadRequestException (400)
+        - UnauthorizedException (401)
+        - ForbiddenException (403)
+        - NotFoundException (404)
+        - MethodNotAllowedException (405)
+        - NotAcceptableException (406)
+        - ConflictException (409)
+        - RequestEntityTooLargeException (413)
+        - UnsupportedMediaTypeException (415)
+        - RequestedRangeNotSatisfiableException (416)
+        - UnprocessableEntityException (422)
     - Server
-        - ServerErrorException.php
-        - ServerErrorExceptionInterface.php
-        - InternalServerErrorException.php (500)
-        - NotImplementedException.php (501)
-        - ServiceUnavailableException.php (503)
+        - ServerErrorException
+        - ServerErrorExceptionInterface
+        - InternalServerErrorException (500)
+        - NotImplementedException (501)
+        - ServiceUnavailableException (503)
 
 Data exceptions
 --------------
