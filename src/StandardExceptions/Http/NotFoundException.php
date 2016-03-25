@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\Http;
+namespace Exceptions\Http;
 
 /**
  * The server has not found anything matching the Request-URI.

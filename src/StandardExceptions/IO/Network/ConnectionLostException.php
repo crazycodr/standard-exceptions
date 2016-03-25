@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\IOExceptions;
+namespace Exceptions\IO;
 
 /**
  * Use this exception when an IO operation that requires a distant connection gets cut off after negotiating

@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\Http;
+namespace Exceptions\Http;
 
 /**
  * The request was well-formed but was unable to be followed due to semantic errors, validation errors or domain constraints such as uniqueness of values.

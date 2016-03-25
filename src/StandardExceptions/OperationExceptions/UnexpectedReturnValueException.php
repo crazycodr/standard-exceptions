@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\OperationExceptions;
+namespace Exceptions\OperationExceptions;
 
 /**
  * Use this exception in the event that an operation that expected a certain result from a sub function/method call

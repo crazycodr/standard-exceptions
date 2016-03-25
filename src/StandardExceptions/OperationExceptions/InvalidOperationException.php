@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\OperationExceptions;
+namespace Exceptions\OperationExceptions;
 
 /**
  * Use this exception in the event something went wrong with the state of the application and you cannot allow

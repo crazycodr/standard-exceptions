@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\IOExceptions;
+namespace Exceptions\IO;
 
 /**
  * Use this exception when an IO operation tries to reach a remote host that cannot be resolved due to DNS or IP

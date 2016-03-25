@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\Http;
+namespace Exceptions\Http;
 
 /**
  * This interface defines the different accessor you can use when dealing with HTTP exceptions.

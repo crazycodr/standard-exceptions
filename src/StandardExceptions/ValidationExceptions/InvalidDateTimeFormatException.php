@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\ValidationExceptions;
+namespace Exceptions\ValidationExceptions;
 
 /**
  * Use this exception when the date being passed is of an invalid format that ends up being unparsable.

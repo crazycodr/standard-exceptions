@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\ValidationExceptions;
+namespace Exceptions\ValidationExceptions;
 
 /**
  * Use this exception when the information being passed on to your function detects an invalid number in terms of

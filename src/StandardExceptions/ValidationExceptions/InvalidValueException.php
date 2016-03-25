@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\ValidationExceptions;
+namespace Exceptions\ValidationExceptions;
 
 /**
  * The base of all validation exceptions. If none of the exceptions that actually exist fit in correctly, you can try

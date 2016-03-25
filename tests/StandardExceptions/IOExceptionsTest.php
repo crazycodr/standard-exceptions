@@ -5,9 +5,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testConnectionLostException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\ConnectionLostException('Test message passed', 92837,
+            throw new \Exceptions\IO\ConnectionLostException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\ConnectionLostException $ex) {
+        } catch (\Exceptions\IO\ConnectionLostException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -17,9 +17,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testConnectionRefusedException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\ConnectionRefusedException('Test message passed', 92837,
+            throw new \Exceptions\IO\ConnectionRefusedException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\ConnectionRefusedException $ex) {
+        } catch (\Exceptions\IO\ConnectionRefusedException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -29,9 +29,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testDirectoryNotFoundException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\DirectoryNotFoundException('Test message passed', 92837,
+            throw new \Exceptions\IO\DirectoryNotFoundException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\DirectoryNotFoundException $ex) {
+        } catch (\Exceptions\IO\DirectoryNotFoundException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -41,9 +41,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testDirectoryNotReadableException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\DirectoryNotReadableException('Test message passed', 92837,
+            throw new \Exceptions\IO\DirectoryNotReadableException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\DirectoryNotReadableException $ex) {
+        } catch (\Exceptions\IO\DirectoryNotReadableException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -53,9 +53,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testDirectoryNotWritableException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\DirectoryNotWritableException('Test message passed', 92837,
+            throw new \Exceptions\IO\DirectoryNotWritableException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\DirectoryNotWritableException $ex) {
+        } catch (\Exceptions\IO\DirectoryNotWritableException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -65,9 +65,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testFileNotFoundException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\FileNotFoundException('Test message passed', 92837,
+            throw new \Exceptions\IO\FileNotFoundException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\FileNotFoundException $ex) {
+        } catch (\Exceptions\IO\FileNotFoundException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -77,9 +77,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testFileNotReadableException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\FileNotReadableException('Test message passed', 92837,
+            throw new \Exceptions\IO\FileNotReadableException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\FileNotReadableException $ex) {
+        } catch (\Exceptions\IO\FileNotReadableException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -89,9 +89,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testFileNotWritableException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\FileNotWritableException('Test message passed', 92837,
+            throw new \Exceptions\IO\FileNotWritableException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\FileNotWritableException $ex) {
+        } catch (\Exceptions\IO\FileNotWritableException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -101,9 +101,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testNotADirectoryException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\NotADirectoryException('Test message passed', 92837,
+            throw new \Exceptions\IO\NotADirectoryException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\NotADirectoryException $ex) {
+        } catch (\Exceptions\IO\NotADirectoryException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -113,9 +113,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testNotAFileException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\NotAFileException('Test message passed', 92837,
+            throw new \Exceptions\IO\NotAFileException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\NotAFileException $ex) {
+        } catch (\Exceptions\IO\NotAFileException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -125,9 +125,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testUnexpectedResponseException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\UnexpectedResponseException('Test message passed', 92837,
+            throw new \Exceptions\IO\UnexpectedResponseException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\UnexpectedResponseException $ex) {
+        } catch (\Exceptions\IO\UnexpectedResponseException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -137,9 +137,9 @@ class IOExceptionsTest extends PHPUnit_Framework_TestCase
     public function testUnknownHostException()
     {
         try {
-            throw new \StandardExceptions\IOExceptions\UnknownHostException('Test message passed', 92837,
+            throw new \Exceptions\IO\UnknownHostException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\IOExceptions\UnknownHostException $ex) {
+        } catch (\Exceptions\IO\UnknownHostException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());

@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\OperationExceptions;
+namespace Exceptions\OperationExceptions;
 
 /**
  * Use this exception when someone is calling a function/method that is not implemented yet. This is a good practice

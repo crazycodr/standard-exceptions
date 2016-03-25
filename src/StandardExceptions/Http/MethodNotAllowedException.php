@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\Http;
+namespace Exceptions\Http;
 
 /**
  * The method specified in the Request-Line is not allowed for the resource identified by the Request-URI.

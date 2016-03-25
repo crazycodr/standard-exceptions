@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\OperationExceptions;
+namespace Exceptions\OperationExceptions;
 
 /**
  * Use this exception in the event that an operation would result in a value that would overflow due to it's size.

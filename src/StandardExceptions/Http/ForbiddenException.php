@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\Http;
+namespace Exceptions\Http;
 
 /**
  * The server understood the request, but is refusing to fulfill it. Authorization will not help and the request

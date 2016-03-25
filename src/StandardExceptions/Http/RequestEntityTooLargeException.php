@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\Http;
+namespace Exceptions\Http;
 
 /**
  * The server is refusing to process a request because the request entity is larger than the server is willing or able to process.

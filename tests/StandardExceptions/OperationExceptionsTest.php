@@ -5,9 +5,9 @@ class OperationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testBadFunctionCallException()
     {
         try {
-            throw new \StandardExceptions\OperationExceptions\BadFunctionCallException('Test message passed', 92837,
+            throw new \Exceptions\OperationExceptions\BadFunctionCallException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\OperationExceptions\BadFunctionCallException $ex) {
+        } catch (\Exceptions\OperationExceptions\BadFunctionCallException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -17,9 +17,9 @@ class OperationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testBadMethodCallException()
     {
         try {
-            throw new \StandardExceptions\OperationExceptions\BadMethodCallException('Test message passed', 92837,
+            throw new \Exceptions\OperationExceptions\BadMethodCallException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\OperationExceptions\BadMethodCallException $ex) {
+        } catch (\Exceptions\OperationExceptions\BadMethodCallException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -29,9 +29,9 @@ class OperationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidOperationException()
     {
         try {
-            throw new \StandardExceptions\OperationExceptions\InvalidOperationException('Test message passed', 92837,
+            throw new \Exceptions\OperationExceptions\InvalidOperationException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\OperationExceptions\InvalidOperationException $ex) {
+        } catch (\Exceptions\OperationExceptions\InvalidOperationException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -41,9 +41,9 @@ class OperationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testNotImplementedYetException()
     {
         try {
-            throw new \StandardExceptions\OperationExceptions\NotImplementedYetException('Test message passed', 92837,
+            throw new \Exceptions\OperationExceptions\NotImplementedYetException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\OperationExceptions\NotImplementedYetException $ex) {
+        } catch (\Exceptions\OperationExceptions\NotImplementedYetException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -53,9 +53,9 @@ class OperationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testOverflowException()
     {
         try {
-            throw new \StandardExceptions\OperationExceptions\OverflowException('Test message passed', 92837,
+            throw new \Exceptions\OperationExceptions\OverflowException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\OperationExceptions\OverflowException $ex) {
+        } catch (\Exceptions\OperationExceptions\OverflowException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -65,9 +65,9 @@ class OperationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testUnexpectedReturnValueException()
     {
         try {
-            throw new \StandardExceptions\OperationExceptions\UnexpectedReturnValueException('Test message passed',
+            throw new \Exceptions\OperationExceptions\UnexpectedReturnValueException('Test message passed',
                 92837, $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\OperationExceptions\UnexpectedReturnValueException $ex) {
+        } catch (\Exceptions\OperationExceptions\UnexpectedReturnValueException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());

@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\LogicExceptions;
+namespace Exceptions\LogicExceptions;
 
 /**
  * Use this exception when an argument passed on to a function doesn't fit in the natural domain logic such as the 8th
@@ -10,7 +10,7 @@ namespace StandardExceptions\LogicExceptions;
  * This exception exists only to be backwards compatible with the DomainException but should be replaced in favor
  * InvalidValueException from the Validation namespace.
  *
- * @deprecated in favor of \StandardExceptions\ValidationExceptionsExceptions\InvalidValueException, will be removed in
+ * @deprecated in favor of \Exceptions\ValidationExceptionsExceptions\InvalidValueException, will be removed in
  *             version 2.0
  *
  * @author     Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>

@@ -5,9 +5,9 @@ class HTTPExceptionsTest extends PHPUnit_Framework_TestCase
     public function testBadRequestException()
     {
         try {
-            throw new \StandardExceptions\Http\BadRequestException('Test message passed', 92837,
+            throw new \Exceptions\Http\BadRequestException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\Http\BadRequestException $ex) {
+        } catch (\Exceptions\Http\BadRequestException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -17,9 +17,9 @@ class HTTPExceptionsTest extends PHPUnit_Framework_TestCase
     public function testForbiddenException()
     {
         try {
-            throw new \StandardExceptions\Http\ForbiddenException('Test message passed', 92837,
+            throw new \Exceptions\Http\ForbiddenException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\Http\ForbiddenException $ex) {
+        } catch (\Exceptions\Http\ForbiddenException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -29,9 +29,9 @@ class HTTPExceptionsTest extends PHPUnit_Framework_TestCase
     public function testMethodNotAllowedException()
     {
         try {
-            throw new \StandardExceptions\Http\MethodNotAllowedException('Test message passed', 92837,
+            throw new \Exceptions\Http\MethodNotAllowedException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\Http\MethodNotAllowedException $ex) {
+        } catch (\Exceptions\Http\MethodNotAllowedException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -41,9 +41,9 @@ class HTTPExceptionsTest extends PHPUnit_Framework_TestCase
     public function testNotAcceptableException()
     {
         try {
-            throw new \StandardExceptions\Http\NotAcceptableException('Test message passed', 92837,
+            throw new \Exceptions\Http\NotAcceptableException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\Http\NotAcceptableException $ex) {
+        } catch (\Exceptions\Http\NotAcceptableException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -53,9 +53,9 @@ class HTTPExceptionsTest extends PHPUnit_Framework_TestCase
     public function testNotFoundException()
     {
         try {
-            throw new \StandardExceptions\Http\NotFoundException('Test message passed', 92837,
+            throw new \Exceptions\Http\NotFoundException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\Http\NotFoundException $ex) {
+        } catch (\Exceptions\Http\NotFoundException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -65,9 +65,9 @@ class HTTPExceptionsTest extends PHPUnit_Framework_TestCase
     public function testUnauthorizedAccessException()
     {
         try {
-            throw new \StandardExceptions\Http\UnauthorizedException('Test message passed', 92837,
+            throw new \Exceptions\Http\UnauthorizedException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\Http\UnauthorizedException $ex) {
+        } catch (\Exceptions\Http\UnauthorizedException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -77,9 +77,9 @@ class HTTPExceptionsTest extends PHPUnit_Framework_TestCase
     public function testUnprocessableEntityException()
     {
         try {
-            throw new \StandardExceptions\Http\UnprocessableEntityException('Test message passed', 92837,
+            throw new \Exceptions\Http\UnprocessableEntityException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\Http\UnprocessableEntityException $ex) {
+        } catch (\Exceptions\Http\UnprocessableEntityException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());

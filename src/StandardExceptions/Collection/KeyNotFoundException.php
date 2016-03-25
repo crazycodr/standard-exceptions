@@ -1,9 +1,9 @@
 <?php
 
-namespace StandardExceptions\ArrayExceptions;
+namespace Exceptions\Collection;
 
 /**
- * Use this exception when an operation on an array tries to retrieve an element using a key that doesn't exist in
+ * Use this exception when an operation on a collection tries to retrieve an element using a key that doesn't exist in
  * the collection of items.
  *
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>

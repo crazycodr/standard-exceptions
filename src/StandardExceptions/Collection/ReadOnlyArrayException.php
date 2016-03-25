@@ -1,9 +1,9 @@
 <?php
 
-namespace StandardExceptions\ArrayExceptions;
+namespace Exceptions\Collection;
 
 /**
- * Use this exception when an operation on an array that is locked/read-only tries to modify the collection of items.
+ * Use this exception when an operation on a collection that is locked/read-only tries to modify the collection of items.
  *
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT

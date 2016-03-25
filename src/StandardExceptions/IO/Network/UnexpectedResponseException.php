@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\IOExceptions;
+namespace Exceptions\IO;
 
 /**
  * Use this exception when an IO operation based on a communication protocol receives an unexpected response from

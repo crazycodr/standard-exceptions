@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\ValidationExceptions;
+namespace Exceptions\ValidationExceptions;
 
 /**
  * Use this exception when the length of a string is invalid based on other parameters or domain validation.

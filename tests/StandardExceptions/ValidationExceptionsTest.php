@@ -5,9 +5,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testIncorrectLengthException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\IncorrectLengthException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\IncorrectLengthException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\IncorrectLengthException $ex) {
+        } catch (\Exceptions\ValidationExceptions\IncorrectLengthException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -17,9 +17,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidBooleanException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidBooleanException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidBooleanException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidBooleanException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidBooleanException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -29,9 +29,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidDateTimeException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidDateTimeException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidDateTimeException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidDateTimeException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidDateTimeException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -41,9 +41,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidDateTimeFormatException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidDateTimeFormatException('Test message passed',
+            throw new \Exceptions\ValidationExceptions\InvalidDateTimeFormatException('Test message passed',
                 92837, $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidDateTimeFormatException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidDateTimeFormatException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -53,9 +53,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidEmailFormatException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidEmailFormatException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidEmailFormatException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidEmailFormatException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidEmailFormatException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -65,9 +65,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidFormatException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidFormatException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidFormatException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidFormatException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidFormatException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -77,9 +77,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidIPAddressFormatException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidIPAddressFormatException('Test message passed',
+            throw new \Exceptions\ValidationExceptions\InvalidIPAddressFormatException('Test message passed',
                 92837, $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidIPAddressFormatException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidIPAddressFormatException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -89,9 +89,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidJSONFormatException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidJSONFormatException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidJSONFormatException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidJSONFormatException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidJSONFormatException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -101,9 +101,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidLengthException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidLengthException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidLengthException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidLengthException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidLengthException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -113,9 +113,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidNumberException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidNumberException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidNumberException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidNumberException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidNumberException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -125,9 +125,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidPostalCodeFormatException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidPostalCodeFormatException('Test message passed',
+            throw new \Exceptions\ValidationExceptions\InvalidPostalCodeFormatException('Test message passed',
                 92837, $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidPostalCodeFormatException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidPostalCodeFormatException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -137,9 +137,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidRegexFormatException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidRegexFormatException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidRegexFormatException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidRegexFormatException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidRegexFormatException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -149,9 +149,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidStringException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidStringException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidStringException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidStringException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidStringException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -161,9 +161,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidValueException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidValueException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidValueException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidValueException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidValueException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());
@@ -173,9 +173,9 @@ class ValidationExceptionsTest extends PHPUnit_Framework_TestCase
     public function testInvalidXMLFormatException()
     {
         try {
-            throw new \StandardExceptions\ValidationExceptions\InvalidXMLFormatException('Test message passed', 92837,
+            throw new \Exceptions\ValidationExceptions\InvalidXMLFormatException('Test message passed', 92837,
                 $previousException = new \Exception('test'));
-        } catch (\StandardExceptions\ValidationExceptions\InvalidXMLFormatException $ex) {
+        } catch (\Exceptions\ValidationExceptions\InvalidXMLFormatException $ex) {
             $this->assertEquals('Test message passed', $ex->getMessage());
             $this->assertEquals(92837, $ex->getCode());
             $this->assertEquals($previousException, $ex->getPrevious());

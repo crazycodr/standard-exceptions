@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\ValidationExceptions;
+namespace Exceptions\ValidationExceptions;
 
 /**
  * Use this exception when the format of a value is not respected such as when a date time cannot be parsed due to the

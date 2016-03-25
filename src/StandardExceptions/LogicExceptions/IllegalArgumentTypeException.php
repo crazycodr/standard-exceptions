@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\LogicExceptions;
+namespace Exceptions\LogicExceptions;
 
 /**
  * Use this exception when an argument passed on to a non typed-hint function is of invalid type. Use this exception

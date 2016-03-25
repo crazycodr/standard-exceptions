@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\Http;
+namespace Exceptions\Http;
 
 /**
  * All client error http exceptions extend this class and save you the trouble of setting up the method that returns

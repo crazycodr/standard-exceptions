@@ -1,6 +1,6 @@
 <?php
 
-namespace StandardExceptions\OperationExceptions;
+namespace Exceptions\OperationExceptions;
 
 /**
  * Use this exception in the event that a method being called doesn't comply with the signature of the called method.
@@ -9,7 +9,7 @@ namespace StandardExceptions\OperationExceptions;
  *
  * This exception is only used for backwards compatibility with SPL's BadMethodCallException.
  *
- * @deprecated in favor of \StandardExceptions\OperationExceptions\InvalidOperationException, will be removed in
+ * @deprecated in favor of \Exceptions\OperationExceptions\InvalidOperationException, will be removed in
  *             version 2.0
  *
  * @author     Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>

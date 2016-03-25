@@ -1,13 +1,13 @@
 <?php
 
-namespace StandardExceptions\ValidationExceptions;
+namespace Exceptions\ValidationExceptions;
 
 /**
  * Use this exception when the length of a string is invalid based on other parameters or domain validation.
  *
  * This exception is only used for backwards compatibility with SPL's LengthException.
  *
- * @deprecated in favor of \StandardExceptions\ValidationExceptions\InvalidLengthException, will be removed in version
+ * @deprecated in favor of \Exceptions\ValidationExceptions\InvalidLengthException, will be removed in version
  *             2.0
  *
  * @author     Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>

@@ -1,5 +1,5 @@
 <?php
-namespace StandardExceptions\Http;
+namespace Exceptions\Http;
 
 /**
  * This is a tag interface used to group together all potential Client Error HTTP exceptions (400 class)

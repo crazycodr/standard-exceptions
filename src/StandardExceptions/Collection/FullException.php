@@ -1,9 +1,9 @@
 <?php
 
-namespace StandardExceptions\ArrayExceptions;
+namespace Exceptions\Collection;
 
 /**
- * Use this exception when an operation on an array cannot be achieved because the array has already reached it's
+ * Use this exception when an operation on a collection cannot be achieved because the array has already reached it's
  * limit and cannot accept more data.
  *
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
