@@ -22,10 +22,10 @@ class NotAcceptableException extends ClientErrorException
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request.';
+    const HTTP_MESSAGE = 'Not Acceptable: The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request.';
 
     /**
-     * ForbiddenException constructor.
+     * NotAcceptableException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

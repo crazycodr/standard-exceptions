@@ -2,7 +2,7 @@
 namespace StandardExceptions\Http;
 
 /**
- * The method specified in the Request-Line is not allowed for the resource identified by the Request-URI.
+ * Server cannot return a response because the range-specifier values do not overlap the current extent of the selected resource, and the request did not include an If-Range request-header field.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -10,21 +10,21 @@ namespace StandardExceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class MethodNotAllowedException extends ClientErrorException
+class RequestedRangeNotSatisfiableException extends ClientErrorException
 {
 
     /**
      * Returns the HTTP error code for that exception
      */
-    const HTTP_CODE = 405;
+    const HTTP_CODE = 416;
 
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'Method Not Allowed: The method specified in the request is not allowed for the requested resource. The resource was found and is accessible, but cannot be accessed using this method.';
+    const HTTP_MESSAGE = 'Requested Range Not Satisfiable: Server cannot return a response because the range-specifier values do not overlap the current extent of the selected resource, and the request did not include an If-Range request-header field.';
 
     /**
-     * MethodNotAllowedException constructor.
+     * RequestedRangeNotSatisfiableException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

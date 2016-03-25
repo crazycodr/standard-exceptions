@@ -2,7 +2,7 @@
 namespace StandardExceptions\Http;
 
 /**
- * The method specified in the Request-Line is not allowed for the resource identified by the Request-URI.
+ * The request could not be completed due to a conflict with the current state of the resource.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -10,21 +10,21 @@ namespace StandardExceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class MethodNotAllowedException extends ClientErrorException
+class ConflictException extends ClientErrorException
 {
 
     /**
      * Returns the HTTP error code for that exception
      */
-    const HTTP_CODE = 405;
+    const HTTP_CODE = 409;
 
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'Method Not Allowed: The method specified in the request is not allowed for the requested resource. The resource was found and is accessible, but cannot be accessed using this method.';
+    const HTTP_MESSAGE = 'Conflict: The request could not be completed due to a conflict with the current state of the resource. Fix the errors that are producing the conflict and then try again. This error is often caused by desynchronized states between client and server, something changed on one or the other and the resources are out of sync.';
 
     /**
-     * MethodNotAllowedException constructor.
+     * ConflictException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

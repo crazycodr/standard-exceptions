@@ -21,10 +21,10 @@ class NotFoundException extends ClientErrorException
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'The server has not found anything matching the Request-URI. ';
+    const HTTP_MESSAGE = 'Not found: The requested entity cannot be found, this may be returned because entity is not accessible using requested credentials, because of a recent state change or because entity cannot be found at all.';
 
     /**
-     * ForbiddenException constructor.
+     * NotFoundException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

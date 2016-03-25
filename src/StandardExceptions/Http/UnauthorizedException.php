@@ -21,10 +21,10 @@ class UnauthorizedException extends ClientErrorException
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'The request requires user authentication.';
+    const HTTP_MESSAGE = 'Unauthorized: The request requires user authentication.';
 
     /**
-     * ForbiddenException constructor.
+     * UnauthorizedException constructor.
      *
      * @param string $message  Error message (HTTP) that defines this exception
      * @param int    $code     Error code (HTTP) that defines this exception

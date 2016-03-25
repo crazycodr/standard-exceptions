@@ -22,7 +22,7 @@ class ForbiddenException extends ClientErrorException
     /**
      * Returns the HTTP error message for that exception
      */
-    const HTTP_MESSAGE = 'The server understood the request, but is refusing to fulfill it. Authorization will not help and the request SHOULD NOT be repeated.';
+    const HTTP_MESSAGE = 'Forbidden: The server understood the request, but is refusing to fulfill it. Authorization will not help and the request SHOULD NOT be repeated.';
 
     /**
      * ForbiddenException constructor.
