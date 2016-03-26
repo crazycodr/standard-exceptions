@@ -18,6 +18,10 @@ And then just throw them
 throw new \Exceptions\Data\NotFoundException();
 ```
 
+Upgrading from Version1 to Version2
+===================================
+See (CHANGES.md)
+
 New exceptions and namespaces
 =============================
 There are many missing runtime exceptions in the default SPL package. Many exceptions that we often see re-created over and over again and it doesn't make sense to do that. Apart from SQL Query writting, exception writing is possibly the most annoying and useless thing to do when writing software. If we can alleviate that by providing a more complete set of finer grained exceptions, it will be beneficial to all PHP programmers out there.
@@ -26,22 +30,17 @@ Namespace structure
 -------------------
 - Exceptions
     - Collection
-    - Http
     - Data
+    - Generic
+    - Http
     - IO
         - Filesystem
         - Network
-    - Logic
     - Operation
-    - Validation
-    
-> Note: Standard Exceptions 1 used the namespace `StandardExceptions\`. If you are moving from version 1 to version 2, do a search and replace for `StandardExceptions\` to `Exceptions\`. Also note that all namespaces have been shortened by removing `Exceptions` from the namespace name. (Ex `ValidationExceptions\` to `Validation\`)
 
 Collection exceptions
 ---------------------
 There are many array/collection based operations out there, collections classes, array access objects, iterators, etc. Why aren't there any exceptions related to array/collection manipulations? Does everything pertain to \RuntimeException? This whole branch of exceptions will focus on providing clear and concise, finer grained exceptions for non-native collection/array manipulations.
-
-> Note: Standard Exceptions 1 used the namespace `ArrayExceptions\`, this term has been replaced with `Collection` because `Array` is a **reserved keyword** and referred to the native PHP array which was never the use case.
 
 - Collection
     - EmptyException
@@ -50,16 +49,21 @@ There are many array/collection based operations out there, collections classes,
     - KeyAlreadyExistsException
     - ReadOnlyCollectionException
     - ReadOnlyCollectionItemException
-    
-> Note: Standard Exceptions 1 defined `InvalidKeyException` in the `ArrayExceptions\` namespace, this has been moved to the `Validation\` namespace.
-    
-> Note: Standard Exceptions 1 made `KeyNotFoundException` extend the native PHP `OutOfBoundsException`, this has been moved to the `BaseException` which is a `RuntimeException`.
+
+Data exceptions
+---------------
+Data exceptions pertain to all the validation aspect of data and the operations associated to it. They are not stored as `Validation\` exceptions because they do not pertain to validation frameworks but to the integrity and validity of data.
+
+- Data
+    - FormatException
+    - IntegrityException
+    - NotFoundException
+    - TypeException
+    - ValidationException
 
 Http exceptions
 ---------------
 Many frameworks and applications redefine Http exceptions that map to Http status codes. These should not be redefined or they become different accross two projects and portability of your code suffers. This namespace contains most if not all Http exceptions you'll ever need.
-    
-> Note: Standard Exceptions 1 used the namespace `HTTPExceptions\`, this has been renamed to `Http\` and new sub namespaces have been added to it: `Client\` and `Server\`. Each sub namespace map to a general class of Http status codes 4xx and 5xx.
 
 - Http
     - BaseException
@@ -84,9 +88,6 @@ Many frameworks and applications redefine Http exceptions that map to Http statu
         - InternalServerErrorException (500)
         - NotImplementedException (501)
         - ServiceUnavailableException (503)
-
-Data exceptions
---------------
 
 IO exceptions
 -------------
@@ -114,6 +115,28 @@ Operation exceptions
 --------------------
 How many times have you thrown a \RuntimeException or a simple \Exception when something didn't work out correctly? Calling a function incorrectly, or when a behavior doesn't end up too well should return something more precise than \RuntimeException. Operation exceptions are there for that. Anything that goes wrong? Throw an Operation exception that matches what went wrong.
 
-Validation exceptions
----------------------
-There are many validation functions or libraries, but each throw their own exceptions or return boolean values depending on the style of validation they adopt. The validation exceptions should be used to provide a standard set of validation exceptions thrown back by these validation systems such as InvalidEmailException, InvalidFormatException, InvalidPostalCodeException, etc.
+- Operation
+    - InvalidOperationException
+    - NotImplementedException
+    - UnexpectedException
+
+Tagging exceptions
+==================
+Most of the time, exceptions convey he same means as another exception but just not the same context. For example:
+
+- Collection\KeyNotFoundException
+- Data\NotFoundException
+- Http\Client\NotFoundException
+- IO\Filesystem\DirectoryNotFoundException
+- IO\Filesystem\FileNotFoundException
+- IO\Network\UnknownHostException
+
+These all mean the same thing, you tried to do something on a resource but the underlying code failed to find the resource to act upon.
+
+What happens if you want to abstract an operation behind multiple providers that can act differently, will you catch each and treat them separately? You should not, or you'll end up creating an issue where you duplicate code. Tags to the rescue!
+
+The `Tag\` namespace will contain different interfaces that help you convey the same means to your exceptions. So even if you throw a `FileNotFoundException`, your users can react on `Tag\NotFoundException` and still catch anything that can be thrown at them regarding something was not found while processing the request. Now **that is interoperability**.
+
+Contribution notes
+==================
+Don't hesitate to contribute to this package, propose new exceptions to be pushed to the standard package. Don't hesitate to trigger discussions in the project as we want the best possible standard exception library. Nothing is perfect, everyone has different views, this project is for everyone!

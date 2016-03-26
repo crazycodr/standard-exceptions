@@ -1,6 +1,8 @@
 <?php
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\NotFoundException;
+
 /**
  * The server has not found anything matching the Request-URI.
  *
@@ -10,7 +12,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class NotFoundException extends ClientException
+class NotFoundException extends ClientException implements NotFoundException
 {
 
     /**
