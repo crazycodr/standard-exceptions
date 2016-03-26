@@ -112,6 +112,10 @@ class ExceptionsTest extends PHPUnit_Framework_TestCase
         $this->assertGreaterThan(0, strlen($className::getHttpMessage()));
     }
 
+    /**
+     * @param string $expected Class to expect $subject to extend
+     * @param string $subject  Class that should extend $expected
+     */
     public function assertClassIsSubclassOf($expected, $subject)
     {
 
