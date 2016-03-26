@@ -11,8 +11,8 @@
     }
   ],
   "autoload": {
-    "psr-0": {
-      "Exceptions\\": "src/"
+    "psr-4": {
+      "Exceptions\\": "Exceptions/"
     }
   },
   "require-dev": {
