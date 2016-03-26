@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Collection;
 
 /**
@@ -9,13 +10,11 @@ namespace Exceptions\Collection;
  */
 class EmptyException extends BaseException
 {
-
     public function __construct(
         $message = 'Array/collection is currently empty',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

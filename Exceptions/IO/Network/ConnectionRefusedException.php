@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO\Network;
 
 /**
@@ -10,10 +11,8 @@ namespace Exceptions\IO\Network;
  */
 class ConnectionRefusedException extends NetworkException
 {
-
     public function __construct($message = 'Connection to remote host was refused', $code = 0, $previous = null)
     {
-
         parent::__construct($message, $code, $previous);
     }
 }

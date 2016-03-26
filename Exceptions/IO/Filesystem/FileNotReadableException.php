@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO\Filesystem;
 
 /**
@@ -9,13 +10,11 @@ namespace Exceptions\IO\Filesystem;
  */
 class FileNotReadableException extends FilesystemException
 {
-
     public function __construct(
         $message = 'Cannot read from specified file',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

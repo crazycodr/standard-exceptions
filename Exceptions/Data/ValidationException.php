@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Data;
 
 use Exceptions\Tag\InvalidDataException;
@@ -17,13 +18,11 @@ use Exceptions\Tag\InvalidDataException;
  */
 class ValidationException extends BaseException implements InvalidDataException
 {
-
     public function __construct(
         $message = 'Provided data does not conform to business model or basic domain validation rules',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

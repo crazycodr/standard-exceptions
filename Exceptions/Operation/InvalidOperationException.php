@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Operation;
 
 /**
@@ -14,13 +15,11 @@ namespace Exceptions\Operation;
  */
 class InvalidOperationException extends BaseException
 {
-
     public function __construct(
         $message = 'The attempted operation resulted in an unexpected/invalid state and cannot continue',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

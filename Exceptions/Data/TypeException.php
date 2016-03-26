@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Data;
 
 use Exceptions\Tag\InvalidDataException;
@@ -13,13 +14,11 @@ use Exceptions\Tag\InvalidDataException;
  */
 class TypeException extends BaseException implements InvalidDataException
 {
-
     public function __construct(
         $message = 'Type of the data is incorrect',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

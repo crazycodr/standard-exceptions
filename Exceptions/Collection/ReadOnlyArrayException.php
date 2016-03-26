@@ -11,13 +11,11 @@ namespace Exceptions\Collection;
  */
 class ReadOnlyArrayException extends BaseException
 {
-
     public function __construct(
         $message = 'Array/Collection is read-only, you cannot alter it',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

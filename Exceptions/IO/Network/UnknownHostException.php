@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO\Network;
 
 /**
@@ -10,13 +11,11 @@ namespace Exceptions\IO\Network;
  */
 class UnknownHostException extends NetworkException
 {
-
     public function __construct(
         $message = 'The specified resource\'s hostname could not be resolved',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

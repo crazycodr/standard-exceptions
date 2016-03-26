@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Operation;
 
 /**
@@ -11,10 +12,8 @@ namespace Exceptions\Operation;
  */
 class NotImplementedException extends BaseException
 {
-
     public function __construct($message = 'Feature not implemented yet', $code = 0, $previous = null)
     {
-
         parent::__construct($message, $code, $previous);
     }
 }

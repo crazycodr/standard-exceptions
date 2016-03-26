@@ -11,10 +11,8 @@ namespace Exceptions\Collection;
  */
 class KeyAlreadyExistsException extends BaseException
 {
-
     public function __construct($message = 'Key already exists in array/collection', $code = 0, $previous = null)
     {
-
         parent::__construct($message, $code, $previous);
     }
 }

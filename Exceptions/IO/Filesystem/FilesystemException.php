@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO\Filesystem;
 
 use Exceptions\IO\BaseException;
@@ -11,5 +12,4 @@ use Exceptions\IO\BaseException;
  */
 abstract class FilesystemException extends BaseException implements FilesystemExceptionInterface
 {
-
 }

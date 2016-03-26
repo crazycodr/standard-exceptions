@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Http\Server;
 
 use Exceptions\Http\BaseException;
@@ -9,13 +10,11 @@ use Exceptions\Http\BaseException;
  */
 abstract class ServerException extends BaseException implements ServerExceptionInterface
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpCodeClass()
     {
-
         return self::CODE_CLASS_SERVER_ERROR;
     }
 }

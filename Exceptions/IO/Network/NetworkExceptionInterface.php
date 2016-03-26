@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO\Network;
 
 use Exceptions\IO\BaseExceptionInterface;
@@ -11,5 +12,4 @@ use Exceptions\IO\BaseExceptionInterface;
  */
 interface NetworkExceptionInterface extends BaseExceptionInterface
 {
-
 }

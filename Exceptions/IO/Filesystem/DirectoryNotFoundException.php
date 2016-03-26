@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO\Filesystem;
 
 use Exceptions\Tag\NotFoundException;
@@ -11,13 +12,11 @@ use Exceptions\Tag\NotFoundException;
  */
 class DirectoryNotFoundException extends FilesystemException implements NotFoundException
 {
-
     public function __construct(
         $message = 'Cannot find specified directory',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

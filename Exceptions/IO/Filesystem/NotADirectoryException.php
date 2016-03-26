@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO\Filesystem;
 
 /**
@@ -9,13 +10,11 @@ namespace Exceptions\IO\Filesystem;
  */
 class NotADirectoryException extends FilesystemException
 {
-
     public function __construct(
         $message = 'Specified path is not a directory',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

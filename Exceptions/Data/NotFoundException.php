@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Data;
 
 use Exceptions\Tag\NotFoundException as NotFoundTag;
@@ -17,13 +18,11 @@ use Exceptions\Tag\NotFoundException as NotFoundTag;
  */
 class NotFoundException extends BaseException implements NotFoundTag
 {
-
     public function __construct(
         $message = 'Data requested for cannot be found in the data source.',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

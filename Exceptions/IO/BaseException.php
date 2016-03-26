@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO;
 
 /**
@@ -9,5 +10,4 @@ namespace Exceptions\IO;
  */
 abstract class BaseException extends \RuntimeException implements BaseExceptionInterface
 {
-
 }

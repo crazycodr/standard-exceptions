@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Collection;
 
 /**
@@ -9,5 +10,4 @@ namespace Exceptions\Collection;
  */
 interface BaseExceptionInterface
 {
-
 }

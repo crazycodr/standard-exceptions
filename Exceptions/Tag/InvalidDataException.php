@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Tag;
 
 /**
@@ -12,5 +13,4 @@ namespace Exceptions\Tag;
  */
 interface InvalidDataException
 {
-
 }

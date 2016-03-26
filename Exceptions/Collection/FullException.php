@@ -11,13 +11,11 @@ namespace Exceptions\Collection;
  */
 class FullException extends BaseException
 {
-
     public function __construct(
         $message = 'Cannot add items to array/collection, it is already full',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

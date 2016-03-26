@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO\Network;
 
 /**
@@ -10,13 +11,11 @@ namespace Exceptions\IO\Network;
  */
 class ConnectionLostException extends NetworkException
 {
-
     public function __construct(
         $message = 'Connection lost while exchanging data with remote host',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

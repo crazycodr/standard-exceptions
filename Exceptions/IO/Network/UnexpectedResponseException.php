@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO\Network;
 
 /**
@@ -13,13 +14,11 @@ namespace Exceptions\IO\Network;
  */
 class UnexpectedResponseException extends NetworkException
 {
-
     public function __construct(
         $message = 'Unexpected response received while communicating with remote host',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\IO\Filesystem;
 
 /**
@@ -10,13 +11,11 @@ namespace Exceptions\IO\Filesystem;
  */
 class DirectoryNotWritableException extends FilesystemException
 {
-
     public function __construct(
         $message = 'Cannot write to specified directory',
         $code = 0,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Operation;
 
 /**
@@ -14,10 +15,8 @@ namespace Exceptions\Operation;
  */
 class UnexpectedException extends BaseException
 {
-
     public function __construct($message = 'Unexpected value returned by internal call', $code = 0, $previous = null)
     {
-
         parent::__construct($message, $code, $previous);
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Collection;
 
 use Exceptions\Tag\NotFoundException;
@@ -16,10 +17,8 @@ use Exceptions\Tag\NotFoundException;
  */
 class KeyNotFoundException extends BaseException implements NotFoundException
 {
-
     public function __construct($message = 'Key not found in array/collection', $code = 0, $previous = null)
     {
-
         parent::__construct($message, $code, $previous);
     }
 }
