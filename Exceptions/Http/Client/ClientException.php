@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Http\Client;
 
 use Exceptions\Http\BaseException;
@@ -11,13 +12,11 @@ use Exceptions\Http\BaseException;
  */
 abstract class ClientException extends BaseException implements ClientExceptionInterface
 {
-
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpCodeClass()
     {
-
         return self::CODE_CLASS_CLIENT_ERROR;
     }
 }

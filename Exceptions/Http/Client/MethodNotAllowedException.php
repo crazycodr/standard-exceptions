@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Http\Client;
 
 /**
@@ -12,14 +13,13 @@ namespace Exceptions\Http\Client;
  */
 class MethodNotAllowedException extends ClientException
 {
-
     /**
-     * Returns the HTTP error code for that exception
+     * Returns the HTTP error code for that exception.
      */
     const HTTP_CODE = 405;
 
     /**
-     * Returns the HTTP error message for that exception
+     * Returns the HTTP error message for that exception.
      */
     const HTTP_MESSAGE = 'Method Not Allowed: The method specified in the request is not allowed for the requested resource. The resource was found and is accessible, but cannot be accessed using this method.';
 
@@ -35,25 +35,22 @@ class MethodNotAllowedException extends ClientException
         $code = self::HTTP_CODE,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpCode()
     {
-
         return self::HTTP_CODE;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpMessage()
     {
-
         return self::HTTP_MESSAGE;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Http\Client;
 
 /**
@@ -12,14 +13,13 @@ namespace Exceptions\Http\Client;
  */
 class ConflictException extends ClientException
 {
-
     /**
-     * Returns the HTTP error code for that exception
+     * Returns the HTTP error code for that exception.
      */
     const HTTP_CODE = 409;
 
     /**
-     * Returns the HTTP error message for that exception
+     * Returns the HTTP error message for that exception.
      */
     const HTTP_MESSAGE = 'Conflict: The request could not be completed due to a conflict with the current state of the resource. Fix the errors that are producing the conflict and then try again. This error is often caused by desynchronized states between client and server, something changed on one or the other and the resources are out of sync.';
 
@@ -35,25 +35,22 @@ class ConflictException extends ClientException
         $code = self::HTTP_CODE,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpCode()
     {
-
         return self::HTTP_CODE;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpMessage()
     {
-
         return self::HTTP_MESSAGE;
     }
 }

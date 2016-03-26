@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Http\Client;
 
 /**
@@ -12,14 +13,13 @@ namespace Exceptions\Http\Client;
  */
 class RequestEntityTooLargeException extends ClientException
 {
-
     /**
-     * Returns the HTTP error code for that exception
+     * Returns the HTTP error code for that exception.
      */
     const HTTP_CODE = 413;
 
     /**
-     * Returns the HTTP error message for that exception
+     * Returns the HTTP error message for that exception.
      */
     const HTTP_MESSAGE = 'Request Entity Too Large: The server is refusing to process a request because the request entity is larger than the server is willing or able to process.';
 
@@ -35,25 +35,22 @@ class RequestEntityTooLargeException extends ClientException
         $code = self::HTTP_CODE,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpCode()
     {
-
         return self::HTTP_CODE;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpMessage()
     {
-
         return self::HTTP_MESSAGE;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Http\Client;
 
 /**
@@ -13,14 +14,13 @@ namespace Exceptions\Http\Client;
  */
 class BadRequestException extends ClientException
 {
-
     /**
-     * Returns the HTTP error code for that exception
+     * Returns the HTTP error code for that exception.
      */
     const HTTP_CODE = 400;
 
     /**
-     * Returns the HTTP error message for that exception
+     * Returns the HTTP error message for that exception.
      */
     const HTTP_MESSAGE = 'Bad Request: The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.';
 
@@ -36,25 +36,22 @@ class BadRequestException extends ClientException
         $code = self::HTTP_CODE,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpCode()
     {
-
         return self::HTTP_CODE;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpMessage()
     {
-
         return self::HTTP_MESSAGE;
     }
 }

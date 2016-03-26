@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Http\Server;
 
 /**
@@ -12,14 +13,13 @@ namespace Exceptions\Http\Server;
  */
 class InternalServerErrorException extends ServerException
 {
-
     /**
-     * Returns the HTTP error code for that exception
+     * Returns the HTTP error code for that exception.
      */
     const HTTP_CODE = 500;
 
     /**
-     * Returns the HTTP error message for that exception
+     * Returns the HTTP error message for that exception.
      */
     const HTTP_MESSAGE = 'Internal Server Error: The server encountered an unexpected condition which prevented it from fulfilling the request.';
 
@@ -35,25 +35,22 @@ class InternalServerErrorException extends ServerException
         $code = self::HTTP_CODE,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpCode()
     {
-
         return self::HTTP_CODE;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpMessage()
     {
-
         return self::HTTP_MESSAGE;
     }
 }

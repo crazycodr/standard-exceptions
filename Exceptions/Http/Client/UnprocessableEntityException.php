@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Http\Client;
 
 /**
@@ -12,14 +13,13 @@ namespace Exceptions\Http\Client;
  */
 class UnprocessableEntityException extends ClientException
 {
-
     /**
-     * Returns the HTTP error code for that exception
+     * Returns the HTTP error code for that exception.
      */
     const HTTP_CODE = 422;
 
     /**
-     * Returns the HTTP error message for that exception
+     * Returns the HTTP error message for that exception.
      */
     const HTTP_MESSAGE = 'Unprocessable Entity: The request was well-formed but was unable to be followed due to semantic errors, validation errors or domain constraints such as uniqueness of values.';
 
@@ -35,25 +35,22 @@ class UnprocessableEntityException extends ClientException
         $code = self::HTTP_CODE,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpCode()
     {
-
         return self::HTTP_CODE;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpMessage()
     {
-
         return self::HTTP_MESSAGE;
     }
 }

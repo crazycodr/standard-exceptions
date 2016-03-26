@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Http\Client;
 
 use Exceptions\Tag\NotFoundException as NotFoundTag;
@@ -14,14 +15,13 @@ use Exceptions\Tag\NotFoundException as NotFoundTag;
  */
 class NotFoundException extends ClientException implements NotFoundTag
 {
-
     /**
-     * Returns the HTTP error code for that exception
+     * Returns the HTTP error code for that exception.
      */
     const HTTP_CODE = 404;
 
     /**
-     * Returns the HTTP error message for that exception
+     * Returns the HTTP error message for that exception.
      */
     const HTTP_MESSAGE = 'Not found: The requested entity cannot be found, this may be returned because entity is not accessible using requested credentials, because of a recent state change or because entity cannot be found at all.';
 
@@ -37,25 +37,22 @@ class NotFoundException extends ClientException implements NotFoundTag
         $code = self::HTTP_CODE,
         $previous = null
     ) {
-
         parent::__construct($message, $code, $previous);
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpCode()
     {
-
         return self::HTTP_CODE;
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public static function getHttpMessage()
     {
-
         return self::HTTP_MESSAGE;
     }
 }
