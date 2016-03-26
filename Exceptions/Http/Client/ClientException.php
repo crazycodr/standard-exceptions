@@ -9,7 +9,7 @@ use Exceptions\Http\BaseException;
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
  */
-abstract class ClientException extends BaseException implements ClientErrorExceptionInterface
+abstract class ClientException extends BaseException implements ClientExceptionInterface
 {
 
     /**

@@ -9,6 +9,6 @@ use Exceptions\Http\BaseExceptionInterface;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface ServerErrorExceptionInterface extends BaseExceptionInterface
+interface ServerExceptionInterface extends BaseExceptionInterface
 {
 }

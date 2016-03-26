@@ -1,7 +1,7 @@
 <?php
 namespace Exceptions\Data;
 
-use Exceptions\Tag\NotFoundException;
+use Exceptions\Tag\NotFoundException as NotFoundTag;
 
 /**
  * Use this exception when the data requested by your code cannot be found. In most scenarios, this is the equivalent
@@ -15,7 +15,7 @@ use Exceptions\Tag\NotFoundException;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class NotFoundException extends BaseException implements NotFoundException
+class NotFoundException extends BaseException implements NotFoundTag
 {
 
     public function __construct(
