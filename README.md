@@ -2,7 +2,7 @@
 
 Standard Exception Package
 ==========================
-This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interroperability between projects and libraries.
+This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interoperability between projects and libraries.
 
 Installation and usage
 ======================
@@ -20,11 +20,11 @@ throw new \Exceptions\Data\NotFoundException();
 
 Upgrading from Version1 to Version2
 ===================================
-See (CHANGES.md)
+See [Changes page](CHANGES.md)
 
 New exceptions and namespaces
 =============================
-There are many missing runtime exceptions in the default SPL package. Many exceptions that we often see re-created over and over again and it doesn't make sense to do that. Apart from SQL Query writting, exception writing is possibly the most annoying and useless thing to do when writing software. If we can alleviate that by providing a more complete set of finer grained exceptions, it will be beneficial to all PHP programmers out there.
+There are many missing runtime exceptions in the default SPL package. Many exceptions that we often see re-created over and over again and it does not make sense to do that. Apart from SQL Query writing, exception writing is possibly the most annoying and useless thing to do when writing software. If we can alleviate that by providing a more complete set of finer grained exceptions, it will be beneficial to all PHP programmers out there.
 
 Namespace structure
 -------------------
@@ -92,8 +92,6 @@ Many frameworks and applications redefine Http exceptions that map to Http statu
 IO exceptions
 -------------
 There are many applications, libraries or framework that throw IO related exceptions such as FileNotFoundException or ConnectionLostException. It was imperative to create such a namespace too stop reproducing these exceptions. This namespace contains tons of exceptions related to FileSystem or Network operations!
-    
-> Note: Standard Exceptions 1 used the namespace `IOExceptions\`, this has been renamed to `IO\` and new sub namespaces have been added to it: `Filesystem\` and `Network\`.
 
 - IO
     - Filesystem
@@ -122,20 +120,21 @@ How many times have you thrown a \RuntimeException or a simple \Exception when s
 
 Tagging exceptions
 ==================
-Most of the time, exceptions convey he same means as another exception but just not the same context. For example:
+Most of the time, an exception may convey he same means as another exception but just not the same context. For example:
 
-- Collection\KeyNotFoundException
-- Data\NotFoundException
-- Http\Client\NotFoundException
-- IO\Filesystem\DirectoryNotFoundException
-- IO\Filesystem\FileNotFoundException
-- IO\Network\UnknownHostException
+- Collection\KeyNotFoundException (In memory)
+- Data\NotFoundException (In a database or storage engine)
+- Http\Client\NotFoundException (On a web service)
+- IO\Filesystem\DirectoryNotFoundException (In the filesystem)
+- IO\Filesystem\FileNotFoundException (In the filesystem)
+- IO\Network\UnknownHostException (On the web)
 
-These all mean the same thing, you tried to do something on a resource but the underlying code failed to find the resource to act upon.
+These all mean the same thing, you tried to do something on a resource but the underlying code **failed to find the resource** to act upon. What happens if you want to abstract an operation behind multiple providers that can act differently? Will you catch each exception and treat them separately? You should not, or you'll end up duplicating your code. Tags to the rescue!
 
-What happens if you want to abstract an operation behind multiple providers that can act differently, will you catch each and treat them separately? You should not, or you'll end up creating an issue where you duplicate code. Tags to the rescue!
+The `Tag\` namespace will contain different interfaces that help you convey the same means to your exceptions. So even if you throw a `FileNotFoundException`, your users can react on `Tag\NotFoundException` and still catch anything that can be thrown at them regarding something was not found while processing the request. Now **that is interoperability**. For now, the different tags that exist are:
 
-The `Tag\` namespace will contain different interfaces that help you convey the same means to your exceptions. So even if you throw a `FileNotFoundException`, your users can react on `Tag\NotFoundException` and still catch anything that can be thrown at them regarding something was not found while processing the request. Now **that is interoperability**.
+- InvalidDataException
+- NotFoundException
 
 Contribution notes
 ==================
