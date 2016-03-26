@@ -11,7 +11,7 @@ namespace Exceptions\IO\Network;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnexpectedResponseException extends BaseException
+class UnexpectedResponseException extends NetworkException
 {
 
     public function __construct(

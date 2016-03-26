@@ -1,7 +1,7 @@
 <?php
 namespace Exceptions\IO\Filesystem;
 
-use Exceptions\IO\BaseExceptionInterface as BaseIOExceptionInterface;
+use Exceptions\IO\BaseExceptionInterface;
 
 /**
  * This interface defines the different accessor you can use when dealing with IO\Filesystem exceptions.
@@ -9,7 +9,7 @@ use Exceptions\IO\BaseExceptionInterface as BaseIOExceptionInterface;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface BaseExceptionInterface extends BaseIOExceptionInterface
+interface FilesystemExceptionInterface extends BaseExceptionInterface
 {
 
 }

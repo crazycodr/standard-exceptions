@@ -7,7 +7,7 @@ namespace Exceptions\IO\Filesystem;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class NotADirectoryException extends BaseException
+class NotADirectoryException extends FilesystemException
 {
 
     public function __construct(

@@ -8,7 +8,7 @@ namespace Exceptions\IO\Filesystem;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FileNotWritableException extends BaseException
+class FileNotWritableException extends FilesystemException
 {
 
     public function __construct(

@@ -8,7 +8,7 @@ namespace Exceptions\IO\Network;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnknownHostException extends BaseException
+class UnknownHostException extends NetworkException
 {
 
     public function __construct(

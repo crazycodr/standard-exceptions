@@ -7,7 +7,7 @@ namespace Exceptions\IO\Filesystem;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FileNotReadableException extends BaseException
+class FileNotReadableException extends FilesystemException
 {
 
     public function __construct(

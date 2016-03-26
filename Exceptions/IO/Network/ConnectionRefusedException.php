@@ -8,7 +8,7 @@ namespace Exceptions\IO\Network;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ConnectionRefusedException extends BaseException
+class ConnectionRefusedException extends NetworkException
 {
 
     public function __construct($message = 'Connection to remote host was refused', $code = 0, $previous = null)

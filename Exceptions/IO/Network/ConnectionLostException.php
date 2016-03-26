@@ -8,7 +8,7 @@ namespace Exceptions\IO\Network;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ConnectionLostException extends BaseException
+class ConnectionLostException extends NetworkException
 {
 
     public function __construct(

@@ -1,7 +1,7 @@
 <?php
 namespace Exceptions\IO\Network;
 
-use Exceptions\IO\BaseExceptionInterface as BaseIOExceptionInterface;
+use Exceptions\IO\BaseExceptionInterface;
 
 /**
  * This interface defines the different accessor you can use when dealing with IO\Network exceptions.
@@ -9,7 +9,7 @@ use Exceptions\IO\BaseExceptionInterface as BaseIOExceptionInterface;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface BaseExceptionInterface extends BaseIOExceptionInterface
+interface NetworkExceptionInterface extends BaseExceptionInterface
 {
 
 }

@@ -9,7 +9,7 @@ use Exceptions\Tag\NotFoundException;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FileNotFoundException extends BaseException implements NotFoundException
+class FileNotFoundException extends FilesystemException implements NotFoundException
 {
 
     public function __construct(
