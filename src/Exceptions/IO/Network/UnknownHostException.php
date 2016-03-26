@@ -1,6 +1,5 @@
 <?php
-
-namespace Exceptions\IO;
+namespace Exceptions\IO\Network;
 
 /**
  * Use this exception when an IO operation tries to reach a remote host that cannot be resolved due to DNS or IP
@@ -11,11 +10,13 @@ namespace Exceptions\IO;
  */
 class UnknownHostException extends BaseException
 {
+
     public function __construct(
         $message = 'The specified resource\'s hostname could not be resolved',
         $code = 0,
         $previous = null
     ) {
+
         parent::__construct($message, $code, $previous);
     }
 }

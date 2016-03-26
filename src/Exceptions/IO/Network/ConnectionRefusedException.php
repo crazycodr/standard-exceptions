@@ -1,6 +1,5 @@
 <?php
-
-namespace Exceptions\IO;
+namespace Exceptions\IO\Network;
 
 /**
  * Use this exception when an IO operation that requires a distant connection is refused as you are negotiating the
@@ -11,8 +10,10 @@ namespace Exceptions\IO;
  */
 class ConnectionRefusedException extends BaseException
 {
+
     public function __construct($message = 'Connection to remote host was refused', $code = 0, $previous = null)
     {
+
         parent::__construct($message, $code, $previous);
     }
 }

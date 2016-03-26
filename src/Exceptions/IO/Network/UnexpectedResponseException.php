@@ -1,6 +1,5 @@
 <?php
-
-namespace Exceptions\IO;
+namespace Exceptions\IO\Network;
 
 /**
  * Use this exception when an IO operation based on a communication protocol receives an unexpected response from
@@ -14,11 +13,13 @@ namespace Exceptions\IO;
  */
 class UnexpectedResponseException extends BaseException
 {
+
     public function __construct(
         $message = 'Unexpected response received while communicating with remote host',
         $code = 0,
         $previous = null
     ) {
+
         parent::__construct($message, $code, $previous);
     }
 }

@@ -1,6 +1,5 @@
 <?php
-
-namespace Exceptions\IO;
+namespace Exceptions\IO\Network;
 
 /**
  * Use this exception when an IO operation that requires a distant connection gets cut off after negotiating
@@ -11,11 +10,13 @@ namespace Exceptions\IO;
  */
 class ConnectionLostException extends BaseException
 {
+
     public function __construct(
         $message = 'Connection lost while exchanging data with remote host',
         $code = 0,
         $previous = null
     ) {
+
         parent::__construct($message, $code, $previous);
     }
 }
