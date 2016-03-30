@@ -12,7 +12,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class BadRequestException extends ClientException
+class BadRequestException extends ClientErrorException
 {
     /**
      * Returns the HTTP error code for that exception.

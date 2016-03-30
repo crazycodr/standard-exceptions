@@ -2,7 +2,7 @@
 
 namespace Exceptions\Http\Client;
 
-use Exceptions\Http\BaseException;
+use Exceptions\Http\HttpException;
 
 /**
  * This is a tag like class that is used to regroup all Http/Client exceptions under a single base class.
@@ -10,7 +10,7 @@ use Exceptions\Http\BaseException;
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
  */
-abstract class ClientException extends BaseException implements ClientExceptionInterface
+abstract class ClientErrorException extends HttpException implements ClientErrorExceptionInterface
 {
     /**
      * {@inheritdoc}

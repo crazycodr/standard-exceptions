@@ -16,7 +16,7 @@ use Exceptions\Tag\NotFoundException as NotFoundTag;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class NotFoundException extends BaseException implements NotFoundTag
+class NotFoundException extends DataException implements NotFoundTag
 {
     public function __construct(
         $message = 'Data requested for cannot be found in the data source.',

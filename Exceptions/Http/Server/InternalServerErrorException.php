@@ -11,7 +11,7 @@ namespace Exceptions\Http\Server;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class InternalServerErrorException extends ServerException
+class InternalServerErrorException extends ServerErrorException
 {
     /**
      * Returns the HTTP error code for that exception.

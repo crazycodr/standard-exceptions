@@ -11,7 +11,7 @@ namespace Exceptions\Http\Server;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ServiceUnavailableException extends ServerException
+class ServiceUnavailableException extends ServerErrorException
 {
     /**
      * Returns the HTTP error code for that exception.

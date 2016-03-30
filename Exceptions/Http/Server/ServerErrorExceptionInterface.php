@@ -2,7 +2,7 @@
 
 namespace Exceptions\Http\Server;
 
-use Exceptions\Http\BaseExceptionInterface;
+use Exceptions\Http\HttpExceptionInterface;
 
 /**
  * This is a tag interface used to group together all potential Server Error HTTP exceptions (500 class).
@@ -10,6 +10,6 @@ use Exceptions\Http\BaseExceptionInterface;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface ServerExceptionInterface extends BaseExceptionInterface
+interface ServerErrorExceptionInterface extends HttpExceptionInterface
 {
 }

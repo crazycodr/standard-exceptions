@@ -10,7 +10,7 @@ namespace Exceptions\Operation;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class NotImplementedException extends BaseException
+class NotImplementedException extends OperationException
 {
     public function __construct($message = 'Feature not implemented yet', $code = 0, $previous = null)
     {

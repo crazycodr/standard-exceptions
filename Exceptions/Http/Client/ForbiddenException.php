@@ -12,7 +12,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ForbiddenException extends ClientException
+class ForbiddenException extends ClientErrorException
 {
     /**
      * Returns the HTTP error code for that exception.

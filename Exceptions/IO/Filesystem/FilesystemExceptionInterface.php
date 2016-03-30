@@ -2,7 +2,7 @@
 
 namespace Exceptions\IO\Filesystem;
 
-use Exceptions\IO\BaseExceptionInterface;
+use Exceptions\IO\IOExceptionInterface;
 
 /**
  * This interface defines the different accessor you can use when dealing with IO\Filesystem exceptions.
@@ -10,6 +10,6 @@ use Exceptions\IO\BaseExceptionInterface;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface FilesystemExceptionInterface extends BaseExceptionInterface
+interface FilesystemExceptionInterface extends IOExceptionInterface
 {
 }

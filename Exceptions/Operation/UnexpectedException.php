@@ -13,7 +13,7 @@ namespace Exceptions\Operation;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnexpectedException extends BaseException
+class UnexpectedException extends OperationException
 {
     public function __construct($message = 'Unexpected value returned by internal call', $code = 0, $previous = null)
     {

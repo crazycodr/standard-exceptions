@@ -8,7 +8,7 @@ namespace Exceptions\Collection;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class EmptyException extends BaseException
+class EmptyException extends CollectionException
 {
     public function __construct(
         $message = 'Array/collection is currently empty',

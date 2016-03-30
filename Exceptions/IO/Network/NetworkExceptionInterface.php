@@ -2,7 +2,7 @@
 
 namespace Exceptions\IO\Network;
 
-use Exceptions\IO\BaseExceptionInterface;
+use Exceptions\IO\IOExceptionInterface;
 
 /**
  * This interface defines the different accessor you can use when dealing with IO\Network exceptions.
@@ -10,6 +10,6 @@ use Exceptions\IO\BaseExceptionInterface;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface NetworkExceptionInterface extends BaseExceptionInterface
+interface NetworkExceptionInterface extends IOExceptionInterface
 {
 }

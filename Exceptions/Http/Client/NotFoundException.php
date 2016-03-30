@@ -13,7 +13,7 @@ use Exceptions\Tag\NotFoundException as NotFoundTag;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class NotFoundException extends ClientException implements NotFoundTag
+class NotFoundException extends ClientErrorException implements NotFoundTag
 {
     /**
      * Returns the HTTP error code for that exception.

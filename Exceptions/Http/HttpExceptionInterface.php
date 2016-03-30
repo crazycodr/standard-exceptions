@@ -8,7 +8,7 @@ namespace Exceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface BaseExceptionInterface
+interface HttpExceptionInterface
 {
     /**
      * Represents client errors.

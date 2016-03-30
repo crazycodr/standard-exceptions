@@ -16,7 +16,7 @@ use Exceptions\Tag\InvalidDataException;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ValidationException extends BaseException implements InvalidDataException
+class ValidationException extends DataException implements InvalidDataException
 {
     public function __construct(
         $message = 'Provided data does not conform to business model or basic domain validation rules',

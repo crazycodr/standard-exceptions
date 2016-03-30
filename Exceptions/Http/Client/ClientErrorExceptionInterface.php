@@ -2,7 +2,7 @@
 
 namespace Exceptions\Http\Client;
 
-use Exceptions\Http\BaseExceptionInterface;
+use Exceptions\Http\HttpExceptionInterface;
 
 /**
  * This is a tag interface used to group together all potential Client Error HTTP exceptions (400 class).
@@ -10,6 +10,6 @@ use Exceptions\Http\BaseExceptionInterface;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface ClientExceptionInterface extends BaseExceptionInterface
+interface ClientErrorExceptionInterface extends HttpExceptionInterface
 {
 }

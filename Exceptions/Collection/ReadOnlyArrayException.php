@@ -9,7 +9,7 @@ namespace Exceptions\Collection;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ReadOnlyArrayException extends BaseException
+class ReadOnlyArrayException extends CollectionException
 {
     public function __construct(
         $message = 'Array/Collection is read-only, you cannot alter it',

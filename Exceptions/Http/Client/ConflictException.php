@@ -11,7 +11,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ConflictException extends ClientException
+class ConflictException extends ClientErrorException
 {
     /**
      * Returns the HTTP error code for that exception.

@@ -2,7 +2,7 @@
 
 namespace Exceptions\IO\Filesystem;
 
-use Exceptions\IO\BaseException;
+use Exceptions\IO\IOException;
 
 /**
  * This is a tag like class that is used to regroup all IO\Filesystem exceptions under a single base class.
@@ -10,6 +10,6 @@ use Exceptions\IO\BaseException;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-abstract class FilesystemException extends BaseException implements FilesystemExceptionInterface
+abstract class FilesystemException extends IOException implements FilesystemExceptionInterface
 {
 }

@@ -8,6 +8,6 @@ namespace Exceptions\IO;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface BaseExceptionInterface
+interface IOExceptionInterface
 {
 }

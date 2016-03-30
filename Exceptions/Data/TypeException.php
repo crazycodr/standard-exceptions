@@ -12,7 +12,7 @@ use Exceptions\Tag\InvalidDataException;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class TypeException extends BaseException implements InvalidDataException
+class TypeException extends DataException implements InvalidDataException
 {
     public function __construct(
         $message = 'Type of the data is incorrect',

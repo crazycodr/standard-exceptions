@@ -8,6 +8,6 @@ namespace Exceptions\Collection;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-abstract class BaseException extends \RuntimeException implements BaseExceptionInterface
+abstract class CollectionException extends \RuntimeException implements CollectionExceptionInterface
 {
 }

@@ -97,10 +97,10 @@ class ExceptionsTest extends PHPUnit_Framework_TestCase
     public function testHttpMethods($className)
     {
         $this->assertContains($className::getHttpCodeClass(), [
-            \Exceptions\Http\BaseExceptionInterface::CODE_CLASS_CLIENT_ERROR,
-            \Exceptions\Http\BaseExceptionInterface::CODE_CLASS_SERVER_ERROR,
+            \Exceptions\Http\HttpExceptionInterface::CODE_CLASS_CLIENT_ERROR,
+            \Exceptions\Http\HttpExceptionInterface::CODE_CLASS_SERVER_ERROR,
         ]);
-        $this->assertClassIsSubclassOf(\Exceptions\Http\BaseExceptionInterface::class, $className);
+        $this->assertClassIsSubclassOf(\Exceptions\Http\HttpExceptionInterface::class, $className);
         $this->assertInternalType('int', $className::getHttpCode());
         $this->assertGreaterThan(0, $className::getHttpCode());
         $this->assertInternalType('string', $className::getHttpMessage());

@@ -13,7 +13,7 @@ use Exceptions\Tag\InvalidDataException;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FormatException extends BaseException implements InvalidDataException
+class FormatException extends DataException implements InvalidDataException
 {
     public function __construct(
         $message = 'Data provided is not of the expected format or cannot be parsed correctly.',

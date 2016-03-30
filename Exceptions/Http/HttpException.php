@@ -11,6 +11,6 @@ namespace Exceptions\Http;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-abstract class BaseException extends \RuntimeException implements BaseExceptionInterface
+abstract class HttpException extends \RuntimeException implements HttpExceptionInterface
 {
 }

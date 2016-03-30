@@ -9,7 +9,7 @@ namespace Exceptions\Collection;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class KeyAlreadyExistsException extends BaseException
+class KeyAlreadyExistsException extends CollectionException
 {
     public function __construct($message = 'Key already exists in array/collection', $code = 0, $previous = null)
     {

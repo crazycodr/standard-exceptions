@@ -11,7 +11,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class RequestEntityTooLargeException extends ClientException
+class RequestEntityTooLargeException extends ClientErrorException
 {
     /**
      * Returns the HTTP error code for that exception.

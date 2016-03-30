@@ -13,7 +13,7 @@ namespace Exceptions\Operation;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class InvalidOperationException extends BaseException
+class InvalidOperationException extends OperationException
 {
     public function __construct(
         $message = 'The attempted operation resulted in an unexpected/invalid state and cannot continue',

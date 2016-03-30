@@ -15,7 +15,7 @@ use Exceptions\Tag\NotFoundException;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class KeyNotFoundException extends BaseException implements NotFoundException
+class KeyNotFoundException extends CollectionException implements NotFoundException
 {
     public function __construct($message = 'Key not found in array/collection', $code = 0, $previous = null)
     {

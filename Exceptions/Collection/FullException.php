@@ -9,7 +9,7 @@ namespace Exceptions\Collection;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FullException extends BaseException
+class FullException extends CollectionException
 {
     public function __construct(
         $message = 'Cannot add items to array/collection, it is already full',

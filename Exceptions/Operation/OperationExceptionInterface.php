@@ -8,6 +8,6 @@ namespace Exceptions\Operation;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface BaseExceptionInterface
+interface OperationExceptionInterface
 {
 }
