@@ -2,148 +2,139 @@
 
 Standard Exception Package
 ==========================
-This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interroperability between projects.
+This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interoperability between projects and libraries.
 
-Another use for this package is to clean up the existing exceptions that are unclear due to their indescriptive naming. Just look at this documentation bug for an understanding of the issue:
+Installation and usage
+======================
+Install `Standard Exceptions` using Composer.
 
-- http://stackoverflow.com/questions/1102979/when-would-you-throw-a-domainexception-in-php
-- http://stackoverflow.com/questions/14171714/php-runtime-or-logic-exception
+```
+$ composer require crazycodr/standard-exceptions
+```
 
-Re-classification of existing exceptions
-========================================
-The existing exceptions are extended but stored in a new namespace tree that allows a better organisation of the different exceptions. Thus, if someone switches to the standard exception package, it should be backward compatible automatically.
+And then just throw them
 
-Existing exceptions
--------------------
-- Exception
-  - LogicException
-    - BadFunctionCallException & BadMethodCallException
-    - DomainException
-    - InvalidArgumentException
-    - LengthException
-    - OutOfRangeException
-  - RuntimeException
-    - OutOfBoundsException
-    - OverflowException
-    - RangeException
-    - UnderflowException
-    - UnexpectedValueException
+```php
+throw new \Exceptions\Data\NotFoundException();
+```
 
-Proposed namespace structure
-----------------------------
-- Exceptions (namespace)
-  - Array (namespace)
-  - IO (namespace)
-  - Logic (namespace)
-  - HTTP (namespace)
-  - Operation (namespace)
-  - Validation (namespace)
-
-Proposed class tree
--------------------
-- StandardExceptions (namespace)
-
-  - ArrayExceptions (namespace)
-    - ArrayIsEmptyException
-    - ArrayIsFullException
-    - ArrayUnderflowException
-    - IndexNotFoundException
-    - InvalidKeyException
-    - KeyAlreadyExistsException
-    - KeyNotFoundException
-    - ReadOnlyArrayException
-    - ReadOnlyArrayItemException
-
-  - IOExceptions (namespace)
-    - ConnectionLostException
-    - ConnectionRefusedException
-    - DirectoryNotFoundException
-    - DirectoryNotReadableException
-    - DirectoryNotWritableException
-    - FileNotFoundException
-    - FileNotReadableException
-    - FileNotWritableException
-    - NotADirectoryException
-    - NotAFileException
-    - UnexpectedResponseException
-    - UnknownHostException
-
-  - LogicExceptions (namespace)
-    - IllegalArgumentTypeException
-    - IllegalValueException
-
-  - OperationExceptions (namespace)
-    - BadFunctionCallException
-    - BadMethodCallException
-    - InvalidOperationException
-    - NotImplementedYetException
-    - OverflowException
-    - UnexpectedReturnValueException
-
-  - HTTPExceptions (namespace)
-    - BadRequestException
-    - ForbiddenException
-    - MethodNotAllowedException
-    - NotAcceptableException
-    - NotFoundException
-    - UnauthorizedAccessException
-    - UnprocessableEntityException
-
-  - ValidationExceptions (namespace)
-    - IncorrectLengthException
-    - InvalidBooleanException
-    - InvalidDateTimeException
-    - InvalidDateTimeFormatException
-    - InvalidEmailFormatException
-    - InvalidFormatException
-    - InvalidIPAddressFormatException
-    - InvalidJSONFormatException
-    - InvalidLengthException
-    - InvalidNumberException
-    - InvalidPostalCodeFormatException
-    - InvalidRegexFormatException
-    - InvalidStringException
-    - InvalidValueException
-    - InvalidXMLFormatException
-
-Automatically deprecated exceptions
------------------------------------
-- ArrayUnderflowException in favor of ArrayIsEmptyException
-- BadMethodCallException in favor of BadFunctionCallException
-- BadFunctionCallException in favor of InvalidOperationException
-- IllegalValueException in favor of InvalidValueException
-- IncorrectLengthException in favor of InvalidLengthException
-- IndexNotFoundException in favor of KeyNotFoundException
+Upgrading from Version1 to Version2
+===================================
+See [Changes page](CHANGES.md)
 
 New exceptions and namespaces
 =============================
-There are many missing runtime exceptions in the default spl package. Many exceptions that we often see re-created over and over again and it doesn't make sense to do that. Apart from SQL Query writting, exception writing is possibly the most annoying and useless thing to do when writing software. If we can alleviate that by providing a more complete set of finer grained exceptions, it will be beneficial to all php programmers out there.
+There are many missing runtime exceptions in the default SPL package. Many exceptions that we often see re-created over and over again and it does not make sense to do that. Apart from SQL Query writing, exception writing is possibly the most annoying and useless thing to do when writing software. If we can alleviate that by providing a more complete set of finer grained exceptions, it will be beneficial to all PHP programmers out there.
 
-InvalidValueException as RangeException
----------------------------------------
-Lets face it, RangeException is an highly unortodox name to use for domain validation that failed at runtime. This package will feature a whole branch dedicated at providing invalid value exceptions as runtime exceptions and the first and topmost one is the InvalidValueException.
+Namespace structure
+-------------------
+- Exceptions
+    - Collection
+    - Data
+    - Generic
+    - Http
+    - IO
+        - Filesystem
+        - Network
+    - Operation
 
-Array exceptions
-----------------
-There are many array based operations out there, collections classes, array access objects, iterators, etc. Why aren't there any exceptions related to array manipulations? Does everything pertain to \RuntimeException? This whole branch of exceptions will focus on providing clear and concise, finer grained exceptions for Array manipulations.
+Collection exceptions
+---------------------
+There are many array/collection based operations out there, collections classes, array access objects, iterators, etc. Why aren't there any exceptions related to array/collection manipulations? Does everything pertain to \RuntimeException? This whole branch of exceptions will focus on providing clear and concise, finer grained exceptions for non-native collection/array manipulations.
+
+- Collection
+    - EmptyException
+    - FullException
+    - KeyNotFoundException
+    - KeyAlreadyExistsException
+    - ReadOnlyCollectionException
+    - ReadOnlyCollectionItemException
+
+Data exceptions
+---------------
+Data exceptions pertain to all the validation aspect of data and the operations associated to it. They are not stored as `Validation\` exceptions because they do not pertain to validation frameworks but to the integrity and validity of data.
+
+- Data
+    - FormatException
+    - IntegrityException
+    - NotFoundException
+    - TypeException
+    - ValidationException
+
+Http exceptions
+---------------
+Many frameworks and applications redefine Http exceptions that map to Http status codes. These should not be redefined or they become different accross two projects and portability of your code suffers. This namespace contains most if not all Http exceptions you'll ever need.
+
+- Http
+    - BaseException
+    - BaseExceptionInterface
+    - Client
+        - ClientErrorException
+        - ClientErrorExceptionInterface
+        - BadRequestException (400)
+        - UnauthorizedException (401)
+        - ForbiddenException (403)
+        - NotFoundException (404)
+        - MethodNotAllowedException (405)
+        - NotAcceptableException (406)
+        - ConflictException (409)
+        - RequestEntityTooLargeException (413)
+        - UnsupportedMediaTypeException (415)
+        - RequestedRangeNotSatisfiableException (416)
+        - UnprocessableEntityException (422)
+    - Server
+        - ServerErrorException
+        - ServerErrorExceptionInterface
+        - InternalServerErrorException (500)
+        - NotImplementedException (501)
+        - ServiceUnavailableException (503)
 
 IO exceptions
 -------------
-There are so many applications or framework that actually throw IO related exceptions such as connection failures, connection loss, connection interruption, file not found, file not writable, etc. These examples can apply to all sorts of IO based operations be it files, databases, servers, web services, and more... Yet, there are no exceptions governing all this... none at all!
+There are many applications, libraries or framework that throw IO related exceptions such as FileNotFoundException or ConnectionLostException. It was imperative to create such a namespace too stop reproducing these exceptions. This namespace contains tons of exceptions related to FileSystem or Network operations!
+
+- IO
+    - Filesystem
+        - DirectoryNotFoundException
+        - DirectoryNotReadableException
+        - DirectoryNotWritableException
+        - FileNotFoundException
+        - FileNotReadableException
+        - FileNotWritableException
+        - NotADirectoryException
+        - NotAFileException
+    - Network
+        - ConnectionLostException
+        - ConnectionRefusedException
+        - UnexpectedResponseException
+        - UnknownHostException
 
 Operation exceptions
 --------------------
 How many times have you thrown a \RuntimeException or a simple \Exception when something didn't work out correctly? Calling a function incorrectly, or when a behavior doesn't end up too well should return something more precise than \RuntimeException. Operation exceptions are there for that. Anything that goes wrong? Throw an Operation exception that matches what went wrong.
 
-HTTP exceptions
----------------
-There are many cases in which applications want to tell the upper code that something went wrong regarding the HTTP request that was issued. In many cases, these classes are request parsers, format negotiators and so on talking to their controllers. These classes need to report that something went wrong, but InvalidOperationException is just not enough and ValidationExceptions or ArrayExceptions are not suited for this. In this very case, using the HTTPExceptions is the right path to go.
+- Operation
+    - InvalidOperationException
+    - NotImplementedException
+    - UnexpectedException
 
-Just remember not to use HTTPExceptions in a validator, remember, a validator can be used in another context...
+Tagging exceptions
+==================
+Most of the time, an exception may convey he same means as another exception but just not the same context. For example:
 
-Validation exceptions
----------------------
-There are many validation functions or libraries, but each throw their own exceptions or return boolean values depending on the style of validation they adopt. The validation exceptions should be used to provide a standard set of validation exceptions thrown back by these validation systems such as InvalidEmailException, InvalidFormatException, InvalidPostalCodeException, etc.
+- Collection\KeyNotFoundException (In memory)
+- Data\NotFoundException (In a database or storage engine)
+- Http\Client\NotFoundException (On a web service)
+- IO\Filesystem\DirectoryNotFoundException (In the filesystem)
+- IO\Filesystem\FileNotFoundException (In the filesystem)
+- IO\Network\UnknownHostException (On the web)
+
+These all mean the same thing, you tried to do something on a resource but the underlying code **failed to find the resource** to act upon. What happens if you want to abstract an operation behind multiple providers that can act differently? Will you catch each exception and treat them separately? You should not, or you'll end up duplicating your code. Tags to the rescue!
+
+The `Tag\` namespace will contain different interfaces that help you convey the same means to your exceptions. So even if you throw a `FileNotFoundException`, your users can react on `Tag\NotFoundException` and still catch anything that can be thrown at them regarding something was not found while processing the request. Now **that is interoperability**. For now, the different tags that exist are:
+
+- InvalidDataException
+- NotFoundException
 
 Contribution notes
 ==================

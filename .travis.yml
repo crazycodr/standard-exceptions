@@ -17,6 +17,6 @@ install:
     - composer install
 
 script:
-    - vendor/bin/php-cs-fixer --diff --dry-run -v fix src
-    - vendor/bin/php-cs-fixer --diff --dry-run -v fix tests
+    - vendor/bin/php-cs-fixer --diff --dry-run -v fix Exceptions
+    - vendor/bin/php-cs-fixer --diff --dry-run -v fix Tests
     - vendor/bin/phpunit
