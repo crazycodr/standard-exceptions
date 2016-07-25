@@ -5,7 +5,7 @@ namespace Exceptions\IO\Filesystem;
 use Exceptions\Tag\AlreadyExistsException;
 
 /**
- * Use this exception when your code tries to create a local directory but it already exists
+ * Use this exception when your code tries to create a local directory but it already exists.
  *
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
