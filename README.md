@@ -58,6 +58,7 @@ Data exceptions pertain to all the validation aspect of data and the operations 
     - FormatException
     - IntegrityException
     - NotFoundException
+    - TooManyFoundException
     - TypeException
     - ValidationException
 
