@@ -17,6 +17,7 @@ class ExceptionsTest extends PHPUnit_Framework_TestCase
             [\Exceptions\Data\FormatException::class],
             [\Exceptions\Data\IntegrityException::class],
             [\Exceptions\Data\NotFoundException::class],
+            [\Exceptions\Data\FoundTooManyException::class],
             [\Exceptions\Data\TypeException::class],
             [\Exceptions\Data\ValidationException::class],
             [\Exceptions\Http\Client\BadRequestException::class],
