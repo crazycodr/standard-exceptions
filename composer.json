@@ -18,5 +18,16 @@
   "require-dev": {
     "phpunit/phpunit": "5.*",
     "fabpot/php-cs-fixer": "1.*"
+  },
+  "scripts":{
+    "test": "vendor/bin/phpunit",
+    "validate": [
+      "vendor/bin/php-cs-fixer --diff --dry-run -v fix Exceptions",
+      "vendor/bin/php-cs-fixer --diff --dry-run -v fix Tests"
+    ],
+    "fix": [
+      "vendor/bin/php-cs-fixer --diff -v fix Exceptions",
+      "vendor/bin/php-cs-fixer --diff -v fix Tests"
+    ]
   }
 }
