@@ -10,13 +10,11 @@ namespace Exceptions\Operation;
  *
  * It was created only for backwards compatibility with UnexpectedValueException.
  *
- * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
 class UnexpectedException extends OperationException
 {
-    public function __construct($message = 'Unexpected value returned by internal call', $code = 0, $previous = null)
-    {
-        parent::__construct($message, $code, $previous);
-    }
+    const MESSAGE = 'Unexpected value returned by internal call';
+    const CODE = 0;
 }

@@ -12,13 +12,11 @@ use Exceptions\Tag\NotFoundException;
  * specifically a collection/array like structure that lives in memory. When querying a filesystem, use the
  * filesystem exceptions, when querying a data source use the data exceptions, etc.
  *
- * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
 class KeyNotFoundException extends CollectionException implements NotFoundException
 {
-    public function __construct($message = 'Key not found in array/collection', $code = 0, $previous = null)
-    {
-        parent::__construct($message, $code, $previous);
-    }
+    const MESSAGE = 'Key not found in array/collection';
+    const CODE = 0;
 }

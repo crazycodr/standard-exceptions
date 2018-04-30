@@ -1,32 +1,34 @@
 {
   "name": "crazycodr/standard-exceptions",
-  "description": "This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interroperability between projects.",
+  "description": "This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interoperability between projects.",
   "license": "MIT",
   "authors": [
     {
-      "name": "Mathieu Dumoulin aka crazycodr",
-      "homepage": "http://www.crazycoders.net/",
+      "name": "Mathieu Dumoulin",
       "email": "thecrazycodr@gmail.com",
       "role": "Developer"
     }
   ],
   "autoload": {
     "psr-4": {
-      "Exceptions\\": "Exceptions/"
+      "Exceptions\\": "Exceptions/",
+      "Exceptions\\Helpers\\": "Helpers/"
     }
   },
   "require-dev": {
-    "phpunit/phpunit": "5.*",
-    "fabpot/php-cs-fixer": "1.*"
+    "FriendsOfPHP/php-cs-fixer": "^2.11",
+    "phpunit/phpunit": "^7.1"
   },
   "scripts":{
     "test": "vendor/bin/phpunit",
-    "validate": [
+    "lint": [
       "vendor/bin/php-cs-fixer --diff --dry-run -v fix Exceptions",
+      "vendor/bin/php-cs-fixer --diff --dry-run -v fix Helpers",
       "vendor/bin/php-cs-fixer --diff --dry-run -v fix Tests"
     ],
     "fix": [
       "vendor/bin/php-cs-fixer --diff -v fix Exceptions",
+      "vendor/bin/php-cs-fixer --diff -v fix Helpers",
       "vendor/bin/php-cs-fixer --diff -v fix Tests"
     ]
   }

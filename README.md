@@ -138,6 +138,25 @@ The `Tag\` namespace will contain different interfaces that help you convey the 
 - InvalidDataException
 - NotFoundException
 
+Defaults
+========
+All exceptions in this package implement the `DefaultsInterface` which defines two functions used to retrieve the default message and default error code of the exception.
+
+Creating exceptions from other exceptions
+=========================================
+All exceptions in this package implement the `FromException` trait which defines a simple `from($ex, $message, $code)` helper in each exception. You can use this static helper to create an exception from another one. It will automatically use the default message and default code if you don't provide one.
+
+```
+try {
+
+    // Something happens
+    
+} catch(\Exception $ex) {
+    throw new ForbiddenException::from($ex)
+}
+
+```
+
 Contribution notes
 ==================
 Don't hesitate to contribute to this package, propose new exceptions to be pushed to the standard package. Don't hesitate to trigger discussions in the project as we want the best possible standard exception library. Nothing is perfect, everyone has different views, this project is for everyone!

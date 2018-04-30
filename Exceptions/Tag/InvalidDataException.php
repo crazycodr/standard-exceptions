@@ -8,7 +8,7 @@ namespace Exceptions\Tag;
  * structure of data, the type of data, the validation rules or the integrity of data that might fail then you
  * need to catch this interface.
  *
- * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
 interface InvalidDataException
