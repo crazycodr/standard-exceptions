@@ -11,16 +11,11 @@ namespace Exceptions\Data;
  * and listen for. The controller on the other hand would catch this and throw a NotFoundException from the Http
  * namespace which would be converted to a standardized message in the front controller.
  *
- * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
 class FoundTooManyException extends DataException
 {
-    public function __construct(
-        $message = 'Found too many items in the data source.',
-        $code = 0,
-        $previous = null
-    ) {
-        parent::__construct($message, $code, $previous);
-    }
+    const MESSAGE = 'Found too many items in the data source.';
+    const CODE = 0;
 }

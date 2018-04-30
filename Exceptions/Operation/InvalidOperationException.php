@@ -10,16 +10,11 @@ namespace Exceptions\Operation;
  *
  * Use this exception sparingly and create sub exceptions of this exceptions to be more verbose when necessary.
  *
- * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
 class InvalidOperationException extends OperationException
 {
-    public function __construct(
-        $message = 'The attempted operation resulted in an unexpected/invalid state and cannot continue',
-        $code = 0,
-        $previous = null
-    ) {
-        parent::__construct($message, $code, $previous);
-    }
+    const MESSAGE = 'The attempted operation resulted in an unexpected/invalid state and cannot continue';
+    const CODE = 0;
 }

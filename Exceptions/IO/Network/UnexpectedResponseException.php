@@ -9,16 +9,11 @@ namespace Exceptions\IO\Network;
  * For example, establishing an FTP connection on a SFTP server will yield unexpected communication dialog. In
  * this event, an UnexpectedResponseException should be thrown.
  *
- * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
 class UnexpectedResponseException extends NetworkException
 {
-    public function __construct(
-        $message = 'Unexpected response received while communicating with remote host',
-        $code = 0,
-        $previous = null
-    ) {
-        parent::__construct($message, $code, $previous);
-    }
+    const MESSAGE = 'Unexpected response received while communicating with remote host';
+    const CODE = 0;
 }

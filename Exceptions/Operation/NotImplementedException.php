@@ -7,13 +7,11 @@ namespace Exceptions\Operation;
  * when implementing a lot of new functionality. Coupled to unit tests, you should not miss a NotImplementedException
  * but at least the message is more verbose.
  *
- * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
 class NotImplementedException extends OperationException
 {
-    public function __construct($message = 'Feature not implemented yet', $code = 0, $previous = null)
-    {
-        parent::__construct($message, $code, $previous);
-    }
+    const MESSAGE = 'Feature not implemented yet';
+    const CODE = 0;
 }

@@ -9,16 +9,11 @@ use Exceptions\Tag\InvalidDataException;
  * pertains to type validation. You received an int and were expecting an object but did not want to use type hinting
  * for flexibility? Throw this exception!
  *
- * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
 class TypeException extends DataException implements InvalidDataException
 {
-    public function __construct(
-        $message = 'Type of the data is incorrect',
-        $code = 0,
-        $previous = null
-    ) {
-        parent::__construct($message, $code, $previous);
-    }
+    const MESSAGE = 'Type of the data is incorrect';
+    const CODE = 0;
 }

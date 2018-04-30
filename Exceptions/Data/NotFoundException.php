@@ -13,16 +13,11 @@ use Exceptions\Tag\NotFoundException as NotFoundTag;
  * and listen for. The controller on the other hand would catch this and throw a NotFoundException from the Http
  * namespace which would be converted to a standardized message in the front controller.
  *
- * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
 class NotFoundException extends DataException implements NotFoundTag
 {
-    public function __construct(
-        $message = 'Data requested for cannot be found in the data source.',
-        $code = 0,
-        $previous = null
-    ) {
-        parent::__construct($message, $code, $previous);
-    }
+    const MESSAGE = 'Data requested for cannot be found in the data source.';
+    const CODE = 0;
 }

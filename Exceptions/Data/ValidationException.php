@@ -13,16 +13,11 @@ use Exceptions\Tag\InvalidDataException;
  * validation. If the references between objects and uniqueness or constraints of data fails on storage, it should be
  * an IntegrityException that is thrown back.
  *
- * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
+ * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
 class ValidationException extends DataException implements InvalidDataException
 {
-    public function __construct(
-        $message = 'Provided data does not conform to business model or basic domain validation rules',
-        $code = 0,
-        $previous = null
-    ) {
-        parent::__construct($message, $code, $previous);
-    }
+    const MESSAGE = 'Provided data does not conform to business model or basic domain validation rules';
+    const CODE = 0;
 }

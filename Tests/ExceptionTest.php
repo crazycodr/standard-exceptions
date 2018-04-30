@@ -1,6 +1,6 @@
 <?php
 
-class ExceptionsTest extends PHPUnit_Framework_TestCase
+class ExceptionsTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @return string[]
@@ -66,6 +66,32 @@ class ExceptionsTest extends PHPUnit_Framework_TestCase
         $exception = new $className('Test message passed', 92837, $previousException);
         $this->assertEquals('Test message passed', $exception->getMessage());
         $this->assertEquals(92837, $exception->getCode());
+        $this->assertSame($previousException, $exception->getPrevious());
+    }
+
+    /**
+     * @dataProvider providesConstructorTestClasses
+     *
+     * @param string $className Class to test that defaults are defined
+     */
+    public function testDefaults($className)
+    {
+        $this->assertNotEmpty($className::getDefaultMessage());
+        $this->assertNotNull($className::getDefaultCode());
+    }
+
+    /**
+     * @dataProvider providesConstructorTestClasses
+     *
+     * @param string $className Class to test fromException acts like expected
+     */
+    public function testFromException($className)
+    {
+        $previousException = new \Exception('test');
+        /** @var \Exception $exception */
+        $exception = $className::from($previousException);
+        $this->assertEquals($className::getDefaultMessage(), $exception->getMessage());
+        $this->assertEquals($className::getDefaultCode(), $exception->getCode());
         $this->assertSame($previousException, $exception->getPrevious());
     }
 
