@@ -85,6 +85,18 @@ class ExceptionsTest extends \PHPUnit\Framework\TestCase
     /**
      * @dataProvider providesConstructorTestClasses
      *
+     * @param string $className Class to test that defaults are defined
+     */
+    public function testDefaultConstructor($className)
+    {
+        $exception = new $className();
+        $this->assertEquals($exception->getMessage(), $className::getDefaultMessage());
+        $this->assertEquals($exception->getCode(), $className::getDefaultCode());
+    }
+
+    /**
+     * @dataProvider providesConstructorTestClasses
+     *
      * @param string $className Class to test fromException acts like expected
      */
     public function testFromException($className)

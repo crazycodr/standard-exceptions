@@ -2,6 +2,7 @@
 
 namespace Exceptions\Data;
 
+use Exceptions\Helpers\DefaultConstructorTrait;
 use Exceptions\Helpers\DefaultsInterface;
 use Exceptions\Helpers\FromException;
 
@@ -13,7 +14,7 @@ use Exceptions\Helpers\FromException;
  */
 abstract class DataException extends \RuntimeException implements DataExceptionInterface, DefaultsInterface
 {
-    use FromException;
+    use FromException, DefaultConstructorTrait;
 
     /**
      * {@inheritdoc}
