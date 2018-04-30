@@ -21,11 +21,6 @@ use Exceptions\Tag\OperationAbortedException;
  */
 class AuthorizationException extends OperationException implements OperationAbortedException
 {
-    public function __construct(
-        $message = 'Requested operation could not be executed because of a lack of permission',
-        $code = 0,
-        $previous = null
-    ) {
-        parent::__construct($message, $code, $previous);
-    }
+    const MESSAGE = 'Requested operation could not be executed because of a lack of permission';
+    const CODE = 0;
 }
