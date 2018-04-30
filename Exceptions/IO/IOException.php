@@ -2,6 +2,7 @@
 
 namespace Exceptions\IO;
 
+use Exceptions\Helpers\DefaultConstructorTrait;
 use Exceptions\Helpers\DefaultsInterface;
 use Exceptions\Helpers\FromException;
 
@@ -13,7 +14,7 @@ use Exceptions\Helpers\FromException;
  */
 abstract class IOException extends \RuntimeException implements IOExceptionInterface, DefaultsInterface
 {
-    use FromException;
+    use FromException, DefaultConstructorTrait;
 
     /**
      * {@inheritdoc}

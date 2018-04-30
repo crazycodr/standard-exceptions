@@ -2,6 +2,7 @@
 
 namespace Exceptions\Http;
 
+use Exceptions\Helpers\DefaultConstructorTrait;
 use Exceptions\Helpers\DefaultsInterface;
 use Exceptions\Helpers\FromException;
 
@@ -16,7 +17,7 @@ use Exceptions\Helpers\FromException;
  */
 abstract class HttpException extends \RuntimeException implements HttpExceptionInterface, DefaultsInterface
 {
-    use FromException;
+    use FromException, DefaultConstructorTrait;
 
     /**
      * {@inheritdoc}
