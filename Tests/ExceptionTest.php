@@ -51,6 +51,8 @@ class ExceptionsTest extends \PHPUnit\Framework\TestCase
             [\Exceptions\Operation\InvalidOperationException::class],
             [\Exceptions\Operation\NotImplementedException::class],
             [\Exceptions\Operation\UnexpectedException::class],
+            [\Exceptions\Operation\AuthorizationException::class],
+            [\Exceptions\Operation\ForbiddenException::class],
         ];
     }
 
