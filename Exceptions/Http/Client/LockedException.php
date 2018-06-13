@@ -3,8 +3,8 @@
 namespace Exceptions\Http\Client;
 
 /**
- * The server understood the request, but is refusing to fulfill it. Authorization will not help and the request
- * SHOULD NOT be repeated.
+ * The request was received but the server refused to fulfill it because it would affect/access a resource that is
+ * locked by another process somewhere.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -12,15 +12,15 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ForbiddenException extends ClientErrorException
+class LockedException extends ClientErrorException
 {
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 403;
+    const HTTP_CODE = 423;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Forbidden: The server understood the request, but is refusing to fulfill it. Authorization will not help and the request should not be repeated.';
+    const HTTP_MESSAGE = 'Locked: The request cannot be completed because the resource you are trying to access is locked by another process.';
 }

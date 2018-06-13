@@ -3,8 +3,7 @@
 namespace Exceptions\Http\Client;
 
 /**
- * The server understood the request, but is refusing to fulfill it. Authorization will not help and the request
- * SHOULD NOT be repeated.
+ * The request requires user to pay to access it.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -12,15 +11,15 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ForbiddenException extends ClientErrorException
+class PaymentRequiredException extends ClientErrorException
 {
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 403;
+    const HTTP_CODE = 402;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Forbidden: The server understood the request, but is refusing to fulfill it. Authorization will not help and the request should not be repeated.';
+    const HTTP_MESSAGE = 'Payment Required: The resource you are accessing is not available based on your current permission but could be if you paid and extra fee. This can be related to plan limitations or just pay to use content.';
 }

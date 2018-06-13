@@ -1,10 +1,9 @@
 <?php
 
-namespace Exceptions\Http\Client;
+namespace Exceptions\Http\Server;
 
 /**
- * The server understood the request, but is refusing to fulfill it. Authorization will not help and the request
- * SHOULD NOT be repeated.
+ * This server is acting as a gateway or proxy to another server but received an invalid response.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -12,15 +11,15 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ForbiddenException extends ClientErrorException
+class BadGatewayException extends ServerErrorException
 {
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 403;
+    const HTTP_CODE = 502;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Forbidden: The server understood the request, but is refusing to fulfill it. Authorization will not help and the request should not be repeated.';
+    const HTTP_MESSAGE = 'Bad Gateway: The server cannot complete the request because a downstream process failed to respond properly.';
 }
