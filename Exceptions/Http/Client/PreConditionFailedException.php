@@ -3,8 +3,7 @@
 namespace Exceptions\Http\Client;
 
 /**
- * The server understood the request, but is refusing to fulfill it. Authorization will not help and the request
- * SHOULD NOT be repeated.
+ * The request could not be completed because the preconditions specified by the requester cannot be met by the server.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -12,15 +11,15 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ForbiddenException extends ClientErrorException
+class PreConditionFailedException extends ClientErrorException
 {
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 403;
+    const HTTP_CODE = 412;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Forbidden: The server understood the request, but is refusing to fulfill it. Authorization will not help and the request should not be repeated.';
+    const HTTP_MESSAGE = 'Pre-condition Failed: The request cannot be completed because the server cannot provide content based on the pre-conditions you set.';
 }

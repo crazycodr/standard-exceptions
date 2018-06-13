@@ -22,5 +22,5 @@ class BadRequestException extends ClientErrorException
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Bad Request: The request could not be understood by the server due to malformed syntax. The client SHOULD NOT repeat the request without modifications.';
+    const HTTP_MESSAGE = 'Bad Request: The request could not be understood by the server due to malformed syntax. The client should not repeat the request without modifications.';
 }
