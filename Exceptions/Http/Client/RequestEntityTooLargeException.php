@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\InvalidDataTag;
+
 /**
  * This is the old version of the new PayloadTooLargeException. Consider throwing the newer one instead.
  *
@@ -13,6 +15,15 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class RequestEntityTooLargeException extends PayloadTooLargeException
+class RequestEntityTooLargeException extends ClientErrorException implements InvalidDataTag
 {
+    /**
+     * Returns the HTTP error code for that exception.
+     */
+    const HTTP_CODE = 413;
+    
+    /**
+     * Returns the HTTP error message for that exception.
+     */
+    const HTTP_MESSAGE = 'Payload Too Large: The server is refusing to process a request because the payload is larger than the server is willing or able to process.';
 }

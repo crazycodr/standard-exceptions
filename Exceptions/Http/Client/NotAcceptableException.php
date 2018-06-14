@@ -2,7 +2,7 @@
 
 namespace Exceptions\Http\Client;
 
-use Exceptions\Tag\InvalidDataException;
+use Exceptions\Tag\InvalidDataTag;
 
 /**
  * The resource identified by the request is only capable of generating response entities which have content
@@ -14,7 +14,7 @@ use Exceptions\Tag\InvalidDataException;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class NotAcceptableException extends ClientErrorException implements InvalidDataException
+class NotAcceptableException extends ClientErrorException implements InvalidDataTag
 {
     /**
      * Returns the HTTP error code for that exception.

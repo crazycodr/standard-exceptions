@@ -13,6 +13,6 @@ namespace Exceptions\Tag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface InvalidDataException extends InvalidDataTag
+interface InvalidDataException
 {
 }

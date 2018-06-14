@@ -2,8 +2,6 @@
 
 namespace Exceptions\Http\Client;
 
-use Exceptions\Tag\InvalidDataTag;
-
 /**
  * The server is refusing to process a request because the payload is larger than the server is willing or able to
  * process.
@@ -14,15 +12,6 @@ use Exceptions\Tag\InvalidDataTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class PayloadTooLargeException extends ClientErrorException implements InvalidDataTag
+class PayloadTooLargeException extends RequestEntityTooLargeException
 {
-    /**
-     * Returns the HTTP error code for that exception.
-     */
-    const HTTP_CODE = 413;
-
-    /**
-     * Returns the HTTP error message for that exception.
-     */
-    const HTTP_MESSAGE = 'Payload Too Large: The server is refusing to process a request because the payload is larger than the server is willing or able to process.';
 }

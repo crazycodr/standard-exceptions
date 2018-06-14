@@ -3,7 +3,7 @@
 namespace Exceptions\Operation;
 
 use Exceptions\Tag\AbortedTag;
-use Exceptions\Tag\ForbiddenTag as ForbiddenTag;
+use Exceptions\Tag\ForbiddenTag;
 
 /**
  * The user trying to execute an operation is not allowed to perform the operation expected. This results in an

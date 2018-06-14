@@ -10,6 +10,6 @@ namespace Exceptions\Tag;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface AbortedTag
+interface AbortedTag extends OperationAbortedException
 {
 }

@@ -2,8 +2,6 @@
 
 namespace Exceptions\Data;
 
-use Exceptions\Tag\AbortedTag;
-
 /**
  * Use this exception when the data requested by your code was found but it found actually less than expected. A
  * good use for this is when you are looking for a specific set of items such as 10 items but you end up finding only
@@ -16,7 +14,7 @@ use Exceptions\Tag\AbortedTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FoundTooLittleException extends DataException implements AbortedTag
+class FoundTooLittleException extends DataException
 {
     const MESSAGE = 'Found too little items in the data source.';
     const CODE = 0;

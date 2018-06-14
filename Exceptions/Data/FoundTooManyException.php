@@ -2,8 +2,6 @@
 
 namespace Exceptions\Data;
 
-use Exceptions\Tag\AbortedTag;
-
 /**
  * Use this exception when the data requested by your code was found and it found actually more than expected. A good
  * use for this is the findSingle usual function we find in many library and orm. If you have more than 1 record
@@ -16,7 +14,7 @@ use Exceptions\Tag\AbortedTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FoundTooManyException extends DataException implements AbortedTag
+class FoundTooManyException extends DataException
 {
     const MESSAGE = 'Found too many items in the data source.';
     const CODE = 0;
