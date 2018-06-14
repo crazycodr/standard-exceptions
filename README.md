@@ -15,7 +15,7 @@ $ composer require crazycodr/standard-exceptions
 And then just throw them
 
 ```php
-throw new \Exceptions\Data\NotFoundException();
+throw new \Exceptions\Data\NotFoundTag();
 ```
 
 Upgrading from Version1 to Version2

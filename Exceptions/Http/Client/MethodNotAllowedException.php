@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\InvalidDataTag;
+
 /**
  * The method specified in the Request-Line is not allowed for the resource identified by the Request-URI.
  *
@@ -11,7 +13,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class MethodNotAllowedException extends ClientErrorException
+class MethodNotAllowedException extends ClientErrorException implements InvalidDataTag
 {
     /**
      * Returns the HTTP error code for that exception.

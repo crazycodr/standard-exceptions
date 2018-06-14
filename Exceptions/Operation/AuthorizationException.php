@@ -2,7 +2,8 @@
 
 namespace Exceptions\Operation;
 
-use Exceptions\Tag\OperationAbortedException;
+use Exceptions\Tag\AbortedTag;
+use Exceptions\Tag\UnauthorizedTag;
 
 /**
  * The user trying to execute an operation is not authorized to perform the operation expected. This results in an
@@ -19,7 +20,7 @@ use Exceptions\Tag\OperationAbortedException;
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class AuthorizationException extends OperationException implements OperationAbortedException
+class AuthorizationException extends OperationException implements AbortedTag, UnauthorizedTag
 {
     const MESSAGE = 'Requested operation could not be executed because of a lack of permission';
     const CODE = 0;

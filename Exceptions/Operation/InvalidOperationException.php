@@ -2,6 +2,8 @@
 
 namespace Exceptions\Operation;
 
+use Exceptions\Tag\InvalidDataException;
+
 /**
  * Use this exception in the event something went wrong with the state of the application and you cannot allow
  * executing this operation because of that state. For example, processing a report with no report specified would
@@ -13,7 +15,7 @@ namespace Exceptions\Operation;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class InvalidOperationException extends OperationException
+class InvalidOperationException extends OperationException implements InvalidDataException
 {
     const MESSAGE = 'The attempted operation resulted in an unexpected/invalid state and cannot continue';
     const CODE = 0;

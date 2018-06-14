@@ -7,11 +7,9 @@ namespace Exceptions\Tag;
  * different namespaces. If you want to catch a potential error about something not being found, you would try to
  * catch any exception that implements this interface.
  *
- * @deprecated 3.0 in favor of NotFoundTag
- * @see NotFoundTag
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface NotFoundException extends NotFoundTag
+interface ForbiddenTag
 {
 }

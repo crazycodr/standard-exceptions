@@ -2,6 +2,8 @@
 
 namespace Exceptions\Collection;
 
+use Exceptions\Tag\AbortedTag;
+
 /**
  * Use this exception when an operation on a collection that is locked/read-only tries to modify the collection of
  * items.
@@ -9,7 +11,7 @@ namespace Exceptions\Collection;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ReadOnlyArrayException extends CollectionException
+class ReadOnlyArrayException extends CollectionException implements AbortedTag
 {
     const MESSAGE = 'Array/Collection is read-only, you cannot alter it';
     const CODE = 0;

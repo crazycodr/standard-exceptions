@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\InvalidDataTag;
+
 /**
  * The request could not be completed because the underlying process requires you to provide a length/range on the
  * request.
@@ -12,7 +14,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class LengthRequiredException extends ClientErrorException
+class LengthRequiredException extends ClientErrorException implements InvalidDataTag
 {
     /**
      * Returns the HTTP error code for that exception.

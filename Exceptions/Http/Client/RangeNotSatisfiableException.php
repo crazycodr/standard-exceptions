@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\InvalidDataTag;
+
 /**
  * The server cannot process the request properly because the requested length/range cannot be satisfied due to
  * missing data.
@@ -12,7 +14,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class RangeNotSatisfiableException extends ClientErrorException
+class RangeNotSatisfiableException extends ClientErrorException implements InvalidDataTag
 {
     /**
      * Returns the HTTP error code for that exception.

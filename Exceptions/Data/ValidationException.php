@@ -2,7 +2,7 @@
 
 namespace Exceptions\Data;
 
-use Exceptions\Tag\InvalidDataException;
+use Exceptions\Tag\InvalidDataTag;
 
 /**
  * The data provided to your code is not following expected validations. These validations should be considered
@@ -16,7 +16,7 @@ use Exceptions\Tag\InvalidDataException;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ValidationException extends DataException implements InvalidDataException
+class ValidationException extends DataException implements InvalidDataTag
 {
     const MESSAGE = 'Provided data does not conform to business model or basic domain validation rules';
     const CODE = 0;

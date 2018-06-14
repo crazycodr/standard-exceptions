@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\InvalidDataTag;
+
 /**
  * The request cannot be handled because you expected a pre-condition header field to be present and it was not.
  *
@@ -11,7 +13,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class PreConditionRequiredException extends ClientErrorException
+class PreConditionRequiredException extends ClientErrorException implements InvalidDataTag
 {
     /**
      * Returns the HTTP error code for that exception.

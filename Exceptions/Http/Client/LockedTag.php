@@ -2,8 +2,11 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\ForbiddenTag;
+
 /**
- * The request requires user to pay to access it.
+ * The request was received but the server refused to fulfill it because it would affect/access a resource that is
+ * locked by another process somewhere.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -11,15 +14,15 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class PaymentRequiredException extends ClientErrorException
+class LockedTag extends ClientErrorException implements ForbiddenTag
 {
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 402;
+    const HTTP_CODE = 423;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Payment Required: The resource you are accessing is not available based on your current permission but could be if you paid and extra fee. This can be related to plan limitations or just pay to use content.';
+    const HTTP_MESSAGE = 'Locked: The request cannot be completed because the resource you are trying to access is locked by another process.';
 }

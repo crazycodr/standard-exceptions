@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\InvalidDataException;
+
 /**
  * The resource identified by the request is only capable of generating response entities which have content
  * characteristics not acceptable according to the accept headers sent in the request.
@@ -12,7 +14,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class NotAcceptableException extends ClientErrorException
+class NotAcceptableException extends ClientErrorException implements InvalidDataException
 {
     /**
      * Returns the HTTP error code for that exception.

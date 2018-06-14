@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\UnauthorizedTag;
+
 /**
  * The request requires user authentication.
  *
@@ -11,7 +13,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnauthorizedException extends ClientErrorException
+class UnauthorizedException extends ClientErrorException implements UnauthorizedTag
 {
     /**
      * Returns the HTTP error code for that exception.

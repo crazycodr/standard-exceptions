@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\ForbiddenTag;
+
 /**
  * The request could not be satisfied because a legal restriction was made on that resource. This should be mostly
  * used against resources that have been blocked for a legal demand but you can use it for anything that would cause
@@ -13,7 +15,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnavailableForLegalReasonsException extends ClientErrorException
+class UnavailableForLegalReasonsTag extends ClientErrorException implements ForbiddenTag
 {
     /**
      * Returns the HTTP error code for that exception.

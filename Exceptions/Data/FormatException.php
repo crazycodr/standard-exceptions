@@ -2,7 +2,7 @@
 
 namespace Exceptions\Data;
 
-use Exceptions\Tag\InvalidDataException;
+use Exceptions\Tag\InvalidDataTag;
 
 /**
  * Use this exception when the format of data passed to your code does not fit expected format. For example:.
@@ -13,7 +13,7 @@ use Exceptions\Tag\InvalidDataException;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FormatException extends DataException implements InvalidDataException
+class FormatException extends DataException implements InvalidDataTag
 {
     const MESSAGE = 'Data provided is not of the expected format or cannot be parsed correctly.';
     const CODE = 0;

@@ -2,6 +2,8 @@
 
 namespace Exceptions\IO\Network;
 
+use Exceptions\Tag\NotFoundTag;
+
 /**
  * Use this exception when an IO operation tries to reach a remote host that cannot be resolved due to DNS or IP
  * issues.
@@ -9,7 +11,7 @@ namespace Exceptions\IO\Network;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnknownHostException extends NetworkException
+class UnknownHostException extends NetworkException implements NotFoundTag
 {
     const MESSAGE = 'The specified resource\'s hostname could not be resolved';
     const CODE = 0;

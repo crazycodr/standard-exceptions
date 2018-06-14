@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\NotFoundTag;
+
 /**
  * The request could not be completed because the resource you are requesting is now gone. It might have been deleted
  * or moved somewhere else.
@@ -14,7 +16,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class GoneException extends ClientErrorException
+class GoneException extends ClientErrorException implements NotFoundTag
 {
     /**
      * Returns the HTTP error code for that exception.

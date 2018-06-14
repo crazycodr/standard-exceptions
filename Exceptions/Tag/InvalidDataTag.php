@@ -8,11 +8,9 @@ namespace Exceptions\Tag;
  * structure of data, the type of data, the validation rules or the integrity of data that might fail then you
  * need to catch this interface.
  *
- * @deprecated 3.0 in favor of InvalidDataTag
- * @see InvalidDataTag
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface InvalidDataException extends InvalidDataTag
+interface InvalidDataTag
 {
 }
