@@ -11,7 +11,7 @@ use Exceptions\Tag\ForbiddenTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FileNotWritableTag extends FilesystemException implements ForbiddenTag
+class FileNotWritableException extends FilesystemException implements ForbiddenTag
 {
     const MESSAGE = 'Cannot write to specified file';
     const CODE = 0;

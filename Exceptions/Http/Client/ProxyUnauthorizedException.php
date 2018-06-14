@@ -13,7 +13,7 @@ use Exceptions\Tag\UnauthorizedTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ProxyUnauthorizedTag extends ClientErrorException implements UnauthorizedTag
+class ProxyUnauthorizedException extends ClientErrorException implements UnauthorizedTag
 {
     /**
      * Returns the HTTP error code for that exception.

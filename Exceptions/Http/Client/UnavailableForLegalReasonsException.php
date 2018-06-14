@@ -15,7 +15,7 @@ use Exceptions\Tag\ForbiddenTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnavailableForLegalReasonsTag extends ClientErrorException implements ForbiddenTag
+class UnavailableForLegalReasonsException extends ClientErrorException implements ForbiddenTag
 {
     /**
      * Returns the HTTP error code for that exception.

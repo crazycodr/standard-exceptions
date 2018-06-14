@@ -5,8 +5,8 @@ namespace Exceptions\Http\Client;
 use Exceptions\Tag\ForbiddenTag;
 
 /**
- * The request was received but the server refused to fulfill it because it would affect/access a resource that is
- * locked by another process somewhere.
+ * The request could not be completed because the requester is making too many requests at the server. Use this
+ * exception if you are throttling users based on some value such as a leaky bucket algorithm.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -14,15 +14,15 @@ use Exceptions\Tag\ForbiddenTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class LockedTag extends ClientErrorException implements ForbiddenTag
+class TooManyRequestsException extends ClientErrorException implements ForbiddenTag
 {
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 423;
-
+    const HTTP_CODE = 429;
+    
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Locked: The request cannot be completed because the resource you are trying to access is locked by another process.';
+    const HTTP_MESSAGE = 'Too Many Requests: The request you are making cannot be completed because you are making too many requests to this system. Please try again later.';
 }

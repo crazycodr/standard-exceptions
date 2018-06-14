@@ -13,7 +13,7 @@ use Exceptions\Tag\ForbiddenTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class PaymentRequiredTag extends ClientErrorException implements ForbiddenTag
+class PaymentRequiredException extends ClientErrorException implements ForbiddenTag
 {
     /**
      * Returns the HTTP error code for that exception.

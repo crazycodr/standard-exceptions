@@ -10,7 +10,7 @@ use Exceptions\Tag\ForbiddenTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FileNotReadableTag extends FilesystemException implements ForbiddenTag
+class FileNotReadableException extends FilesystemException implements ForbiddenTag
 {
     const MESSAGE = 'Cannot read from specified file';
     const CODE = 0;

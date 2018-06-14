@@ -11,7 +11,7 @@ use Exceptions\Tag\ForbiddenTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ConnectionRefusedTag extends NetworkException implements ForbiddenTag
+class ConnectionRefusedException extends NetworkException implements ForbiddenTag
 {
     const MESSAGE = 'Connection to remote host was refused';
     const CODE = 0;
