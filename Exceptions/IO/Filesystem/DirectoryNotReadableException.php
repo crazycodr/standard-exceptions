@@ -11,7 +11,7 @@ use Exceptions\Tag\ForbiddenTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class DirectoryNotReadableTag extends FilesystemException implements ForbiddenTag
+class DirectoryNotReadableException extends FilesystemException implements ForbiddenTag
 {
     const MESSAGE = 'Cannot read from specified directory';
     const CODE = 0;

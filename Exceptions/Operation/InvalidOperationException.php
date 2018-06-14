@@ -2,7 +2,7 @@
 
 namespace Exceptions\Operation;
 
-use Exceptions\Tag\InvalidDataException;
+use Exceptions\Tag\InvalidDataTag;
 
 /**
  * Use this exception in the event something went wrong with the state of the application and you cannot allow
@@ -15,7 +15,7 @@ use Exceptions\Tag\InvalidDataException;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class InvalidOperationException extends OperationException implements InvalidDataException
+class InvalidOperationException extends OperationException implements InvalidDataTag
 {
     const MESSAGE = 'The attempted operation resulted in an unexpected/invalid state and cannot continue';
     const CODE = 0;
