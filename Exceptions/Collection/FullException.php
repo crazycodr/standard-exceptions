@@ -3,8 +3,8 @@
 namespace Exceptions\Collection;
 
 /**
- * Use this exception when an operation on a collection cannot be achieved because the array has already reached it's
- * limit and cannot accept more data.
+ * Use this exception when an operation on a collection cannot be achieved because the collection has already reached
+ * it's limit and cannot accept more data.
  *
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT

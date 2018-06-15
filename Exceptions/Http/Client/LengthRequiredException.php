@@ -5,8 +5,8 @@ namespace Exceptions\Http\Client;
 use Exceptions\Tag\InvalidDataTag;
 
 /**
- * The request could not be completed because the underlying process requires you to provide a length/range on the
- * request.
+ * The request could not be completed because the underlying process requires you to provide a length detailing the
+ * size/length of the request payload/content body.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
@@ -24,5 +24,5 @@ class LengthRequiredException extends ClientErrorException implements InvalidDat
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Length Required: The request cannot be completed because the resource you are requesting for can only be satisfied if you provide the length/range you want to get access to.';
+    const HTTP_MESSAGE = 'Length Required: The request cannot be completed because the resource you are requesting for can only be satisfied if you provide the length of the request\'s payload/body.';
 }

@@ -6,7 +6,7 @@ use Exceptions\Tag\ForbiddenTag;
 
 /**
  * The server understood the request, but is refusing to fulfill it. Authorization will not help and the request
- * SHOULD NOT be repeated.
+ * should not be repeated.
  *
  * Never throw an exception at the user, always catch it can synthesize it to a correct html response with
  * appropriate headers. You can use the constants and accessor to get HTML values to return.
