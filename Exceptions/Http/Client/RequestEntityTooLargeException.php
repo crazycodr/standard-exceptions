@@ -25,5 +25,5 @@ class RequestEntityTooLargeException extends ClientErrorException implements Inv
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Payload Too Large: The server is refusing to process a request because the payload is larger than the server is willing or able to process.';
+    const HTTP_MESSAGE = 'Request Entity Too Large: The server is refusing to process a request because the message is larger than the server is willing or able to process.';
 }
