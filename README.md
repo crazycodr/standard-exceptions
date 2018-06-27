@@ -24,9 +24,7 @@ Or catch them:
 
 ```php
 try {
-
 } catch(\Exceptions\Data\NotFoundExceptions $ex){
-   
 }
 ```
 
