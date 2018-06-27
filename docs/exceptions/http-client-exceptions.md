@@ -17,7 +17,7 @@ Base interfaces: `\Exceptions\Http\HttpExceptionInterface` and `\Exceptions\Http
 
 Exceptions:
 
-> **IMPORTANT NOTE**: Because these map directly to HTTP status codes, they are sorted by the HTTP status code instead of alphabetically but the class name is only a name and does not incorporate the status code in it.
+> **IMPORTANT NOTE**: Because these map directly to HTTP status codes, they are sorted by the HTTP status code instead of alphabetically but the class name is only the official status code name and does not incorporate the status code in it.
 
 * 400: BadRequestException
 * 401: UnauthorizedException
