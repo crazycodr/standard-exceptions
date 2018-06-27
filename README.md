@@ -26,7 +26,7 @@ Or catch them:
 try {
 
 } catch(\Exceptions\Data\NotFoundExceptions $ex){
-   
+
 }
 ```
 
@@ -58,5 +58,6 @@ Don't hesitate to contribute to this package by:
 * Proposing new exceptions or namespaces
 * Fix documentation issues or bugs by opening PRs
 * Using it and spreading it's use throughout projects and libraries
+
 
 If you want to contribute to the code base go to the [Contributing page](docs/contribute.md).
