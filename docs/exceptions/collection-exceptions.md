@@ -41,7 +41,7 @@ Tags: `\Exception\Tag\ExistsTag`
 
 Use this exception when an operation on a collection tries to retrieve an element using a key that does not exist in the collection of items.
 
-Tags: `NotFoundTag`
+Tags: `\Exception\Tag\NotFoundTag`
 
 > **IMPORTANT NOTE**: Be careful not to throw this exception when data from a data source cannot be found unless that data source is specifically a collection/array like structure that lives in memory. When querying a filesystem, use the filesystem exceptions, when querying a data source use the data exceptions, etc.
 

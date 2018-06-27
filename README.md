@@ -25,8 +25,15 @@ Or catch them:
 ```php
 try {
 
+<<<<<<< HEAD
 } catch(\Exceptions\Data\NotFoundExceptions $ex){
    
+=======
+    // Something happens
+    
+} catch(\Exception $ex) {
+    throw ForbiddenException::from($ex)
+>>>>>>> eb42d64d31c34a07b90fc2c0922bad9c286efa6a
 }
 ```
 
@@ -40,6 +47,7 @@ try {
 }
 ```
 
+<<<<<<< HEAD
 For more information, visit the [Getting Started Page](docs/getting-started.md) or for even more information, you get read the whole [Documentation](docs/index.md).
 
 If you need help upgrading for the old version 1 to this version, see the [Upgrading from Version 1 to Version 2](docs/upgrade-1-2.md) documentation page.
@@ -60,3 +68,8 @@ Don't hesitate to contribute to this package by:
 * Using it and spreading it's use throughout projects and libraries
 
 If you want to contribute to the code base go to the [Contributing page](docs/contribute.md).
+=======
+Contribution notes
+==================
+Don't hesitate to contribute to this package, propose new exceptions to be pushed to the standard package. Don't hesitate to trigger discussions in the project as we want the best possible standard exception library. Nothing is perfect, everyone has different views, this project is for everyone!
+>>>>>>> eb42d64d31c34a07b90fc2c0922bad9c286efa6a
