@@ -152,7 +152,7 @@ try {
     // Something happens
     
 } catch(\Exception $ex) {
-    throw new ForbiddenException::from($ex)
+    throw ForbiddenException::from($ex)
 }
 
 ```
