@@ -7,6 +7,7 @@ namespace Exceptions\Tag;
  * different namespaces. If you want to catch a potential error about something not being completed for different
  * reasons, then you would want to catch any exception that implements this interface.
  *
+ * @deprecated 3.0 in favor of AbortedTag
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */

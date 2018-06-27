@@ -2,7 +2,7 @@
 
 namespace Exceptions\Data;
 
-use Exceptions\Tag\NotFoundException as NotFoundTag;
+use Exceptions\Tag\NotFoundTag;
 
 /**
  * Use this exception when the data requested by your code cannot be found. In most scenarios, this is the equivalent

@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\ForbiddenTag;
+
 /**
  * The request was received but the server refused to fulfill it because it would affect/access a resource that is
  * locked by another process somewhere.
@@ -12,7 +14,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class LockedException extends ClientErrorException
+class LockedException extends ClientErrorException implements ForbiddenTag
 {
     /**
      * Returns the HTTP error code for that exception.

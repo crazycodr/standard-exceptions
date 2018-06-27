@@ -2,7 +2,7 @@
 
 namespace Exceptions\Collection;
 
-use Exceptions\Tag\NotFoundException;
+use Exceptions\Tag\NotFoundTag;
 
 /**
  * Use this exception when an operation on a collection tries to retrieve an element using a key that does not exist in
@@ -15,7 +15,7 @@ use Exceptions\Tag\NotFoundException;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class KeyNotFoundException extends CollectionException implements NotFoundException
+class KeyNotFoundException extends CollectionException implements NotFoundTag
 {
     const MESSAGE = 'Key not found in array/collection';
     const CODE = 0;

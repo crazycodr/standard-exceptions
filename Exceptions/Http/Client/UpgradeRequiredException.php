@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\InvalidDataTag;
+
 /**
  * The request was received but the server refused to fulfill it because it doesn't use the latest communication
  * protocol. This should be used when you are expecting a certain request structure that is now out of date and the
@@ -14,7 +16,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UpgradeRequiredException extends ClientErrorException
+class UpgradeRequiredException extends ClientErrorException implements InvalidDataTag
 {
     /**
      * Returns the HTTP error code for that exception.

@@ -2,7 +2,7 @@
 
 namespace Exceptions\Data;
 
-use Exceptions\Tag\InvalidDataException;
+use Exceptions\Tag\InvalidDataTag;
 
 /**
  * The data provided to your code is not of the right type. This is part of the validation group of exceptions but
@@ -12,7 +12,7 @@ use Exceptions\Tag\InvalidDataException;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class TypeException extends DataException implements InvalidDataException
+class TypeException extends DataException implements InvalidDataTag
 {
     const MESSAGE = 'Type of the data is incorrect';
     const CODE = 0;

@@ -12,13 +12,8 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class PayloadTooLargeException extends ClientErrorException
+class PayloadTooLargeException extends RequestEntityTooLargeException
 {
-    /**
-     * Returns the HTTP error code for that exception.
-     */
-    const HTTP_CODE = 413;
-
     /**
      * Returns the HTTP error message for that exception.
      */

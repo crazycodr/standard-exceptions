@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\ForbiddenTag;
+
 /**
  * The request could not be completed because the requester is making too many requests at the server. Use this
  * exception if you are throttling users based on some value such as a leaky bucket algorithm.
@@ -12,7 +14,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class TooManyRequestsException extends ClientErrorException
+class TooManyRequestsException extends ClientErrorException implements ForbiddenTag
 {
     /**
      * Returns the HTTP error code for that exception.

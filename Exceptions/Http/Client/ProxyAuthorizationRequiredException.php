@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\UnauthorizedTag;
+
 /**
  * The resource cannot be reached because of proxy authentication failures.
  *
@@ -11,7 +13,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ProxyAuthorizationRequiredException extends ClientErrorException
+class ProxyAuthorizationRequiredException extends ClientErrorException implements UnauthorizedTag
 {
     /**
      * Returns the HTTP error code for that exception.

@@ -2,6 +2,8 @@
 
 namespace Exceptions\Http\Client;
 
+use Exceptions\Tag\InvalidDataTag;
+
 /**
  * The request could not be completed because the request specified contains either too many header fields or one
  * field or the totality of the header fields contain too much data. This exception is related to
@@ -13,7 +15,7 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class RequestHeaderFieldsTooLargeException extends ClientErrorException
+class RequestHeaderFieldsTooLargeException extends ClientErrorException implements InvalidDataTag
 {
     /**
      * Returns the HTTP error code for that exception.

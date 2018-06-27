@@ -2,6 +2,8 @@
 
 namespace Exceptions\Operation;
 
+use Exceptions\Tag\AbortedTag;
+
 /**
  * Use this exception in the event that an operation that expected a certain result from a sub function/method call
  * but did not get what i expected. This exception is the reversed validation exception. Instead of validating the
@@ -13,7 +15,7 @@ namespace Exceptions\Operation;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnexpectedException extends OperationException
+class UnexpectedException extends OperationException implements AbortedTag
 {
     const MESSAGE = 'Unexpected value returned by internal call';
     const CODE = 0;

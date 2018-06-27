@@ -1,14 +1,10 @@
-[![Latest Stable Version](https://poser.pugx.org/crazycodr/standard-exceptions/version.png)](https://packagist.org/packages/crazycodr/standard-exceptions) [![Total Downloads](https://poser.pugx.org/crazycodr/standard-exceptions/downloads.png)](https://packagist.org/packages/crazycodr/standard-exceptions) [![Build Status](https://travis-ci.org/crazycodr/standard-exceptions.png?branch=master)](https://travis-ci.org/crazycodr/standard-exceptions)
+# Changes between version 1 and version 2
 
-Standard Exception Package
-==========================
-This project is aimed at providing additional standard exceptions to php. Many exceptions that are missing from the SPL are constantly being reproduced in different projects. By providing a package of high-quality, well organised exceptions, it will, in the long run, increase interroperability between projects and libraries.
+Below is a list of changes between version 1 and version 2. You can refer to this list to know what you should be replacing with what. This is a comprehensive list of all the changes. 
 
-Changes between version 1 and version 2
-=======================================
+Considering this library is not a features library, there is no difference in the usage pattern, there are just different exceptions to thrown or namespaces to use.
 
-Namespace rename or change
---------------------------
+## Namespace rename or change
 | Old | New |
 | --- | --- |
 | StandardExceptions | Exceptions |
@@ -19,18 +15,16 @@ Namespace rename or change
 | OperationExceptions | Operation |
 | ValidationExceptions | Data |
 
-Namespace that have disapeared
-------------------------------
+## Namespace that have disapeared
 - LogicExceptions
 
-New namespaces
---------------
+## New namespaces
 - Http\Client
 - Http\Server
 - IO\Filesystem
 - IO\Network
 
-Exceptions that have moved or renamed
+## Exceptions that have moved or renamed
 -------------------------------------
 | Old | New |
 | --- | --- |
@@ -58,8 +52,7 @@ Exceptions that have moved or renamed
 | OperationExceptions\NotImplementedYetException | Operation\NotImplementedException |
 | OperationExceptions\UnexpectedReturnValueException | Operation\UnexpectedException |
 
-Exceptions that have disapeared
--------------------------------
+## Exceptions that have disapeared
 - ArrayExceptions\ArrayUnderflowException (Was deprecated, use Collection\EmptyException instead)
 - ArrayExceptions\IndexNotFoundException (Was deprecated, use Collection\KeyNotFoundException instead)
 - ArrayExceptions\InvalidKeyException (Changed for Data\FormatException)
@@ -75,8 +68,7 @@ Exceptions that have disapeared
     - Data\TypeException
     - Data\ValidationException
 
-New exceptions
---------------
+## New exceptions
 - Data\FormatException
 - Data\IntegrityException
 - Data\NotFoundException

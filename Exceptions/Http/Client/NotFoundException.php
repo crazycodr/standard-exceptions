@@ -2,7 +2,7 @@
 
 namespace Exceptions\Http\Client;
 
-use Exceptions\Tag\NotFoundException as NotFoundTag;
+use Exceptions\Tag\NotFoundTag;
 
 /**
  * The server has not found anything matching the Request-URI.
