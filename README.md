@@ -46,7 +46,7 @@ If you need help upgrading for the old version 1 to this version, see the [Upgra
 
 # Features
 
-* Highly comprehensive list of exceptions and namespaces: [Browse](docs/exceptions.md)
+* Highly comprehensive list of exceptions and namespaces: [Browse](docs/exceptions/)
 * [Tag interfaces](docs/tags.md) to catch common exceptions with similar means but different contexts
 * Exceptions define default messages and error codes using the [DefaultsInterface and DefaultConstructorTrait](docs/helpers.md)
 * Throwing new exceptions from another exception allows easier exception chaining using [FromException helper](docs/helpers.md)
