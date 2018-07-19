@@ -62,13 +62,13 @@ The Standard Exceptions package is all about fixing this. It creates a completel
 
 There are many array/collection based operations out there, collections classes, array access objects, iterators, etc. Why aren't there any exceptions related to array/collection manipulations? Does everything pertain to \RuntimeException? This whole branch of exceptions will focus on providing clear and concise, finer grained exceptions for non-native collection/array manipulations.
 
-[Learn more](docs/exceptions/collection-exceptions.md)
+[Learn more](exceptions/collection-exceptions.md)
 
 ### Data exceptions
 
 Data exceptions pertain to all the validation aspect of data and the operations associated to it. They are not stored as `Validation\` exceptions because they do not pertain to validation frameworks but to the integrity and validity of the data itself not to it's validation.
 
-[Learn more](docs/exceptions/data-exceptions.md)
+[Learn more](exceptions/data-exceptions.md)
 
 ### Http exceptions
 
@@ -76,8 +76,8 @@ Many frameworks and applications redefine Http exceptions that map to Http statu
 
 You will find two sub namespaces in this namespace namely:
 
-- Http/Client - [Learn more](docs/exceptions/http-client-exceptions.md)
-- Http/Server - [Learn more](docs/exceptions/http-server-exceptions.md)
+- Http/Client - [Learn more](exceptions/http-client-exceptions.md)
+- Http/Server - [Learn more](exceptions/http-server-exceptions.md)
 
 These will map to the different 400s and 500s HTTP errors codes.
 
@@ -87,14 +87,14 @@ There are many applications, libraries or framework that throw IO related except
 
 You will find two sub namespaces in this namespace namely:
 
-- IO/Filesystem - [Learn more](docs/exceptions/io-filesystem-exceptions.md)
-- IO/Network - [Learn more](docs/exceptions/io-network-exceptions.md)
+- IO/Filesystem - [Learn more](exceptions/io-filesystem-exceptions.md)
+- IO/Network - [Learn more](exceptions/io-network-exceptions.md)
 
 ### Operation exceptions
 
 How many times have you thrown a \RuntimeException or a simple \Exception when something didn't work out correctly? Calling a function incorrectly, or when a behavior doesn't end up too well should return something more precise than \RuntimeException. Operation exceptions are there for that. Anything that goes wrong? Throw an Operation exception that matches what went wrong.
 
-[Learn more](docs/exceptions/operation-exceptions.md)
+[Learn more](exceptions/operation-exceptions.md)
 
 # Exception tags
 
@@ -111,7 +111,7 @@ These all mean the same thing! You tried to do something on a resource but the u
 
 The `Tag\` namespace contains different interfaces that help you convey the same means to your exceptions. So even if you throw a `FileNotFoundException`, your users can react on `Tag\NotFoundTag` and still catch anything that can be thrown at them regarding something was not found while processing the request. Now **that is interoperability**.
 
-[Learn more](docs/tags.md)
+[Learn more](tags.md)
 
 # Defaults and From helpers
 
@@ -119,4 +119,4 @@ There is no easy way to extract a message from an exception's class nor its erro
 
 Using the `from` and `defaults` helpers, this problem can be easily solved. All exceptions from this package implement those helpers.
 
-[Learn more](docs/helpers.md)
+[Learn more](helpers.md)
