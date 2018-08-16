@@ -16,7 +16,7 @@ class ServiceUnavailableException extends ServerErrorException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 501;
+    const HTTP_CODE = 503;
 
     /**
      * Returns the HTTP error message for that exception.
