@@ -2,10 +2,10 @@
 
 namespace Exceptions\Helpers;
 
+use Exceptions\Data\ValidationException;
 use Exceptions\Http\Client;
 use Exceptions\Http\HttpExceptionInterface;
 use Exceptions\Http\Server;
-use InvalidArgumentException;
 use Throwable;
 
 class HttpExceptionFactory
@@ -54,11 +54,13 @@ class HttpExceptionFactory
      * @param string|null $message
      * @param Throwable|null $ex
      * @return HttpExceptionInterface
+     *
+     * @throws ValidationException When {$responseCode} can't be mapped to an HttpException
      */
-    public function buildException(int $responseCode, string $message = '', Throwable $ex = null): HttpExceptionInterface
+    public function build(int $responseCode, string $message = '', Throwable $ex = null): HttpExceptionInterface
     {
         if (!array_key_exists($responseCode, $this->mapping)) {
-            throw new InvalidArgumentException('Unknown mapping for response code ' . $responseCode);
+            throw new ValidationException('Unknown mapping for response code ' . $responseCode);
         }
 
         return new $this->mapping[$responseCode]($message, 0, $ex);
