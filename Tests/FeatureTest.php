@@ -50,6 +50,23 @@ class FeatureTest extends \PHPUnit\Framework\TestCase
     }
     
     /**
+     * Tests that using withContext() will create a new exception with default message/code and add context data
+     * to the exception and allow the retrieval of it.
+     */
+    public function testWithContextException()
+    {
+        /** @var \Exception $exception */
+        $exception = \Exceptions\Collection\EmptyException::withContext([
+            'key1' => 'data1',
+        ]);
+        $this->assertEquals(\Exceptions\Collection\EmptyException::getDefaultMessage(), $exception->getMessage());
+        $this->assertEquals(\Exceptions\Collection\EmptyException::getDefaultCode(), $exception->getCode());
+        $this->assertEquals([
+            'key1' => 'data1',
+        ], $exception->getContext());
+    }
+    
+    /**
      * Tests that the getHttpCode and getHttpMessages can be called on Http exceptions
      */
     public function testHttpMethods()
