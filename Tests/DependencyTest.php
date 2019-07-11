@@ -45,6 +45,7 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
                     $this->getDependenciesFor(\Exceptions\Collection\CollectionExceptionInterface::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\DefaultsInterface::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\FromException::class),
+                    $this->getDependenciesFor(\Exceptions\Helpers\WithContext::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\DefaultConstructorTrait::class)
                 );
             case Exceptions\Data\DataException::class:
@@ -54,6 +55,7 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
                     $this->getDependenciesFor(\Exceptions\Data\DataExceptionInterface::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\DefaultsInterface::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\FromException::class),
+                    $this->getDependenciesFor(\Exceptions\Helpers\WithContext::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\DefaultConstructorTrait::class)
                 );
             case Exceptions\Http\HttpException::class:
@@ -63,6 +65,7 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
                     $this->getDependenciesFor(\Exceptions\Http\HttpExceptionInterface::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\DefaultsInterface::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\FromException::class),
+                    $this->getDependenciesFor(\Exceptions\Helpers\WithContext::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\DefaultConstructorTrait::class)
                 );
             case Exceptions\Http\Client\ClientErrorException::class:
@@ -86,6 +89,7 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
                     $this->getDependenciesFor(\Exceptions\IO\IOExceptionInterface::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\DefaultsInterface::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\FromException::class),
+                    $this->getDependenciesFor(\Exceptions\Helpers\WithContext::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\DefaultConstructorTrait::class)
                 );
             case Exceptions\IO\Filesystem\FilesystemException::class:
@@ -107,6 +111,7 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
                     $this->getDependenciesFor(\Exceptions\Operation\OperationExceptionInterface::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\DefaultsInterface::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\FromException::class),
+                    $this->getDependenciesFor(\Exceptions\Helpers\WithContext::class),
                     $this->getDependenciesFor(\Exceptions\Helpers\DefaultConstructorTrait::class)
                 );
             

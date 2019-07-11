@@ -1,14 +1,6 @@
 # Helpers
 
-## Problem to solve
-
-There is no easy way to extract a message from an exception's class nor its error code. When you want to use an exception and just pass on a previous exception into it, the 3rd parameter is the only way to do this. But what if you didn't know what was the original message of that new exception you wanted to throw?
-
-## Solution
-
-Using the `from` and `defaults` helpers, this problem can be easily solved.
-
-Read on!
+There are a few helpers available. They range from storage of contextual data to rethrowing exceptions, read on!
 
 ## DefaultsInterface
 
@@ -64,3 +56,20 @@ Or even worst, if you don't use the defaults helpers, you have to hard code the 
 ```
 
 This clearly shows the advantage of the `FromException` trait.
+
+## WithContext trait
+
+All exceptions from this package implement this helper. This helper defines a static method on the exception you want to throw to attach contextual data to it before throwing it. You can use the `withContext` method to generate an exception with some data and the use `getContext` to retrieve it.
+
+For example:
+
+```php
+throw new \Exceptions\Some\Thing::withContext(['some' => 'data'])
+```
+
+To retrieve the data:
+
+```php
+} catch(\Exceptions\Some\Thing $ex) {
+    var_dump($ex->getContext());
+}
