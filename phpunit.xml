@@ -8,7 +8,6 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         syntaxCheck="false"
 >
 
     <testsuites>
@@ -24,7 +23,7 @@
     </filter>
 
     <logging>
-        <log type="coverage-html" target="TestReport/Html" charset="UTF-8" lowUpperBound="50" highLowerBound="80"/>
+        <log type="coverage-html" target="TestReport/Html" lowUpperBound="50" highLowerBound="80"/>
         <log type="coverage-clover" target="TestReport/Xml/coverage.xml"/>
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
     </logging>
