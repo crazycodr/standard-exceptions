@@ -3,12 +3,11 @@ namespace Exceptions\Helpers;
 
 /**
  * Implements a set of helper methods that creates exceptions to attach and retrieve contextual data.
- * 
+ *
  * @package Exceptions\Helpers
  */
 trait WithContext
 {
-
     protected $context = null;
 
     /**
@@ -26,16 +25,16 @@ trait WithContext
     {
         $ex = new static($message ?? static::getDefaultMessage(), $code ?? static::getDefaultCode());
         $ex->context = $context;
-        return $ex;    
+        return $ex;
     }
 
     /**
      * Returns the saved context from the exception
-     * 
+     *
      * @return mixed
      */
-    public function getContext() {
+    public function getContext()
+    {
         return $this->context;
     }
-    
 }
