@@ -8,6 +8,12 @@ namespace Exceptions\Helpers;
  */
 trait WithContext
 {
+
+    /**
+     * Contains the contextual information attached to the exception
+     * 
+     * @var mixed
+     */
     protected $context = null;
 
     /**
