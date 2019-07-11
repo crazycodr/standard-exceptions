@@ -2,51 +2,248 @@
 
 declare(strict_types=1);
 
-class HttpExceptionFactoryTest extends \PHPUnit\Framework\TestCase
+namespace Exceptions\Tests;
+
+use Exceptions\Data\ValidationException;
+use Exceptions\Http\Client;
+use Exceptions\Http\Server;
+use Exceptions\Helpers\HttpExceptionFactory;
+use Exceptions\Tests\stub\CustomHttpException;
+use PHPUnit\Framework\TestCase;
+use stdClass;
+
+class HttpExceptionFactoryTest extends TestCase
 {
-    public function testBuildException()
+    /**
+     * @dataProvider dataProvider
+     * @param int $errorCode
+     * @param string $expectedClass
+     */
+    public function testBuild(int $errorCode, string $expectedClass)
     {
-        $stu = new \Exceptions\Helpers\HttpExceptionFactory();
+        $this->assertInstanceOf($expectedClass, HttpExceptionFactory::build($errorCode));
+    }
 
-        $this->assertInstanceOf(\Exceptions\Http\Client\BadRequestException::class, $stu->build(400));
-        $this->assertInstanceOf(\Exceptions\Http\Client\UnauthorizedException::class, $stu->build(401));
-        $this->assertInstanceOf(\Exceptions\Http\Client\PaymentRequiredException::class, $stu->build(402));
-        $this->assertInstanceOf(\Exceptions\Http\Client\ForbiddenException::class, $stu->build(403));
-        $this->assertInstanceOf(\Exceptions\Http\Client\NotFoundException::class, $stu->build(404));
-        $this->assertInstanceOf(\Exceptions\Http\Client\MethodNotAllowedException::class, $stu->build(405));
-        $this->assertInstanceOf(\Exceptions\Http\Client\NotAcceptableException::class, $stu->build(406));
-        $this->assertInstanceOf(\Exceptions\Http\Client\ProxyAuthorizationRequiredException::class, $stu->build(407));
-        $this->assertInstanceOf(\Exceptions\Http\Client\RequestTimeoutException::class, $stu->build(408));
-        $this->assertInstanceOf(\Exceptions\Http\Client\ConflictException::class, $stu->build(409));
-        $this->assertInstanceOf(\Exceptions\Http\Client\GoneException::class, $stu->build(410));
-        $this->assertInstanceOf(\Exceptions\Http\Client\LengthRequiredException::class, $stu->build(411));
-        $this->assertInstanceOf(\Exceptions\Http\Client\PreConditionRequiredException::class, $stu->build(412));
-        $this->assertInstanceOf(\Exceptions\Http\Client\PayloadTooLargeException::class, $stu->build(413));
-        $this->assertInstanceOf(\Exceptions\Http\Client\URITooLongException::class, $stu->build(414));
-        $this->assertInstanceOf(\Exceptions\Http\Client\UnsupportedMediaTypeException::class, $stu->build(415));
-        $this->assertInstanceOf(\Exceptions\Http\Client\RangeNotSatisfiableException::class, $stu->build(416));
-        $this->assertInstanceOf(\Exceptions\Http\Client\ExpectationFailedException::class, $stu->build(417));
-        $this->assertInstanceOf(\Exceptions\Http\Client\ImATeapotException::class, $stu->build(418));
-        $this->assertInstanceOf(\Exceptions\Http\Client\MisdirectedRequestException::class, $stu->build(421));
-        $this->assertInstanceOf(\Exceptions\Http\Client\UnprocessableEntityException::class, $stu->build(422));
-        $this->assertInstanceOf(\Exceptions\Http\Client\LockedException::class, $stu->build(423));
-        $this->assertInstanceOf(\Exceptions\Http\Client\FailedDependencyException::class, $stu->build(424));
-        $this->assertInstanceOf(\Exceptions\Http\Client\UpgradeRequiredException::class, $stu->build(426));
-        $this->assertInstanceOf(\Exceptions\Http\Client\PreConditionRequiredException::class, $stu->build(428));
-        $this->assertInstanceOf(\Exceptions\Http\Client\TooManyRequestsException::class, $stu->build(429));
-        $this->assertInstanceOf(\Exceptions\Http\Client\RequestHeaderFieldsTooLargeException::class, $stu->build(431));
-        $this->assertInstanceOf(\Exceptions\Http\Client\UnavailableForLegalReasonsException::class, $stu->build(451));
-        $this->assertInstanceOf(\Exceptions\Http\Server\InternalServerErrorException::class, $stu->build(500));
-        $this->assertInstanceOf(\Exceptions\Http\Server\NotImplementedException::class, $stu->build(501));
-        $this->assertInstanceOf(\Exceptions\Http\Server\BadGatewayException::class, $stu->build(502));
-        $this->assertInstanceOf(\Exceptions\Http\Server\ServiceUnavailableException::class, $stu->build(503));
-        $this->assertInstanceOf(\Exceptions\Http\Server\GatewayTimeoutException::class, $stu->build(504));
-        $this->assertInstanceOf(\Exceptions\Http\Server\HttpVersionNotSupportedException::class, $stu->build(505));
-        $this->assertInstanceOf(\Exceptions\Http\Server\InsuficientStorageException::class, $stu->build(507));
-        $this->assertInstanceOf(\Exceptions\Http\Server\LoopDetectedException::class, $stu->build(508));
+    public function testBuildFailed()
+    {
+        $this->expectException(ValidationException::class);
+        HttpExceptionFactory::build(101);
+    }
 
+    /**
+     * @dataProvider dataProvider
+     * @param int $errorCode
+     * @param string $expectedClass
+     */
+    public function testBuildWithContext(int $errorCode, string $expectedClass)
+    {
+        $ctx = new stdClass();
+        $exception = HttpExceptionFactory::buildWithContext($errorCode, $ctx);
+        $this->assertInstanceOf($expectedClass, $exception);
+        $this->assertSame($ctx, $exception->getContext());
+    }
 
-        $this->expectException(InvalidArgumentException::class);
-        $stu->build(100);
+    public function testBuildWithContextFailed()
+    {
+        $this->expectException(ValidationException::class);
+        HttpExceptionFactory::buildWithContext(101, []);
+    }
+
+    public function testExtendingHelper()
+    {
+        $helper = new class extends HttpExceptionFactory {
+            protected static function getMapping(): array
+            {
+                return [
+                    101 => CustomHttpException::class
+                ];
+            }
+        };
+
+        $exception = $helper::build(101);
+        $this->assertInstanceOf(CustomHttpException::class, $exception);
+    }
+
+    public function dataProvider()
+    {
+        yield 'Client\BadRequestException' => [
+            'errorCode' => 400,
+            'expectedClass' => Client\BadRequestException::class,
+        ];
+
+        yield 'Client\UnauthorizedException' => [
+            'errorCode' => 401,
+            'expectedClass' => Client\UnauthorizedException::class,
+        ];
+
+        yield 'Client\PaymentRequiredException' => [
+            'errorCode' => 402,
+            'expectedClass' => Client\PaymentRequiredException::class,
+        ];
+
+        yield 'Client\ForbiddenException' => [
+            'errorCode' => 403,
+            'expectedClass' => Client\ForbiddenException::class,
+        ];
+
+        yield 'Client\NotFoundException' => [
+            'errorCode' => 404,
+            'expectedClass' => Client\NotFoundException::class,
+        ];
+
+        yield 'Client\MethodNotAllowedException' => [
+            'errorCode' => 405,
+            'expectedClass' => Client\MethodNotAllowedException::class,
+        ];
+
+        yield 'Client\NotAcceptableException' => [
+            'errorCode' => 406,
+            'expectedClass' => Client\NotAcceptableException::class,
+        ];
+
+        yield 'Client\ProxyAuthorizationRequiredException' => [
+            'errorCode' => 407,
+            'expectedClass' => Client\ProxyAuthorizationRequiredException::class,
+        ];
+
+        yield 'Clxient\RequestTimeoutException' => [
+            'errorCode' => 408,
+            'expectedClass' => Client\RequestTimeoutException::class,
+        ];
+
+        yield 'Client\ConflictException' => [
+            'errorCode' => 409,
+            'expectedClass' => Client\ConflictException::class,
+        ];
+
+        yield 'Client\GoneException' => [
+            'errorCode' => 410,
+            'expectedClass' => Client\GoneException::class,
+        ];
+
+        yield 'Client\LengthRequiredException' => [
+            'errorCode' => 411,
+            'expectedClass' => Client\LengthRequiredException::class,
+        ];
+
+        yield 'Client\PreConditionRequiredException' => [
+            'errorCode' => 412,
+            'expectedClass' => Client\PreConditionRequiredException::class,
+        ];
+
+        yield 'Client\PayloadTooLargeException' => [
+            'errorCode' => 413,
+            'expectedClass' => Client\PayloadTooLargeException::class,
+        ];
+
+        yield 'Client\URITooLongException' => [
+            'errorCode' => 414,
+            'expectedClass' => Client\URITooLongException::class,
+        ];
+
+        yield 'Client\UnsupportedMediaTypeException' => [
+            'errorCode' => 415,
+            'expectedClass' => Client\UnsupportedMediaTypeException::class,
+        ];
+
+        yield 'Client\RangeNotSatisfiableException' => [
+            'errorCode' => 416,
+            'expectedClass' => Client\RangeNotSatisfiableException::class,
+        ];
+
+        yield 'Client\ExpectationFailedException' => [
+            'errorCode' => 417,
+            'expectedClass' => Client\ExpectationFailedException::class,
+        ];
+
+        yield 'Client\ImATeapotException' => [
+            'errorCode' => 418,
+            'expectedClass' => Client\ImATeapotException::class,
+        ];
+
+        yield 'Client\MisdirectedRequestException' => [
+            'errorCode' => 421,
+            'expectedClass' => Client\MisdirectedRequestException::class,
+        ];
+
+        yield 'Client\UnprocessableEntityException' => [
+            'errorCode' => 422,
+            'expectedClass' => Client\UnprocessableEntityException::class,
+        ];
+
+        yield 'Client\LockedException' => [
+            'errorCode' => 423,
+            'expectedClass' => Client\LockedException::class,
+        ];
+
+        yield 'Client\FailedDependencyException' => [
+            'errorCode' => 424,
+            'expectedClass' => Client\FailedDependencyException::class,
+        ];
+
+        yield 'Client\UpgradeRequiredException' => [
+            'errorCode' => 426,
+            'expectedClass' => Client\UpgradeRequiredException::class,
+        ];
+
+        yield 'Client\PreConditionRequiredException' => [
+            'errorCode' => 428,
+            'expectedClass' => Client\PreConditionRequiredException::class,
+        ];
+
+        yield 'Client\TooManyRequestsException' => [
+            'errorCode' => 429,
+            'expectedClass' => Client\TooManyRequestsException::class,
+        ];
+
+        yield 'Client\RequestHeaderFieldsTooLargeException' => [
+            'errorCode' => 431,
+            'expectedClass' => Client\RequestHeaderFieldsTooLargeException::class,
+        ];
+
+        yield 'Client\UnavailableForLegalReasonsException' => [
+            'errorCode' => 451,
+            'expectedClass' => Client\UnavailableForLegalReasonsException::class,
+        ];
+
+        yield 'Server\InternalServerErrorException' => [
+            'errorCode' => 500,
+            'expectedClass' => Server\InternalServerErrorException::class,
+        ];
+
+        yield 'Server\NotImplementedException' => [
+            'errorCode' => 501,
+            'expectedClass' => Server\NotImplementedException::class,
+        ];
+
+        yield 'Server\BadGatewayException' => [
+            'errorCode' => 502,
+            'expectedClass' => Server\BadGatewayException::class,
+        ];
+
+        yield 'Server\ServiceUnavailableException' => [
+            'errorCode' => 503,
+            'expectedClass' => Server\ServiceUnavailableException::class,
+        ];
+
+        yield 'Server\GatewayTimeoutException' => [
+            'errorCode' => 504,
+            'expectedClass' => Server\GatewayTimeoutException::class,
+        ];
+
+        yield 'Server\HttpVersionNotSupportedException' => [
+            'errorCode' => 505,
+            'expectedClass' => Server\HttpVersionNotSupportedException::class,
+        ];
+
+        yield 'Server\InsuficientStorageException' => [
+            'errorCode' => 507,
+            'expectedClass' => Server\InsuficientStorageException::class,
+        ];
+
+        yield 'Server\LoopDetectedException' => [
+            'errorCode' => 508,
+            'expectedClass' => Server\LoopDetectedException::class,
+        ];
     }
 }

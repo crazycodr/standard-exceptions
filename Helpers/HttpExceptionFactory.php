@@ -10,7 +10,7 @@ use Throwable;
 
 class HttpExceptionFactory
 {
-    protected $mapping = [
+    protected static $mapping = [
         400 => Client\BadRequestException::class,
         401 => Client\UnauthorizedException::class,
         402 => Client\PaymentRequiredException::class,
@@ -57,12 +57,39 @@ class HttpExceptionFactory
      *
      * @throws ValidationException When {$responseCode} can't be mapped to an HttpException
      */
-    public function build(int $responseCode, string $message = '', Throwable $ex = null): HttpExceptionInterface
+    public static function build(int $responseCode, string $message = '', Throwable $ex = null): HttpExceptionInterface
     {
-        if (!array_key_exists($responseCode, $this->mapping)) {
+        $mapping = static::getMapping();
+        if (!array_key_exists($responseCode, $mapping)) {
             throw new ValidationException('Unknown mapping for response code ' . $responseCode);
         }
 
-        return new $this->mapping[$responseCode]($message, 0, $ex);
+        return new $mapping[$responseCode]($message, $responseCode, $ex);
+    }
+
+    /**
+     * @param int $responseCode
+     * @param mixed $context mixed data you can attach to the exception
+     * @param string|null $message
+     * @return HttpExceptionInterface
+     *
+     * @throws ValidationException When {$responseCode} can't be mapped to an HttpException
+     */
+    public static function buildWithContext(int $responseCode, $context, string $message = ''): HttpExceptionInterface
+    {
+        $mapping = static::getMapping();
+        if (!array_key_exists($responseCode, $mapping)) {
+            throw new ValidationException('Unknown mapping for response code ' . $responseCode);
+        }
+
+        return $mapping[$responseCode]::withContext($context, $message, $responseCode);
+    }
+
+    /**
+     * @return array Map between a an Error code (as key) and a Class name (as value)
+     */
+    protected static function getMapping(): array
+    {
+        return static::$mapping;
     }
 }
