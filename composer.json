@@ -15,6 +15,11 @@
       "Exceptions\\Helpers\\": "Helpers/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Exceptions\\Tests\\": "Tests/"
+    }
+  },
   "require": {
     "php": ">=7.1"
   },

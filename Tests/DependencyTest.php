@@ -1,8 +1,20 @@
 <?php
 
-class DependencyTest extends \PHPUnit\Framework\TestCase
+namespace Exceptions\Tests;
+
+use Exceptions\Tag;
+use Exceptions\Collection;
+use Exceptions\Data;
+use Exceptions\Helpers;
+use Exceptions\Http;
+use Exceptions\Operation;
+use Exceptions\IO;
+use PHPUnit\Framework\TestCase;
+use ReflectionClass;
+use RuntimeException;
+
+class DependencyTest extends TestCase
 {
-    
     /**
      * Returns the dependencies for a specific class that is widely reused. This is used to simplify a lot the
      * hardcoded dependency maintenance.
@@ -14,660 +26,660 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
     public function getDependenciesFor(string $className): array
     {
         switch ($className) {
-            
+
             // Resolution of tags that extend old tags
-            case Exceptions\Tag\AbortedTag::class:
+            case Tag\AbortedTag::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\Exceptions\Tag\OperationAbortedException::class)
+                    $this->getDependenciesFor(Tag\OperationAbortedException::class)
                 );
-            case Exceptions\Tag\InvalidDataTag::class:
+            case Tag\InvalidDataTag::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\Exceptions\Tag\InvalidDataException::class)
+                    $this->getDependenciesFor(Tag\InvalidDataException::class)
                 );
-            case Exceptions\Tag\NotFoundTag::class:
+            case Tag\NotFoundTag::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\Exceptions\Tag\NotFoundException::class)
+                    $this->getDependenciesFor(Tag\NotFoundException::class)
                 );
-            case Exceptions\Tag\ExistsTag::class:
+            case Tag\ExistsTag::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\Exceptions\Tag\AlreadyExistsException::class)
+                    $this->getDependenciesFor(Tag\AlreadyExistsException::class)
                 );
-            
+
             // Resolution of high level exception class dependencies
-            case Exceptions\Collection\CollectionException::class:
+            case Collection\CollectionException::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\RuntimeException::class),
-                    $this->getDependenciesFor(\Exceptions\Collection\CollectionExceptionInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\DefaultsInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\FromException::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\WithContext::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\DefaultConstructorTrait::class)
+                    $this->getDependenciesFor(RuntimeException::class),
+                    $this->getDependenciesFor(Collection\CollectionExceptionInterface::class),
+                    $this->getDependenciesFor(Helpers\DefaultsInterface::class),
+                    $this->getDependenciesFor(Helpers\FromException::class),
+                    $this->getDependenciesFor(Helpers\WithContext::class),
+                    $this->getDependenciesFor(Helpers\DefaultConstructorTrait::class)
                 );
-            case Exceptions\Data\DataException::class:
+            case Data\DataException::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\RuntimeException::class),
-                    $this->getDependenciesFor(\Exceptions\Data\DataExceptionInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\DefaultsInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\FromException::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\WithContext::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\DefaultConstructorTrait::class)
+                    $this->getDependenciesFor(RuntimeException::class),
+                    $this->getDependenciesFor(Data\DataExceptionInterface::class),
+                    $this->getDependenciesFor(Helpers\DefaultsInterface::class),
+                    $this->getDependenciesFor(Helpers\FromException::class),
+                    $this->getDependenciesFor(Helpers\WithContext::class),
+                    $this->getDependenciesFor(Helpers\DefaultConstructorTrait::class)
                 );
-            case Exceptions\Http\HttpException::class:
+            case Http\HttpException::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\RuntimeException::class),
-                    $this->getDependenciesFor(\Exceptions\Http\HttpExceptionInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\DefaultsInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\FromException::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\WithContext::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\DefaultConstructorTrait::class)
+                    $this->getDependenciesFor(RuntimeException::class),
+                    $this->getDependenciesFor(Http\HttpExceptionInterface::class),
+                    $this->getDependenciesFor(Helpers\DefaultsInterface::class),
+                    $this->getDependenciesFor(Helpers\FromException::class),
+                    $this->getDependenciesFor(Helpers\WithContext::class),
+                    $this->getDependenciesFor(Helpers\DefaultConstructorTrait::class)
                 );
-            case Exceptions\Http\Client\ClientErrorException::class:
+            case Http\Client\ClientErrorException::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\Exceptions\Http\HttpException::class),
-                    $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorExceptionInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class)
+                    $this->getDependenciesFor(Http\HttpException::class),
+                    $this->getDependenciesFor(Http\Client\ClientErrorExceptionInterface::class),
+                    $this->getDependenciesFor(Tag\AbortedTag::class)
                 );
-            case Exceptions\Http\Server\ServerErrorException::class:
+            case Http\Server\ServerErrorException::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\Exceptions\Http\HttpException::class),
-                    $this->getDependenciesFor(\Exceptions\Http\Server\ServerErrorExceptionInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class)
+                    $this->getDependenciesFor(Http\HttpException::class),
+                    $this->getDependenciesFor(Http\Server\ServerErrorExceptionInterface::class),
+                    $this->getDependenciesFor(Tag\AbortedTag::class)
                 );
-            case Exceptions\IO\IOException::class:
+            case IO\IOException::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\RuntimeException::class),
-                    $this->getDependenciesFor(\Exceptions\IO\IOExceptionInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\DefaultsInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\FromException::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\WithContext::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\DefaultConstructorTrait::class)
+                    $this->getDependenciesFor(RuntimeException::class),
+                    $this->getDependenciesFor(IO\IOExceptionInterface::class),
+                    $this->getDependenciesFor(Helpers\DefaultsInterface::class),
+                    $this->getDependenciesFor(Helpers\FromException::class),
+                    $this->getDependenciesFor(Helpers\WithContext::class),
+                    $this->getDependenciesFor(Helpers\DefaultConstructorTrait::class)
                 );
-            case Exceptions\IO\Filesystem\FilesystemException::class:
+            case IO\Filesystem\FilesystemException::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\Exceptions\IO\IOException::class),
-                    $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemExceptionInterface::class)
+                    $this->getDependenciesFor(IO\IOException::class),
+                    $this->getDependenciesFor(IO\Filesystem\FilesystemExceptionInterface::class)
                 );
-            case Exceptions\IO\Network\NetworkException::class:
+            case IO\Network\NetworkException::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\Exceptions\IO\IOException::class),
-                    $this->getDependenciesFor(\Exceptions\IO\Network\NetworkExceptionInterface::class)
+                    $this->getDependenciesFor(IO\IOException::class),
+                    $this->getDependenciesFor(IO\Network\NetworkExceptionInterface::class)
                 );
-            case Exceptions\Operation\OperationException::class:
+            case Operation\OperationException::class:
                 return array_merge(
                     [$className],
-                    $this->getDependenciesFor(\RuntimeException::class),
-                    $this->getDependenciesFor(\Exceptions\Operation\OperationExceptionInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\DefaultsInterface::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\FromException::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\WithContext::class),
-                    $this->getDependenciesFor(\Exceptions\Helpers\DefaultConstructorTrait::class)
+                    $this->getDependenciesFor(RuntimeException::class),
+                    $this->getDependenciesFor(Operation\OperationExceptionInterface::class),
+                    $this->getDependenciesFor(Helpers\DefaultsInterface::class),
+                    $this->getDependenciesFor(Helpers\FromException::class),
+                    $this->getDependenciesFor(Helpers\WithContext::class),
+                    $this->getDependenciesFor(Helpers\DefaultConstructorTrait::class)
                 );
-            
+
             // If the class is not listed, then just return itself to be merged into the parent list
             default:
                 return [$className];
         }
     }
-    
+
     /**
      * @return mixed[]
      */
     public function providesDependencies()
     {
-        
+
         // Will contain all scenarios to test with the class name to test and an array of all classes this class
         // should depend on
         $dependencies = [];
-        
+
         // New tag dependencies to ensure backwards compatibility with new tags acting as renames over deprecated ones
-        $dependencies[\Exceptions\Tag\NotFoundTag::class] = [
-            \Exceptions\Tag\NotFoundTag::class,
+        $dependencies[Tag\NotFoundTag::class] = [
+            Tag\NotFoundTag::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Tag\NotFoundException::class)
+                $this->getDependenciesFor(Tag\NotFoundException::class)
             ),
         ];
-        $dependencies[\Exceptions\Tag\AbortedTag::class] = [
-            \Exceptions\Tag\AbortedTag::class,
+        $dependencies[Tag\AbortedTag::class] = [
+            Tag\AbortedTag::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Tag\OperationAbortedException::class)
+                $this->getDependenciesFor(Tag\OperationAbortedException::class)
             ),
         ];
-        $dependencies[\Exceptions\Tag\InvalidDataTag::class] = [
-            \Exceptions\Tag\InvalidDataTag::class,
+        $dependencies[Tag\InvalidDataTag::class] = [
+            Tag\InvalidDataTag::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataException::class)
+                $this->getDependenciesFor(Tag\InvalidDataException::class)
             ),
         ];
-        
+
         // Collection exception dependencies
-        $dependencies[\Exceptions\Collection\EmptyException::class] = [
-            \Exceptions\Collection\EmptyException::class,
+        $dependencies[Collection\EmptyException::class] = [
+            Collection\EmptyException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Collection\CollectionException::class)
+                $this->getDependenciesFor(Collection\CollectionException::class)
             ),
         ];
-        $dependencies[\Exceptions\Collection\FullException::class] = [
-            \Exceptions\Collection\FullException::class,
+        $dependencies[Collection\FullException::class] = [
+            Collection\FullException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Collection\CollectionException::class)
+                $this->getDependenciesFor(Collection\CollectionException::class)
             ),
         ];
-        $dependencies[\Exceptions\Collection\KeyAlreadyExistsException::class] = [
-            \Exceptions\Collection\KeyAlreadyExistsException::class,
+        $dependencies[Collection\KeyAlreadyExistsException::class] = [
+            Collection\KeyAlreadyExistsException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Collection\CollectionException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ExistsTag::class)
+                $this->getDependenciesFor(Collection\CollectionException::class),
+                $this->getDependenciesFor(Tag\ExistsTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Collection\KeyNotFoundException::class] = [
-            \Exceptions\Collection\KeyNotFoundException::class,
+        $dependencies[Collection\KeyNotFoundException::class] = [
+            Collection\KeyNotFoundException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Collection\CollectionException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\NotFoundTag::class)
+                $this->getDependenciesFor(Collection\CollectionException::class),
+                $this->getDependenciesFor(Tag\NotFoundTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Collection\ReadOnlyArrayException::class] = [
-            \Exceptions\Collection\ReadOnlyArrayException::class,
+        $dependencies[Collection\ReadOnlyArrayException::class] = [
+            Collection\ReadOnlyArrayException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Collection\CollectionException::class)
+                $this->getDependenciesFor(Collection\CollectionException::class)
             ),
         ];
-        $dependencies[\Exceptions\Collection\ReadOnlyArrayItemException::class] = [
-            \Exceptions\Collection\ReadOnlyArrayItemException::class,
+        $dependencies[Collection\ReadOnlyArrayItemException::class] = [
+            Collection\ReadOnlyArrayItemException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Collection\CollectionException::class)
+                $this->getDependenciesFor(Collection\CollectionException::class)
             ),
         ];
-        
+
         // Data exception dependencies
-        $dependencies[\Exceptions\Data\FormatException::class] = [
-            \Exceptions\Data\FormatException::class,
+        $dependencies[Data\FormatException::class] = [
+            Data\FormatException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Data\DataException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Data\DataException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Data\FoundTooLittleException::class] = [
-            \Exceptions\Data\FoundTooLittleException::class,
+        $dependencies[Data\FoundTooLittleException::class] = [
+            Data\FoundTooLittleException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Data\DataException::class)
+                $this->getDependenciesFor(Data\DataException::class)
             ),
         ];
-        $dependencies[\Exceptions\Data\FoundTooManyException::class] = [
-            \Exceptions\Data\FoundTooManyException::class,
+        $dependencies[Data\FoundTooManyException::class] = [
+            Data\FoundTooManyException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Data\DataException::class)
+                $this->getDependenciesFor(Data\DataException::class)
             ),
         ];
-        $dependencies[\Exceptions\Data\IntegrityException::class] = [
-            \Exceptions\Data\IntegrityException::class,
+        $dependencies[Data\IntegrityException::class] = [
+            Data\IntegrityException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Data\DataException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Data\DataException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Data\NotFoundException::class] = [
-            \Exceptions\Data\NotFoundException::class,
+        $dependencies[Data\NotFoundException::class] = [
+            Data\NotFoundException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Data\DataException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\NotFoundTag::class)
+                $this->getDependenciesFor(Data\DataException::class),
+                $this->getDependenciesFor(Tag\NotFoundTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Data\TypeException::class] = [
-            \Exceptions\Data\TypeException::class,
+        $dependencies[Data\TypeException::class] = [
+            Data\TypeException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Data\DataException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Data\DataException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        
+
         // Http client exception dependencies
-        $dependencies[\Exceptions\Http\Client\BadRequestException::class] = [
-            \Exceptions\Http\Client\BadRequestException::class,
+        $dependencies[Http\Client\BadRequestException::class] = [
+            Http\Client\BadRequestException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\ConflictException::class] = [
-            \Exceptions\Http\Client\ConflictException::class,
+        $dependencies[Http\Client\ConflictException::class] = [
+            Http\Client\ConflictException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\ExpectationFailedException::class] = [
-            \Exceptions\Http\Client\ExpectationFailedException::class,
+        $dependencies[Http\Client\ExpectationFailedException::class] = [
+            Http\Client\ExpectationFailedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\FailedDependencyException::class] = [
-            \Exceptions\Http\Client\FailedDependencyException::class,
+        $dependencies[Http\Client\FailedDependencyException::class] = [
+            Http\Client\FailedDependencyException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\ForbiddenException::class] = [
-            \Exceptions\Http\Client\ForbiddenException::class,
+        $dependencies[Http\Client\ForbiddenException::class] = [
+            Http\Client\ForbiddenException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\GoneException::class] = [
-            \Exceptions\Http\Client\GoneException::class,
+        $dependencies[Http\Client\GoneException::class] = [
+            Http\Client\GoneException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\NotFoundTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\NotFoundTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\ImATeapotException::class] = [
-            \Exceptions\Http\Client\ImATeapotException::class,
+        $dependencies[Http\Client\ImATeapotException::class] = [
+            Http\Client\ImATeapotException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\LengthRequiredException::class] = [
-            \Exceptions\Http\Client\LengthRequiredException::class,
+        $dependencies[Http\Client\LengthRequiredException::class] = [
+            Http\Client\LengthRequiredException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\LockedException::class] = [
-            \Exceptions\Http\Client\LockedException::class,
+        $dependencies[Http\Client\LockedException::class] = [
+            Http\Client\LockedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\MethodNotAllowedException::class] = [
-            \Exceptions\Http\Client\MethodNotAllowedException::class,
+        $dependencies[Http\Client\MethodNotAllowedException::class] = [
+            Http\Client\MethodNotAllowedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\MisdirectedRequestException::class] = [
-            \Exceptions\Http\Client\MisdirectedRequestException::class,
+        $dependencies[Http\Client\MisdirectedRequestException::class] = [
+            Http\Client\MisdirectedRequestException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\NotAcceptableException::class] = [
-            \Exceptions\Http\Client\NotAcceptableException::class,
+        $dependencies[Http\Client\NotAcceptableException::class] = [
+            Http\Client\NotAcceptableException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\NotFoundException::class] = [
-            \Exceptions\Http\Client\NotFoundException::class,
+        $dependencies[Http\Client\NotFoundException::class] = [
+            Http\Client\NotFoundException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\NotFoundTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\NotFoundTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\PaymentRequiredException::class] = [
-            \Exceptions\Http\Client\PaymentRequiredException::class,
+        $dependencies[Http\Client\PaymentRequiredException::class] = [
+            Http\Client\PaymentRequiredException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\PreConditionFailedException::class] = [
-            \Exceptions\Http\Client\PreConditionFailedException::class,
+        $dependencies[Http\Client\PreConditionFailedException::class] = [
+            Http\Client\PreConditionFailedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\PreConditionRequiredException::class] = [
-            \Exceptions\Http\Client\PreConditionRequiredException::class,
+        $dependencies[Http\Client\PreConditionRequiredException::class] = [
+            Http\Client\PreConditionRequiredException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\ProxyAuthorizationRequiredException::class] = [
-            \Exceptions\Http\Client\ProxyAuthorizationRequiredException::class,
+        $dependencies[Http\Client\ProxyAuthorizationRequiredException::class] = [
+            Http\Client\ProxyAuthorizationRequiredException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\UnauthorizedTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\UnauthorizedTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\RequestedRangeNotSatisfiableException::class] = [
-            \Exceptions\Http\Client\RequestedRangeNotSatisfiableException::class,
+        $dependencies[Http\Client\RequestedRangeNotSatisfiableException::class] = [
+            Http\Client\RequestedRangeNotSatisfiableException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\RangeNotSatisfiableException::class] = [
-            \Exceptions\Http\Client\RangeNotSatisfiableException::class,
+        $dependencies[Http\Client\RangeNotSatisfiableException::class] = [
+            Http\Client\RangeNotSatisfiableException::class,
             array_merge(
-                [\Exceptions\Http\Client\RequestedRangeNotSatisfiableException::class],
-                $dependencies[\Exceptions\Http\Client\RequestedRangeNotSatisfiableException::class][1]
+                [Http\Client\RequestedRangeNotSatisfiableException::class],
+                $dependencies[Http\Client\RequestedRangeNotSatisfiableException::class][1]
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\RequestEntityTooLargeException::class] = [
-            \Exceptions\Http\Client\RequestEntityTooLargeException::class,
+        $dependencies[Http\Client\RequestEntityTooLargeException::class] = [
+            Http\Client\RequestEntityTooLargeException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\PayloadTooLargeException::class] = [
-            \Exceptions\Http\Client\PayloadTooLargeException::class,
+        $dependencies[Http\Client\PayloadTooLargeException::class] = [
+            Http\Client\PayloadTooLargeException::class,
             array_merge(
-                [\Exceptions\Http\Client\RequestEntityTooLargeException::class],
-                $dependencies[\Exceptions\Http\Client\RequestEntityTooLargeException::class][1]
+                [Http\Client\RequestEntityTooLargeException::class],
+                $dependencies[Http\Client\RequestEntityTooLargeException::class][1]
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\RequestHeaderFieldsTooLargeException::class] = [
-            \Exceptions\Http\Client\RequestHeaderFieldsTooLargeException::class,
+        $dependencies[Http\Client\RequestHeaderFieldsTooLargeException::class] = [
+            Http\Client\RequestHeaderFieldsTooLargeException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\RequestTimeoutException::class] = [
-            \Exceptions\Http\Client\RequestTimeoutException::class,
+        $dependencies[Http\Client\RequestTimeoutException::class] = [
+            Http\Client\RequestTimeoutException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\TooManyRequestsException::class] = [
-            \Exceptions\Http\Client\TooManyRequestsException::class,
+        $dependencies[Http\Client\TooManyRequestsException::class] = [
+            Http\Client\TooManyRequestsException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\UnauthorizedException::class] = [
-            \Exceptions\Http\Client\UnauthorizedException::class,
+        $dependencies[Http\Client\UnauthorizedException::class] = [
+            Http\Client\UnauthorizedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\UnauthorizedTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\UnauthorizedTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\UnavailableForLegalReasonsException::class] = [
-            \Exceptions\Http\Client\UnavailableForLegalReasonsException::class,
+        $dependencies[Http\Client\UnavailableForLegalReasonsException::class] = [
+            Http\Client\UnavailableForLegalReasonsException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\UnprocessableEntityException::class] = [
-            \Exceptions\Http\Client\UnprocessableEntityException::class,
+        $dependencies[Http\Client\UnprocessableEntityException::class] = [
+            Http\Client\UnprocessableEntityException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\UnsupportedMediaTypeException::class] = [
-            \Exceptions\Http\Client\UnsupportedMediaTypeException::class,
+        $dependencies[Http\Client\UnsupportedMediaTypeException::class] = [
+            Http\Client\UnsupportedMediaTypeException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\UpgradeRequiredException::class] = [
-            \Exceptions\Http\Client\UpgradeRequiredException::class,
+        $dependencies[Http\Client\UpgradeRequiredException::class] = [
+            Http\Client\UpgradeRequiredException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Client\URITooLongException::class] = [
-            \Exceptions\Http\Client\URITooLongException::class,
+        $dependencies[Http\Client\URITooLongException::class] = [
+            Http\Client\URITooLongException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Client\ClientErrorException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        
+
         // Http server exception dependencies
-        $dependencies[\Exceptions\Http\Server\BadGatewayException::class] = [
-            \Exceptions\Http\Server\BadGatewayException::class,
+        $dependencies[Http\Server\BadGatewayException::class] = [
+            Http\Server\BadGatewayException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Server\ServerErrorException::class)
+                $this->getDependenciesFor(Http\Server\ServerErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Server\GatewayTimeoutException::class] = [
-            \Exceptions\Http\Server\GatewayTimeoutException::class,
+        $dependencies[Http\Server\GatewayTimeoutException::class] = [
+            Http\Server\GatewayTimeoutException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Server\ServerErrorException::class)
+                $this->getDependenciesFor(Http\Server\ServerErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Server\HttpVersionNotSupportedException::class] = [
-            \Exceptions\Http\Server\HttpVersionNotSupportedException::class,
+        $dependencies[Http\Server\HttpVersionNotSupportedException::class] = [
+            Http\Server\HttpVersionNotSupportedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Server\ServerErrorException::class)
+                $this->getDependenciesFor(Http\Server\ServerErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Server\InsuficientStorageException::class] = [
-            \Exceptions\Http\Server\InsuficientStorageException::class,
+        $dependencies[Http\Server\InsuficientStorageException::class] = [
+            Http\Server\InsuficientStorageException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Server\ServerErrorException::class)
+                $this->getDependenciesFor(Http\Server\ServerErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Server\InternalServerErrorException::class] = [
-            \Exceptions\Http\Server\InternalServerErrorException::class,
+        $dependencies[Http\Server\InternalServerErrorException::class] = [
+            Http\Server\InternalServerErrorException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Server\ServerErrorException::class)
+                $this->getDependenciesFor(Http\Server\ServerErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Server\LoopDetectedException::class] = [
-            \Exceptions\Http\Server\LoopDetectedException::class,
+        $dependencies[Http\Server\LoopDetectedException::class] = [
+            Http\Server\LoopDetectedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Server\ServerErrorException::class)
+                $this->getDependenciesFor(Http\Server\ServerErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Server\NotImplementedException::class] = [
-            \Exceptions\Http\Server\NotImplementedException::class,
+        $dependencies[Http\Server\NotImplementedException::class] = [
+            Http\Server\NotImplementedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Server\ServerErrorException::class)
+                $this->getDependenciesFor(Http\Server\ServerErrorException::class)
             ),
         ];
-        $dependencies[\Exceptions\Http\Server\ServiceUnavailableException::class] = [
-            \Exceptions\Http\Server\ServiceUnavailableException::class,
+        $dependencies[Http\Server\ServiceUnavailableException::class] = [
+            Http\Server\ServiceUnavailableException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Http\Server\ServerErrorException::class)
+                $this->getDependenciesFor(Http\Server\ServerErrorException::class)
             ),
         ];
-        
+
         // Filesystem exception dependencies
-        $dependencies[\Exceptions\IO\Filesystem\DirectoryAlreadyExistsException::class] = [
-            \Exceptions\IO\Filesystem\DirectoryAlreadyExistsException::class,
+        $dependencies[IO\Filesystem\DirectoryAlreadyExistsException::class] = [
+            IO\Filesystem\DirectoryAlreadyExistsException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ExistsTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\ExistsTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Filesystem\DirectoryNotFoundException::class] = [
-            \Exceptions\IO\Filesystem\DirectoryNotFoundException::class,
+        $dependencies[IO\Filesystem\DirectoryNotFoundException::class] = [
+            IO\Filesystem\DirectoryNotFoundException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\NotFoundTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\NotFoundTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Filesystem\DirectoryNotReadableException::class] = [
-            \Exceptions\IO\Filesystem\DirectoryNotReadableException::class,
+        $dependencies[IO\Filesystem\DirectoryNotReadableException::class] = [
+            IO\Filesystem\DirectoryNotReadableException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Filesystem\DirectoryNotWritableException::class] = [
-            \Exceptions\IO\Filesystem\DirectoryNotWritableException::class,
+        $dependencies[IO\Filesystem\DirectoryNotWritableException::class] = [
+            IO\Filesystem\DirectoryNotWritableException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Filesystem\FileAlreadyExistsException::class] = [
-            \Exceptions\IO\Filesystem\FileAlreadyExistsException::class,
+        $dependencies[IO\Filesystem\FileAlreadyExistsException::class] = [
+            IO\Filesystem\FileAlreadyExistsException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ExistsTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\ExistsTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Filesystem\FileNotFoundException::class] = [
-            \Exceptions\IO\Filesystem\FileNotFoundException::class,
+        $dependencies[IO\Filesystem\FileNotFoundException::class] = [
+            IO\Filesystem\FileNotFoundException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\NotFoundTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\NotFoundTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Filesystem\FileNotReadableException::class] = [
-            \Exceptions\IO\Filesystem\FileNotReadableException::class,
+        $dependencies[IO\Filesystem\FileNotReadableException::class] = [
+            IO\Filesystem\FileNotReadableException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Filesystem\FileNotWritableException::class] = [
-            \Exceptions\IO\Filesystem\FileNotWritableException::class,
+        $dependencies[IO\Filesystem\FileNotWritableException::class] = [
+            IO\Filesystem\FileNotWritableException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Filesystem\NoMoreSpaceException::class] = [
-            \Exceptions\IO\Filesystem\NoMoreSpaceException::class,
+        $dependencies[IO\Filesystem\NoMoreSpaceException::class] = [
+            IO\Filesystem\NoMoreSpaceException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\AbortedTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Filesystem\NotADirectoryException::class] = [
-            \Exceptions\IO\Filesystem\NotADirectoryException::class,
+        $dependencies[IO\Filesystem\NotADirectoryException::class] = [
+            IO\Filesystem\NotADirectoryException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Filesystem\NotAFileException::class] = [
-            \Exceptions\IO\Filesystem\NotAFileException::class,
+        $dependencies[IO\Filesystem\NotAFileException::class] = [
+            IO\Filesystem\NotAFileException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Filesystem\FilesystemException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(IO\Filesystem\FilesystemException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        
+
         // Network exception dependencies
-        $dependencies[\Exceptions\IO\Network\ConnectionLostException::class] = [
-            \Exceptions\IO\Network\ConnectionLostException::class,
+        $dependencies[IO\Network\ConnectionLostException::class] = [
+            IO\Network\ConnectionLostException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Network\NetworkException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class)
+                $this->getDependenciesFor(IO\Network\NetworkException::class),
+                $this->getDependenciesFor(Tag\AbortedTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Network\ConnectionRefusedException::class] = [
-            \Exceptions\IO\Network\ConnectionRefusedException::class,
+        $dependencies[IO\Network\ConnectionRefusedException::class] = [
+            IO\Network\ConnectionRefusedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Network\NetworkException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(IO\Network\NetworkException::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Network\ConnectionTimeoutException::class] = [
-            \Exceptions\IO\Network\ConnectionTimeoutException::class,
+        $dependencies[IO\Network\ConnectionTimeoutException::class] = [
+            IO\Network\ConnectionTimeoutException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Network\NetworkException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class)
+                $this->getDependenciesFor(IO\Network\NetworkException::class),
+                $this->getDependenciesFor(Tag\AbortedTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Network\RequestTimeoutException::class] = [
-            \Exceptions\IO\Network\RequestTimeoutException::class,
+        $dependencies[IO\Network\RequestTimeoutException::class] = [
+            IO\Network\RequestTimeoutException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Network\NetworkException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class)
+                $this->getDependenciesFor(IO\Network\NetworkException::class),
+                $this->getDependenciesFor(Tag\AbortedTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Network\UnexpectedResponseException::class] = [
-            \Exceptions\IO\Network\UnexpectedResponseException::class,
+        $dependencies[IO\Network\UnexpectedResponseException::class] = [
+            IO\Network\UnexpectedResponseException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Network\NetworkException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class)
+                $this->getDependenciesFor(IO\Network\NetworkException::class),
+                $this->getDependenciesFor(Tag\AbortedTag::class)
             ),
         ];
-        $dependencies[\Exceptions\IO\Network\UnknownHostException::class] = [
-            \Exceptions\IO\Network\UnknownHostException::class,
+        $dependencies[IO\Network\UnknownHostException::class] = [
+            IO\Network\UnknownHostException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\IO\Network\NetworkException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\NotFoundTag::class)
+                $this->getDependenciesFor(IO\Network\NetworkException::class),
+                $this->getDependenciesFor(Tag\NotFoundTag::class)
             ),
         ];
-        
+
         // Operation exception dependencies
-        $dependencies[\Exceptions\Operation\AuthorizationException::class] = [
-            \Exceptions\Operation\AuthorizationException::class,
+        $dependencies[Operation\AuthorizationException::class] = [
+            Operation\AuthorizationException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Operation\OperationException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class),
-                $this->getDependenciesFor(\Exceptions\Tag\UnauthorizedTag::class)
+                $this->getDependenciesFor(Operation\OperationException::class),
+                $this->getDependenciesFor(Tag\AbortedTag::class),
+                $this->getDependenciesFor(Tag\UnauthorizedTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Operation\ForbiddenException::class] = [
-            \Exceptions\Operation\ForbiddenException::class,
+        $dependencies[Operation\ForbiddenException::class] = [
+            Operation\ForbiddenException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Operation\OperationException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class),
-                $this->getDependenciesFor(\Exceptions\Tag\ForbiddenTag::class)
+                $this->getDependenciesFor(Operation\OperationException::class),
+                $this->getDependenciesFor(Tag\AbortedTag::class),
+                $this->getDependenciesFor(Tag\ForbiddenTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Operation\InvalidOperationException::class] = [
-            \Exceptions\Operation\InvalidOperationException::class,
+        $dependencies[Operation\InvalidOperationException::class] = [
+            Operation\InvalidOperationException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Operation\OperationException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\InvalidDataTag::class)
+                $this->getDependenciesFor(Operation\OperationException::class),
+                $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Operation\NotImplementedException::class] = [
-            \Exceptions\Operation\NotImplementedException::class,
+        $dependencies[Operation\NotImplementedException::class] = [
+            Operation\NotImplementedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Operation\OperationException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class)
+                $this->getDependenciesFor(Operation\OperationException::class),
+                $this->getDependenciesFor(Tag\AbortedTag::class)
             ),
         ];
-        $dependencies[\Exceptions\Operation\UnexpectedException::class] = [
-            \Exceptions\Operation\UnexpectedException::class,
+        $dependencies[Operation\UnexpectedException::class] = [
+            Operation\UnexpectedException::class,
             array_merge(
-                $this->getDependenciesFor(\Exceptions\Operation\OperationException::class),
-                $this->getDependenciesFor(\Exceptions\Tag\AbortedTag::class)
+                $this->getDependenciesFor(Operation\OperationException::class),
+                $this->getDependenciesFor(Tag\AbortedTag::class)
             ),
         ];
-        
+
         return $dependencies;
     }
-    
+
     /**
      * @dataProvider providesDependencies
      *
-     * @param string   $className            Class to test dependencies for
+     * @param string $className Class to test dependencies for
      * @param string[] $declaredDependencies that the class should use directly or through parents
      */
     public function testDependencies(string $className, array $declaredDependencies)
     {
-        
+
         // Find the parent items
         $testedClass = new ReflectionClass($className);
-        
+
         // Massage data for easier visuals in case something breaks
         $foundDependencies = array_merge(
             array_unique(array_map(function (ReflectionClass $x) {
@@ -682,13 +694,13 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
         );
         sort($foundDependencies);
         sort($declaredDependencies);
-        
+
         // Find the extra and missing items
         $missingDependencies = array_diff($declaredDependencies, $foundDependencies);
         $extraDependencies = array_diff($foundDependencies, $declaredDependencies);
         sort($missingDependencies);
         sort($extraDependencies);
-        
+
         // Assert
         $this->assertCount(
             0,
@@ -707,7 +719,7 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
             . 'Extra dependencies: ' . print_r($extraDependencies, true) . PHP_EOL
         );
     }
-    
+
     /**
      * @param ReflectionClass $class
      *
@@ -722,10 +734,10 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
         }
         return array_filter($parents, function (ReflectionClass $x) {
             return $x->getName() == 'RuntimeException'
-                   || substr($x->getName(), 0, strlen('Exceptions\\')) == 'Exceptions\\';
+                || substr($x->getName(), 0, strlen('Exceptions\\')) == 'Exceptions\\';
         });
     }
-    
+
     /**
      * @param ReflectionClass $class
      *
@@ -739,10 +751,10 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
         }
         return array_filter($interfaces, function (ReflectionClass $x) {
             return $x->getName() == 'RuntimeException'
-                   || substr($x->getName(), 0, strlen('Exceptions\\')) == 'Exceptions\\';
+                || substr($x->getName(), 0, strlen('Exceptions\\')) == 'Exceptions\\';
         });
     }
-    
+
     /**
      * @param ReflectionClass $class
      *
@@ -756,7 +768,7 @@ class DependencyTest extends \PHPUnit\Framework\TestCase
         }
         return array_filter($traits, function (ReflectionClass $x) {
             return $x->getName() == 'RuntimeException'
-                   || substr($x->getName(), 0, strlen('Exceptions\\')) == 'Exceptions\\';
+                || substr($x->getName(), 0, strlen('Exceptions\\')) == 'Exceptions\\';
         });
     }
 }
