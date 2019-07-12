@@ -15,11 +15,26 @@
       "Exceptions\\Helpers\\": "Helpers/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Exceptions\\Tests\\": "Tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.1"
+  },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.11",
+    "friendsofphp/php-cs-fixer": "^2.15",
     "phpunit/phpunit": "^7.1"
   },
-  "scripts":{
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.3"
+    }
+  },
+  "scripts": {
     "test": "vendor/bin/phpunit",
     "lint": [
       "vendor/bin/php-cs-fixer --diff --dry-run -v fix Exceptions",

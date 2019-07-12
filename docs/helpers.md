@@ -73,3 +73,20 @@ To retrieve the data:
 } catch(\Exceptions\Some\Thing $ex) {
     var_dump($ex->getContext());
 }
+```
+
+## HttpExceptionFactory
+
+This factory can help you to get an HttpException corresponding to a given Http Code
+
+```php
+// Will return an exception of class \Exceptions\Http\Client\ImATeapotException
+\Exceptions\Helper\HttpExceptionFactory::build(418);
+```
+
+Context is also supported
+
+```php
+// Will return an exception of class \Exceptions\Http\Client\ImATeapotException
+\Exceptions\Helper\HttpExceptionFactory::buildWithContext(418, ['some' => 'data']);
+```
