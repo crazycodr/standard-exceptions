@@ -71,18 +71,19 @@ class HttpExceptionFactory
      * @param int $responseCode
      * @param mixed $context mixed data you can attach to the exception
      * @param string|null $message
+     * @param Throwable|null $ex [optional] The previous throwable used for the exception chaining.
      * @return HttpExceptionInterface
      *
      * @throws ValidationException When {$responseCode} can't be mapped to an HttpException
      */
-    public static function buildWithContext(int $responseCode, $context, string $message = ''): HttpExceptionInterface
+    public static function buildWithContext(int $responseCode, $context, string $message = '', Throwable $ex = null): HttpExceptionInterface
     {
         $mapping = static::getMapping();
         if (!array_key_exists($responseCode, $mapping)) {
             throw new ValidationException('Unknown mapping for response code ' . $responseCode);
         }
 
-        return $mapping[$responseCode]::withContext($context, $message, $responseCode);
+        return $mapping[$responseCode]::withContext($context, $message, $responseCode, $ex);
     }
 
     /**

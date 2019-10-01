@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Helpers;
 
 /**
@@ -21,15 +22,16 @@ trait WithContext
      * If you do not provide a message and/or code, it will use the getMessage and getCode interface methods to
      * retrieve the defaults for that exception.
      *
-     * @param mixed context to save to the exception
+     * @param $context
      * @param string $message to use, if null, will get the default exception message
      * @param int $code to use, if null, will get the default exception code
+     * @param \Throwable|null $previous [optional] The previous throwable used for the exception chaining.
      *
      * @return static
      */
-    public static function withContext($context, string $message = null, int $code = null)
+    public static function withContext($context, string $message = null, int $code = null, \Throwable $previous = null)
     {
-        $ex = new static($message ?? static::getDefaultMessage(), $code ?? static::getDefaultCode());
+        $ex = new static($message ?? static::getDefaultMessage(), $code ?? static::getDefaultCode(), $previous);
         $ex->context = $context;
         return $ex;
     }
