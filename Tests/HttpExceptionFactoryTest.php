@@ -38,9 +38,13 @@ class HttpExceptionFactoryTest extends TestCase
     public function testBuildWithContext(int $errorCode, string $expectedClass)
     {
         $ctx = new stdClass();
-        $exception = HttpExceptionFactory::buildWithContext($errorCode, $ctx);
+        $message = 'test';
+        $previousException = new \Exception();
+        $exception = HttpExceptionFactory::buildWithContext($errorCode, $ctx, $message, $previousException);
         $this->assertInstanceOf($expectedClass, $exception);
         $this->assertSame($ctx, $exception->getContext());
+        $this->assertSame('test', $exception->getMessage());
+        $this->assertSame($previousException, $exception->getPrevious());
     }
 
     public function testBuildWithContextFailed()
