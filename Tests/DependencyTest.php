@@ -452,6 +452,13 @@ class DependencyTest extends TestCase
                 $this->getDependenciesFor(Tag\InvalidDataTag::class)
             ),
         ];
+        $dependencies[Http\Client\UnrecoverableErrorException::class] = [
+            Http\Client\UnrecoverableErrorException::class,
+            array_merge(
+                $this->getDependenciesFor(Http\Client\ClientErrorException::class),
+                $this->getDependenciesFor(Tag\AbortedTag::class)
+            ),
+        ];
 
         // Http server exception dependencies
         $dependencies[Http\Server\BadGatewayException::class] = [

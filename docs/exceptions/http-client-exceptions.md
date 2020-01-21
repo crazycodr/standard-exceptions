@@ -47,6 +47,7 @@ Exceptions:
 * 429: TooManyRequestsException
 * 431: RequestHeaderFieldsTooLargeException
 * 451: UnavailableForLegalReasonsException
+* 456: UnrecoverableErrorException
 
 ### 400: BadRequestException
 
@@ -323,3 +324,11 @@ Tags: `\Exceptions\Tag\AbortedTag` and `\Exceptions\Tag\InvalidDataTag`
 You should return this exception when there is a legal request deposited against a specific resource that is being requested. 
 
 Tags: `\Exceptions\Tag\AbortedTag` and `\Exceptions\Tag\ForbiddenTag`
+
+---
+
+### 456: UnrecoverableErrorException
+
+You should return this exception when the server encounters an unrecoverable error with an internal provider. 
+
+Tags: `\Exceptions\Tag\AbortedTag`
