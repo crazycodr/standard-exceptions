@@ -210,6 +210,11 @@ class HttpExceptionFactoryTest extends TestCase
             'expectedClass' => Client\UnavailableForLegalReasonsException::class,
         ];
 
+        yield 'Client\UnrecoverableErrorException' => [
+            'errorCode' => 456,
+            'expectedClass' => Client\UnrecoverableErrorException::class,
+        ];
+
         yield 'Server\InternalServerErrorException' => [
             'errorCode' => 500,
             'expectedClass' => Server\InternalServerErrorException::class,

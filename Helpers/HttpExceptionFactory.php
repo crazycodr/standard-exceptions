@@ -39,6 +39,7 @@ class HttpExceptionFactory
         429 => Client\TooManyRequestsException::class,
         431 => Client\RequestHeaderFieldsTooLargeException::class,
         451 => Client\UnavailableForLegalReasonsException::class,
+        456 => Client\UnrecoverableErrorException::class,
         500 => Server\InternalServerErrorException::class,
         501 => Server\NotImplementedException::class,
         502 => Server\BadGatewayException::class,
