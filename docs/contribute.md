@@ -21,18 +21,15 @@ There are some restrictions though!
 ## Restrictions
 
 * You must write a test for anything you add or change in terms of feature:
-    
     * `FeatureTest.php` should contain a test about your changes.
     * `DependencyTest.php` should be updated with any new exception to ensure that further changes down the road don't break anything.
     * `VarianceTest.php` should be updated if you create any new tags or exceptions that replace another one so that you can prove you are not breaking any old code through covariant or contravariant changes.
     
 * Your code must be documented:
-
     * In the docs.
     * In the code files.
 
 * Your code must be clean and well formatted:
-
     * You can run `composer run lint` to see what is not well formatted.
     * You can run `composer run fix` to fix all linting errors.
     

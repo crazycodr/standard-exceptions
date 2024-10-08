@@ -2,11 +2,9 @@
 
 namespace Exceptions\Operation;
 
-use Exceptions\Helpers\DefaultConstructorTrait;
 use Exceptions\Helpers\DefaultsInterface;
-use Exceptions\Helpers\FromException;
-use Exceptions\Helpers\WithContext;
 use RuntimeException;
+use Throwable;
 
 /**
  * This is a tag like class that is used to regroup all Operation exceptions under a single base class.
@@ -16,9 +14,10 @@ use RuntimeException;
  */
 abstract class OperationException extends RuntimeException implements OperationExceptionInterface, DefaultsInterface
 {
-    use FromException;
-    use DefaultConstructorTrait;
-    use WithContext;
+    public function __construct(string $message = "", int $code = 0, null|Throwable $previous = null)
+    {
+        parent::__construct($message ?: $this->getDefaultMessage(), $code ?: $this->getDefaultCode(), $previous);
+    }
 
     /**
      * {@inheritdoc}

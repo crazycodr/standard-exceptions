@@ -10,6 +10,6 @@ namespace Exceptions\Tag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface ExistsTag extends AlreadyExistsException
+interface AlreadyExistsTag
 {
 }

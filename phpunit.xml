@@ -21,7 +21,6 @@
     <filter>
         <whitelist>
             <directory>./Exceptions</directory>
-            <file>./Helpers/HttpExceptionFactory.php</file>
         </whitelist>
     </filter>
 

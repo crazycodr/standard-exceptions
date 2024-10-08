@@ -4,8 +4,7 @@ Many frameworks and applications redefine Http exceptions that map to Http statu
 
 This document details server http exception or the class of http responses that map to the 500s response code.
 
-> **GENERAL IMPORTANT NOTE REGARDING HTTP EXCEPTIONS**: Never throw an exception at the user. Always catch it and synthesize it to a correct html response with
-appropriate headers. You can use the constants and accessor to get HTML values to return.
+> **GENERAL IMPORTANT NOTE REGARDING HTTP EXCEPTIONS**: Never throw an exception at the user. Always catch it and synthesize it to a correct html response with appropriate headers. You can use the constants and accessor to get HTML values to return.
 
 ## Classes
 

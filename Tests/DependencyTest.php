@@ -28,36 +28,27 @@ class DependencyTest extends TestCase
     public static function getDependenciesFor(string $className): array
     {
         return match ($className) {
-            Tag\ExistsTag::class => array_merge(
+            Collection\KeyAlreadyExistsException::class => array_merge(
                 [$className],
-                self::getDependenciesFor(Tag\AlreadyExistsException::class)
+                self::getDependenciesFor(Tag\AlreadyExistsTag::class)
             ),
             Collection\CollectionException::class => array_merge(
                 [$className],
                 self::getDependenciesFor(RuntimeException::class),
                 self::getDependenciesFor(Collection\CollectionExceptionInterface::class),
                 self::getDependenciesFor(Helpers\DefaultsInterface::class),
-                self::getDependenciesFor(Helpers\FromException::class),
-                self::getDependenciesFor(Helpers\WithContext::class),
-                self::getDependenciesFor(Helpers\DefaultConstructorTrait::class)
             ),
             Data\DataException::class => array_merge(
                 [$className],
                 self::getDependenciesFor(RuntimeException::class),
                 self::getDependenciesFor(Data\DataExceptionInterface::class),
                 self::getDependenciesFor(Helpers\DefaultsInterface::class),
-                self::getDependenciesFor(Helpers\FromException::class),
-                self::getDependenciesFor(Helpers\WithContext::class),
-                self::getDependenciesFor(Helpers\DefaultConstructorTrait::class)
             ),
             Http\HttpException::class => array_merge(
                 [$className],
                 self::getDependenciesFor(RuntimeException::class),
                 self::getDependenciesFor(Http\HttpExceptionInterface::class),
                 self::getDependenciesFor(Helpers\DefaultsInterface::class),
-                self::getDependenciesFor(Helpers\FromException::class),
-                self::getDependenciesFor(Helpers\WithContext::class),
-                self::getDependenciesFor(Helpers\DefaultConstructorTrait::class)
             ),
             Http\Client\ClientErrorException::class => array_merge(
                 [$className],
@@ -74,9 +65,6 @@ class DependencyTest extends TestCase
                 self::getDependenciesFor(RuntimeException::class),
                 self::getDependenciesFor(IO\IOExceptionInterface::class),
                 self::getDependenciesFor(Helpers\DefaultsInterface::class),
-                self::getDependenciesFor(Helpers\FromException::class),
-                self::getDependenciesFor(Helpers\WithContext::class),
-                self::getDependenciesFor(Helpers\DefaultConstructorTrait::class)
             ),
             IO\Filesystem\FilesystemException::class => array_merge(
                 [$className],
@@ -93,9 +81,6 @@ class DependencyTest extends TestCase
                 self::getDependenciesFor(RuntimeException::class),
                 self::getDependenciesFor(Operation\OperationExceptionInterface::class),
                 self::getDependenciesFor(Helpers\DefaultsInterface::class),
-                self::getDependenciesFor(Helpers\FromException::class),
-                self::getDependenciesFor(Helpers\WithContext::class),
-                self::getDependenciesFor(Helpers\DefaultConstructorTrait::class)
             ),
             default => [$className],
         };
@@ -127,7 +112,7 @@ class DependencyTest extends TestCase
             Collection\KeyAlreadyExistsException::class,
             array_merge(
                 self::getDependenciesFor(Collection\CollectionException::class),
-                self::getDependenciesFor(Tag\ExistsTag::class)
+                self::getDependenciesFor(Tag\AlreadyExistsTag::class)
             ),
         ];
         $dependencies[Collection\KeyNotFoundException::class] = [
@@ -427,7 +412,7 @@ class DependencyTest extends TestCase
             IO\Filesystem\DirectoryAlreadyExistsException::class,
             array_merge(
                 self::getDependenciesFor(IO\Filesystem\FilesystemException::class),
-                self::getDependenciesFor(Tag\ExistsTag::class)
+                self::getDependenciesFor(Tag\AlreadyExistsTag::class)
             ),
         ];
         $dependencies[IO\Filesystem\DirectoryNotFoundException::class] = [
@@ -455,7 +440,7 @@ class DependencyTest extends TestCase
             IO\Filesystem\FileAlreadyExistsException::class,
             array_merge(
                 self::getDependenciesFor(IO\Filesystem\FilesystemException::class),
-                self::getDependenciesFor(Tag\ExistsTag::class)
+                self::getDependenciesFor(Tag\AlreadyExistsTag::class)
             ),
         ];
         $dependencies[IO\Filesystem\FileNotFoundException::class] = [

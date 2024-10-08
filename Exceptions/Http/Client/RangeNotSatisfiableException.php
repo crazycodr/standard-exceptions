@@ -17,10 +17,10 @@ class RangeNotSatisfiableException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 416;
+    public const HTTP_CODE = 416;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Range Not Satisfiable: The server is refusing to process a request because the requested length/range cannot be satisfied due to missing data.';
+    public const HTTP_MESSAGE = 'Range Not Satisfiable: The server is refusing to process a request because the requested length/range cannot be satisfied due to missing data.';
 }

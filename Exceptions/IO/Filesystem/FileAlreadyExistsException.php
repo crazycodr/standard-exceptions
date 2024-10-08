@@ -2,7 +2,7 @@
 
 namespace Exceptions\IO\Filesystem;
 
-use Exceptions\Tag\ExistsTag;
+use Exceptions\Tag\AlreadyExistsTag;
 
 /**
  * Use this exception when your code tries to create a file, but it already exists.
@@ -10,7 +10,7 @@ use Exceptions\Tag\ExistsTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class FileAlreadyExistsException extends FilesystemException implements ExistsTag
+class FileAlreadyExistsException extends FilesystemException implements AlreadyExistsTag
 {
     public const MESSAGE = 'Cannot find specified file';
     public const CODE = 0;

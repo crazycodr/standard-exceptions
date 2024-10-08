@@ -43,35 +43,6 @@ class FeatureTest extends TestCase
     }
 
     /**
-     * Tests that using from() will create a new exception with default message/code but still add the previous
-     * exception passed in properly.
-     */
-    public function testFromException()
-    {
-        $previousException = new Exception('test');
-        $exception = Collection\EmptyException::from($previousException);
-        $this->assertEquals(Collection\EmptyException::getDefaultMessage(), $exception->getMessage());
-        $this->assertEquals(Collection\EmptyException::getDefaultCode(), $exception->getCode());
-        $this->assertSame($previousException, $exception->getPrevious());
-    }
-
-    /**
-     * Tests that using withContext() will create a new exception with default message/code and add context data
-     * to the exception and allow the retrieval of it.
-     */
-    public function testWithContextException()
-    {
-        $exception = Collection\EmptyException::withContext([
-            'key1' => 'data1',
-        ]);
-        $this->assertEquals(Collection\EmptyException::getDefaultMessage(), $exception->getMessage());
-        $this->assertEquals(Collection\EmptyException::getDefaultCode(), $exception->getCode());
-        $this->assertEquals([
-            'key1' => 'data1',
-        ], $exception->getContext());
-    }
-
-    /**
      * Tests that the getHttpCode and getHttpMessages can be called on Http exceptions
      * @throws ReflectionException
      */

@@ -21,13 +21,9 @@ The `Tag\` namespace contains different interfaces that help you convey the same
 
 All tags are found under `\Exceptions\Tag`.
 
-### Exists tag
+### Already exists tag
 
-The `ExistsTag` interface is assigned to any exception that declares that the operation you tried to execute failed because the entity you tried to add to some kind of collection or a lot of items already existed.
-
-> **IMPORTANT NOTES**: This was previously named `AlreadyExistsException` and was recently renamed. You can still use `AlreadyExistsException` to catch exceptions that extend the `ExistsTag` but you cannot use the `ExistsTag` to catch old exceptions you created in your project that implement `OperationAbortedExceptio`n.
->
-> `AlreadyExistsException` is deprecated as of the latest version and will be removed in version 3.0
+The `AlreadyExistsTag` interface is assigned to any exception that declares that the operation you tried to execute failed because the entity you tried to add to some kind of collection or a lot of items already existed.
 
 ### Forbidden tag
 

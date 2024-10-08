@@ -17,7 +17,7 @@ class PayloadTooLargeException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 413;
+    public const HTTP_CODE = 413;
 
     /**
      * Returns the HTTP error message for that exception.

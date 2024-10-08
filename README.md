@@ -55,7 +55,7 @@ If you need help upgrading for the old version 1 to this version, see the [Upgra
   * [io-network-exceptions.md](docs/exceptions/io-network-exceptions.md)
   * [operation-exceptions.md](docs/exceptions/operation-exceptions.md)
 * [Tag interfaces](docs/tags.md) to catch common exceptions with similar means but different contexts
-* Exceptions define default messages and error codes using the [DefaultsInterface and DefaultConstructorTrait](docs/helpers.md)
+* Exceptions define default messages and error codes using the [DefaultsInterface](docs/helpers.md)
 * Throwing new exceptions from another exception allows easier exception chaining using [FromException helper](docs/helpers.md)
 
 # Contribution
