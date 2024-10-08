@@ -3,7 +3,7 @@
 namespace Exceptions\Data;
 
 /**
- * Use this exception when the data requested by your code was found and it found actually more than expected. A good
+ * Use this exception when the data requested by your code was found, and it found actually more than expected. A good
  * use for this is the findSingle usual function we find in many library and orm. If you have more than 1 record
  * found, it might mean that you should send back this exception.
  *
@@ -16,6 +16,6 @@ namespace Exceptions\Data;
  */
 class FoundTooManyException extends DataException
 {
-    const MESSAGE = 'Found too many items in the data source.';
-    const CODE = 0;
+    public const MESSAGE = 'Found too many items in the data source.';
+    public const CODE = 0;
 }

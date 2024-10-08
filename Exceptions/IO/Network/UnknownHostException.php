@@ -13,6 +13,6 @@ use Exceptions\Tag\NotFoundTag;
  */
 class UnknownHostException extends NetworkException implements NotFoundTag
 {
-    const MESSAGE = 'The specified resource\'s hostname could not be resolved';
-    const CODE = 0;
+    public const MESSAGE = 'The specified resource\'s hostname could not be resolved';
+    public const CODE = 0;
 }

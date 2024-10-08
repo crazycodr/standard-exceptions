@@ -1,4 +1,5 @@
 <?php
+
 namespace Exceptions\Helpers;
 
 /**
@@ -8,18 +9,13 @@ namespace Exceptions\Helpers;
  */
 interface DefaultsInterface
 {
-
     /**
      * Returns the default message for this exception
-     *
-     * @return string
      */
     public static function getDefaultMessage(): string;
 
     /**
      * Returns the default error code for this exception
-     *
-     * @return int
      */
     public static function getDefaultCode(): int;
 }

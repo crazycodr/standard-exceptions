@@ -16,10 +16,10 @@ class BadGatewayException extends ServerErrorException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 502;
+    public const HTTP_CODE = 502;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Bad Gateway: The server cannot complete the request because a downstream process failed to respond properly.';
+    public const HTTP_MESSAGE = 'Bad Gateway: The server cannot complete the request because a downstream process failed to respond properly.';
 }

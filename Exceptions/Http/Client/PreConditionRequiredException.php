@@ -18,10 +18,10 @@ class PreConditionRequiredException extends ClientErrorException implements Inva
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 428;
+    public const HTTP_CODE = 428;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Pre-condition Required: The request cannot be completed because the request was not made using an a pre-condition header that should have been included with it.';
+    public const HTTP_MESSAGE = 'Pre-condition Required: The request cannot be completed because the request was not made using an a pre-condition header that should have been included with it.';
 }

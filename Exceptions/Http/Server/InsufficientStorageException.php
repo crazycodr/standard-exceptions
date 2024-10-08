@@ -13,15 +13,15 @@ namespace Exceptions\Http\Server;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class InsuficientStorageException extends ServerErrorException
+class InsufficientStorageException extends ServerErrorException
 {
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 507;
+    public const HTTP_CODE = 507;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Insuficient Storage: This server cannot process the request because it would/has run out of space while producing the response. Alternatively, this could also mean the server ran out of disk space or that your request has limited resources and that makes the request impossible to fulfill.';
+    public const HTTP_MESSAGE = 'Insufficient Storage: This server cannot process the request because it would/has run out of space while producing the response. Alternatively, this could also mean the server ran out of disk space or that your request has limited resources and that makes the request impossible to fulfill.';
 }

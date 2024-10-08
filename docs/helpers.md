@@ -48,7 +48,7 @@ Or even worst, if you don't use the defaults helpers, you have to hard code the 
 ```php
 } catch (SomeException $ex){
     throw new \Exceptions\Some\Thing(
-        'An error occured because of something',
+        'An error occurred because of something',
         19985,
         $ex
     );
@@ -80,13 +80,13 @@ To retrieve the data:
 This factory can help you to get an HttpException corresponding to a given Http Code
 
 ```php
-// Will return an exception of class \Exceptions\Http\Client\ImATeapotException
-\Exceptions\Helper\HttpExceptionFactory::build(418);
+// Will create an instance of \Exceptions\Http\Client\ForbiddenException
+\Exceptions\Helper\HttpExceptionFactory::build(403);
 ```
 
 Context is also supported
 
 ```php
-// Will return an exception of class \Exceptions\Http\Client\ImATeapotException
-\Exceptions\Helper\HttpExceptionFactory::buildWithContext(418, ['some' => 'data']);
+// Will create an instance of \Exceptions\Http\Client\ForbiddenException
+\Exceptions\Helper\HttpExceptionFactory::buildWithContext(403, ['some' => 'data']);
 ```

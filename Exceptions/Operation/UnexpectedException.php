@@ -2,12 +2,10 @@
 
 namespace Exceptions\Operation;
 
-use Exceptions\Tag\AbortedTag;
-
 /**
  * Use this exception in the event that an operation that expected a certain result from a sub function/method call
- * but did not get what i expected. This exception is the reversed validation exception. Instead of validating the
- * user's input to a function, it is a means to signal that something went wrong when calling a sub components and
+ * but did not get what I expected. This exception is the reversed validation exception. Instead of validating the
+ * user's input to a function, it is a means to signal that something went wrong when calling a subcomponents and
  * the result is unexpected.
  *
  * It was created only for backwards compatibility with UnexpectedValueException.
@@ -15,8 +13,8 @@ use Exceptions\Tag\AbortedTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnexpectedException extends OperationException implements AbortedTag
+class UnexpectedException extends OperationException
 {
-    const MESSAGE = 'Unexpected value returned by internal call';
-    const CODE = 0;
+    public const MESSAGE = 'Unexpected value returned by internal call';
+    public const CODE = 0;
 }

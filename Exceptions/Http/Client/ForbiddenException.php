@@ -19,10 +19,10 @@ class ForbiddenException extends ClientErrorException implements ForbiddenTag
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 403;
+    public const HTTP_CODE = 403;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Forbidden: The server understood the request, but is refusing to fulfill it. Authorization will not help and the request should not be repeated.';
+    public const HTTP_MESSAGE = 'Forbidden: The server understood the request, but is refusing to fulfill it. Authorization will not help and the request should not be repeated.';
 }

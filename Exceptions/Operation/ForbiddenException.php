@@ -2,7 +2,6 @@
 
 namespace Exceptions\Operation;
 
-use Exceptions\Tag\AbortedTag;
 use Exceptions\Tag\ForbiddenTag;
 
 /**
@@ -14,14 +13,14 @@ use Exceptions\Tag\ForbiddenTag;
  * that match the HTTP response code 403. You can still catch this and resolve the error the way you wish as catching
  * this error doesn't mean the whole request that was asked for should be denied.
  *
- * Also note that permission errors should revolve around authorization exceptions but it is still very valid to use
+ * Also note that permission errors should revolve around authorization exceptions, but it is still very valid to use
  * forbidden exceptions in the context. The debate is fierce!
  *
  * @author   Mathieu Dumoulin aka CrazyCodr <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class ForbiddenException extends OperationException implements AbortedTag, ForbiddenTag
+class ForbiddenException extends OperationException implements ForbiddenTag
 {
-    const MESSAGE = 'Requested operation could not be executed because of a lack of permission';
-    const CODE = 0;
+    public const MESSAGE = 'Requested operation could not be executed because of a lack of permission';
+    public const CODE = 0;
 }

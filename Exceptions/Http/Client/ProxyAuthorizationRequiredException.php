@@ -18,10 +18,10 @@ class ProxyAuthorizationRequiredException extends ClientErrorException implement
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 407;
+    public const HTTP_CODE = 407;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Proxy Authorization Required: The request you made tried to pass through a proxy that is refusing your credentials or refusing your anonymity. Please re-issue the request with proper credentials.';
+    public const HTTP_MESSAGE = 'Proxy Authorization Required: The request you made tried to pass through a proxy that is refusing your credentials or refusing your anonymity. Please re-issue the request with proper credentials.';
 }

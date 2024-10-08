@@ -12,10 +12,15 @@ namespace Exceptions\Http\Client;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class PayloadTooLargeException extends RequestEntityTooLargeException
+class PayloadTooLargeException
 {
+    /**
+     * Returns the HTTP error code for that exception.
+     */
+    const HTTP_CODE = 413;
+
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Payload Too Large: The server is refusing to process a request because the payload is larger than the server is willing or able to process.';
+    public const HTTP_MESSAGE = 'Payload Too Large: The server is refusing to process a request because the payload is larger than the server is willing or able to process.';
 }

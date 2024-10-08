@@ -4,21 +4,24 @@ declare(strict_types=1);
 
 namespace Exceptions\Tests;
 
+use Exception;
 use Exceptions\Data\ValidationException;
 use Exceptions\Http\Client;
 use Exceptions\Http\Server;
 use Exceptions\Helpers\HttpExceptionFactory;
 use Exceptions\Tests\stub\CustomHttpException;
+use Generator;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
 class HttpExceptionFactoryTest extends TestCase
 {
     /**
-     * @dataProvider dataProvider
      * @param int $errorCode
      * @param string $expectedClass
      */
+    #[DataProvider(methodName: 'dataProvider')]
     public function testBuild(int $errorCode, string $expectedClass)
     {
         $this->assertInstanceOf($expectedClass, HttpExceptionFactory::build($errorCode));
@@ -31,15 +34,15 @@ class HttpExceptionFactoryTest extends TestCase
     }
 
     /**
-     * @dataProvider dataProvider
      * @param int $errorCode
      * @param string $expectedClass
      */
+    #[DataProvider(methodName: 'dataProvider')]
     public function testBuildWithContext(int $errorCode, string $expectedClass)
     {
         $ctx = new stdClass();
         $message = 'test';
-        $previousException = new \Exception();
+        $previousException = new Exception();
         $exception = HttpExceptionFactory::buildWithContext($errorCode, $ctx, $message, $previousException);
         $this->assertInstanceOf($expectedClass, $exception);
         $this->assertSame($ctx, $exception->getContext());
@@ -55,7 +58,7 @@ class HttpExceptionFactoryTest extends TestCase
 
     public function testExtendingHelper()
     {
-        $helper = new class extends HttpExceptionFactory {
+        $helper = new class () extends HttpExceptionFactory {
             protected static function getMapping(): array
             {
                 return [
@@ -68,7 +71,7 @@ class HttpExceptionFactoryTest extends TestCase
         $this->assertInstanceOf(CustomHttpException::class, $exception);
     }
 
-    public function dataProvider()
+    public static function dataProvider(): Generator
     {
         yield 'Client\BadRequestException' => [
             'errorCode' => 400,
@@ -110,7 +113,7 @@ class HttpExceptionFactoryTest extends TestCase
             'expectedClass' => Client\ProxyAuthorizationRequiredException::class,
         ];
 
-        yield 'Clxient\RequestTimeoutException' => [
+        yield 'Client\RequestTimeoutException' => [
             'errorCode' => 408,
             'expectedClass' => Client\RequestTimeoutException::class,
         ];
@@ -158,11 +161,6 @@ class HttpExceptionFactoryTest extends TestCase
         yield 'Client\ExpectationFailedException' => [
             'errorCode' => 417,
             'expectedClass' => Client\ExpectationFailedException::class,
-        ];
-
-        yield 'Client\ImATeapotException' => [
-            'errorCode' => 418,
-            'expectedClass' => Client\ImATeapotException::class,
         ];
 
         yield 'Client\MisdirectedRequestException' => [
@@ -245,9 +243,9 @@ class HttpExceptionFactoryTest extends TestCase
             'expectedClass' => Server\HttpVersionNotSupportedException::class,
         ];
 
-        yield 'Server\InsuficientStorageException' => [
+        yield 'Server\InsufficientStorageException' => [
             'errorCode' => 507,
-            'expectedClass' => Server\InsuficientStorageException::class,
+            'expectedClass' => Server\InsufficientStorageException::class,
         ];
 
         yield 'Server\LoopDetectedException' => [

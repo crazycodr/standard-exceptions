@@ -2,8 +2,6 @@
 
 namespace Exceptions\Http\Client;
 
-use Exceptions\Tag\AbortedTag;
-
 /**
  * The server encountered an unrecoverable error with an internal provider while processing the request
  *
@@ -13,15 +11,15 @@ use Exceptions\Tag\AbortedTag;
  * @author   Jean-Christophe Binet <me@jeanchristophebinet.com>
  * @license  MIT
  */
-class UnrecoverableErrorException extends ClientErrorException implements AbortedTag
+class UnrecoverableErrorException extends ClientErrorException
 {
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 456;
+    public const HTTP_CODE = 456;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'The request cannot be fulfilled due to an unrecoverable error with an internal provider';
+    public const HTTP_MESSAGE = 'The request cannot be fulfilled due to an unrecoverable error with an internal provider';
 }

@@ -14,6 +14,6 @@ use Exceptions\Tag\InvalidDataTag;
  */
 class TypeException extends DataException implements InvalidDataTag
 {
-    const MESSAGE = 'Type of the data is incorrect';
-    const CODE = 0;
+    public const MESSAGE = 'Type of the data is incorrect';
+    public const CODE = 0;
 }

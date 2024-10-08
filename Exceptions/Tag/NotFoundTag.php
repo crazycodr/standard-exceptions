@@ -10,6 +10,6 @@ namespace Exceptions\Tag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-interface NotFoundTag extends NotFoundException
+interface NotFoundTag
 {
 }

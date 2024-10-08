@@ -16,10 +16,10 @@ class ServiceUnavailableException extends ServerErrorException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 503;
+    public const HTTP_CODE = 503;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Service Unavailable: The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.';
+    public const HTTP_MESSAGE = 'Service Unavailable: The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.';
 }

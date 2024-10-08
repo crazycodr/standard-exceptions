@@ -17,10 +17,10 @@ class MisdirectedRequestException extends ClientErrorException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 421;
+    public const HTTP_CODE = 421;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Misdirected Request: The server cannot respond to this request due to a lack of resources or features. Please direct this request to the proper server instead.';
+    public const HTTP_MESSAGE = 'Misdirected Request: The server cannot respond to this request due to a lack of resources or features. Please direct this request to the proper server instead.';
 }

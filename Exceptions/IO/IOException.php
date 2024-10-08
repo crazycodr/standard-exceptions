@@ -6,6 +6,7 @@ use Exceptions\Helpers\DefaultConstructorTrait;
 use Exceptions\Helpers\DefaultsInterface;
 use Exceptions\Helpers\FromException;
 use Exceptions\Helpers\WithContext;
+use RuntimeException;
 
 /**
  * This is a tag like class that is used to regroup all IO exceptions under a single base class.
@@ -13,9 +14,11 @@ use Exceptions\Helpers\WithContext;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-abstract class IOException extends \RuntimeException implements IOExceptionInterface, DefaultsInterface
+abstract class IOException extends RuntimeException implements IOExceptionInterface, DefaultsInterface
 {
-    use FromException, DefaultConstructorTrait, WithContext;
+    use FromException;
+    use DefaultConstructorTrait;
+    use WithContext;
 
     /**
      * {@inheritdoc}

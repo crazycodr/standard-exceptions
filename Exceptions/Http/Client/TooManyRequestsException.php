@@ -19,10 +19,10 @@ class TooManyRequestsException extends ClientErrorException implements Forbidden
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 429;
-    
+    public const HTTP_CODE = 429;
+
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Too Many Requests: The request you are making cannot be completed because you are making too many requests to this system. Please try again later.';
+    public const HTTP_MESSAGE = 'Too Many Requests: The request you are making cannot be completed because you are making too many requests to this system. Please try again later.';
 }

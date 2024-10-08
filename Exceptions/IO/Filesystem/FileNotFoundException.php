@@ -12,6 +12,6 @@ use Exceptions\Tag\NotFoundTag;
  */
 class FileNotFoundException extends FilesystemException implements NotFoundTag
 {
-    const MESSAGE = 'Cannot find specified file';
-    const CODE = 0;
+    public const MESSAGE = 'Cannot find specified file';
+    public const CODE = 0;
 }

@@ -10,7 +10,7 @@ use Throwable;
 
 class HttpExceptionFactory
 {
-    protected static $mapping = [
+    protected static array $mapping = [
         400 => Client\BadRequestException::class,
         401 => Client\UnauthorizedException::class,
         402 => Client\PaymentRequiredException::class,
@@ -29,7 +29,6 @@ class HttpExceptionFactory
         415 => Client\UnsupportedMediaTypeException::class,
         416 => Client\RangeNotSatisfiableException::class,
         417 => Client\ExpectationFailedException::class,
-        418 => Client\ImATeapotException::class,
         421 => Client\MisdirectedRequestException::class,
         422 => Client\UnprocessableEntityException::class,
         423 => Client\LockedException::class,
@@ -46,17 +45,16 @@ class HttpExceptionFactory
         503 => Server\ServiceUnavailableException::class,
         504 => Server\GatewayTimeoutException::class,
         505 => Server\HttpVersionNotSupportedException::class,
-        507 => Server\InsuficientStorageException::class,
+        507 => Server\InsufficientStorageException::class,
         508 => Server\LoopDetectedException::class,
     ];
 
     /**
      * @param int $responseCode
-     * @param string|null $message
+     * @param string $message
      * @param Throwable|null $ex
      * @return HttpExceptionInterface
      *
-     * @throws ValidationException When {$responseCode} can't be mapped to an HttpException
      */
     public static function build(int $responseCode, string $message = '', Throwable $ex = null): HttpExceptionInterface
     {
@@ -71,13 +69,12 @@ class HttpExceptionFactory
     /**
      * @param int $responseCode
      * @param mixed $context mixed data you can attach to the exception
-     * @param string|null $message
+     * @param string $message
      * @param Throwable|null $ex [optional] The previous throwable used for the exception chaining.
      * @return HttpExceptionInterface
      *
-     * @throws ValidationException When {$responseCode} can't be mapped to an HttpException
      */
-    public static function buildWithContext(int $responseCode, $context, string $message = '', Throwable $ex = null): HttpExceptionInterface
+    public static function buildWithContext(int $responseCode, mixed $context, string $message = '', Throwable $ex = null): HttpExceptionInterface
     {
         $mapping = static::getMapping();
         if (!array_key_exists($responseCode, $mapping)) {
@@ -88,7 +85,7 @@ class HttpExceptionFactory
     }
 
     /**
-     * @return array Map between a an Error code (as key) and a Class name (as value)
+     * @return array Map between an Error code (as key) and a Class name (as value)
      */
     protected static function getMapping(): array
     {

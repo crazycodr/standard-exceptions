@@ -13,6 +13,6 @@ use Exceptions\Tag\ExistsTag;
  */
 class KeyAlreadyExistsException extends CollectionException implements ExistsTag
 {
-    const MESSAGE = 'Key already exists in array/collection';
-    const CODE = 0;
+    public const MESSAGE = 'Key already exists in array/collection';
+    public const CODE = 0;
 }

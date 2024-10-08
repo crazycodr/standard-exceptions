@@ -13,6 +13,6 @@ use Exceptions\Tag\ForbiddenTag;
  */
 class FileNotWritableException extends FilesystemException implements ForbiddenTag
 {
-    const MESSAGE = 'Cannot write to specified file';
-    const CODE = 0;
+    public const MESSAGE = 'Cannot write to specified file';
+    public const CODE = 0;
 }

@@ -17,7 +17,7 @@ Or catch them:
 ```php
 try {
 
-} catch(\Exceptions\Data\NotFoundExceptions $ex){
+} catch(\Exceptions\Data\NotFoundException $ex){
    
 }
 ```
@@ -38,9 +38,9 @@ It is that easy!
 
 ## New exceptions and namespaces
 
-There are many missing runtime exceptions in the default SPL package. There are many exceptions that we often see re-created over and over again across projects and packages and it does not make sense to do that. 
+There are many missing runtime exceptions in the default SPL package. There are many exceptions that we often see re-created over and over again across projects and packages, and it does not make sense to do that. 
 
-The Standard Exceptions package is all about fixing this. It creates a completely new namespace structure that contains all the exceptions you should need (We sure hope so) and adds several if not many new exceptions so you don't have the define yourself.
+The Standard Exceptions package is all about fixing this. It creates a completely new namespace structure that contains all the exceptions you should need (We sure hope so) and adds several if not many new exceptions, so you don't have to define yourself.
 
 ## New namespace structure
 
@@ -66,13 +66,13 @@ There are many array/collection based operations out there, collections classes,
 
 ### Data exceptions
 
-Data exceptions pertain to all the validation aspect of data and the operations associated to it. They are not stored as `Validation\` exceptions because they do not pertain to validation frameworks but to the integrity and validity of the data itself not to it's validation.
+Data exceptions pertain to all the validation aspect of data and the operations associated to it. They are not stored as `Validation\` exceptions because they do not pertain to validation frameworks but to the integrity and validity of the data itself not to its validation.
 
 [Learn more](exceptions/data-exceptions.md)
 
 ### Http exceptions
 
-Many frameworks and applications redefine Http exceptions that map to Http status codes. These should not be redefined or they become different across two projects and portability of your code suffers. This namespace contains most if not all Http exceptions you'll ever need.
+Many frameworks and applications redefine Http exceptions that map to Http status codes. These should not be redefined, or they become different across two projects and portability of your code suffers. This namespace contains most if not all Http exceptions you'll ever need.
 
 You will find two sub namespaces in this namespace namely:
 

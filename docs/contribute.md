@@ -36,10 +36,10 @@ There are some restrictions though!
     * You can run `composer run lint` to see what is not well formatted.
     * You can run `composer run fix` to fix all linting errors.
     
-* All tests must pass, you can run `composer run test` on your machine before hand.
+* All tests must pass, you can run `composer run test` on your machine beforehand.
 
 ## Approval process
 
 * We will look at the changes and ask for changes directly on the PR.
 * Please read the PR template properly beforehand as it contains all information posted here regarding the restrictions.
-* We reserve the right to refuse any modification but we will gladly incorporate well thought changes proposed to us.
+* We reserve the right to refuse any modification, but we will gladly incorporate well thought changes proposed to us.

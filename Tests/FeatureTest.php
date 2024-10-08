@@ -2,6 +2,7 @@
 
 namespace Exceptions\Tests;
 
+use Exception;
 use Exceptions\Collection;
 use Exceptions\Http;
 use PHPUnit\Framework\TestCase;
@@ -10,14 +11,12 @@ use ReflectionException;
 
 class FeatureTest extends TestCase
 {
-
     /**
      * Tests that you can still properly override the message and code of an exception
      */
     public function testConstructorAllowsOverridingCodeAndMessage()
     {
-        $previousException = new \Exception('test');
-        /** @var \Exception $exception */
+        $previousException = new Exception('test');
         $exception = new Collection\EmptyException('Test message passed', 92837, $previousException);
         $this->assertEquals('Test message passed', $exception->getMessage());
         $this->assertEquals(92837, $exception->getCode());
@@ -49,8 +48,7 @@ class FeatureTest extends TestCase
      */
     public function testFromException()
     {
-        $previousException = new \Exception('test');
-        /** @var \Exception $exception */
+        $previousException = new Exception('test');
         $exception = Collection\EmptyException::from($previousException);
         $this->assertEquals(Collection\EmptyException::getDefaultMessage(), $exception->getMessage());
         $this->assertEquals(Collection\EmptyException::getDefaultCode(), $exception->getCode());
@@ -63,7 +61,6 @@ class FeatureTest extends TestCase
      */
     public function testWithContextException()
     {
-        /** @var \Exception $exception */
         $exception = Collection\EmptyException::withContext([
             'key1' => 'data1',
         ]);
@@ -76,6 +73,7 @@ class FeatureTest extends TestCase
 
     /**
      * Tests that the getHttpCode and getHttpMessages can be called on Http exceptions
+     * @throws ReflectionException
      */
     public function testHttpMethods()
     {
@@ -87,9 +85,9 @@ class FeatureTest extends TestCase
             Http\HttpExceptionInterface::class,
             Http\Client\ForbiddenException::class
         );
-        $this->assertInternalType('int', Http\Client\ForbiddenException::getHttpCode());
+        $this->assertIsInt(Http\Client\ForbiddenException::getHttpCode());
         $this->assertGreaterThan(0, Http\Client\ForbiddenException::getHttpCode());
-        $this->assertInternalType('string', Http\Client\ForbiddenException::getHttpMessage());
+        $this->assertIsString('string', Http\Client\ForbiddenException::getHttpMessage());
         $this->assertGreaterThan(0, strlen(Http\Client\ForbiddenException::getHttpMessage()));
     }
 
@@ -101,7 +99,7 @@ class FeatureTest extends TestCase
      *
      * @throws ReflectionException
      */
-    public function assertClassIsSubclassOf(string $expected, string $subject)
+    public function assertClassIsSubclassOf(string $expected, string $subject): void
     {
         $checkReflection = new ReflectionClass($subject);
         $expectedReflection = new ReflectionClass($expected);

@@ -19,10 +19,10 @@ class LengthRequiredException extends ClientErrorException implements InvalidDat
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 411;
+    public const HTTP_CODE = 411;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Length Required: The request cannot be completed because the resource you are requesting for can only be satisfied if you provide the length of the request\'s payload/body.';
+    public const HTTP_MESSAGE = 'Length Required: The request cannot be completed because the resource you are requesting for can only be satisfied if you provide the length of the request\'s payload/body.';
 }

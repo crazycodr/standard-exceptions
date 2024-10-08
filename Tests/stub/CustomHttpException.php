@@ -11,17 +11,17 @@ class CustomHttpException extends HttpException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 101;
+    public const HTTP_CODE = 101;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'This exception is used for tests only';
+    public const HTTP_MESSAGE = 'This exception is used for tests only';
 
     /**
      * {@inheritdoc}
      */
-    public static function getHttpCodeClass()
+    public static function getHttpCodeClass(): int
     {
         return 100;
     }

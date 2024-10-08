@@ -1,5 +1,8 @@
 <?php
+
 namespace Exceptions\Helpers;
+
+use Throwable;
 
 /**
  * Defines an easy to reuse constructor that builds the exception using the defaults interface definition
@@ -8,7 +11,7 @@ namespace Exceptions\Helpers;
  */
 trait DefaultConstructorTrait
 {
-    public function __construct(string $message = "", int $code = 0, \Throwable $previous = null)
+    public function __construct(string $message = "", int $code = 0, null|Throwable $previous = null)
     {
         parent::__construct($message ?: $this->getDefaultMessage(), $code ?: $this->getDefaultCode(), $previous);
     }

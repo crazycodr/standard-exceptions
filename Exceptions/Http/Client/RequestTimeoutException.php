@@ -16,10 +16,10 @@ class RequestTimeoutException extends ClientErrorException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 408;
+    public const HTTP_CODE = 408;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Request Timeout: A process further down the request chain failed to respond in time. You can try again but you might get the same response if the server load or the problem persists downstream.';
+    public const HTTP_MESSAGE = 'Request Timeout: A process further down the request chain failed to respond in time. You can try again but you might get the same response if the server load or the problem persists downstream.';
 }

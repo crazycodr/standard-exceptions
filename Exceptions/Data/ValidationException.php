@@ -18,6 +18,6 @@ use Exceptions\Tag\InvalidDataTag;
  */
 class ValidationException extends DataException implements InvalidDataTag
 {
-    const MESSAGE = 'Provided data does not conform to business model or basic domain validation rules';
-    const CODE = 0;
+    public const MESSAGE = 'Provided data does not conform to business model or basic domain validation rules';
+    public const CODE = 0;
 }

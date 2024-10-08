@@ -16,10 +16,10 @@ class NotImplementedException extends ServerErrorException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 501;
+    public const HTTP_CODE = 501;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Not Implemented: The server does not support the functionality required to fulfill the request.';
+    public const HTTP_MESSAGE = 'Not Implemented: The server does not support the functionality required to fulfill the request.';
 }

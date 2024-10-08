@@ -12,6 +12,6 @@ use Exceptions\Tag\ForbiddenTag;
  */
 class FileNotReadableException extends FilesystemException implements ForbiddenTag
 {
-    const MESSAGE = 'Cannot read from specified file';
-    const CODE = 0;
+    public const MESSAGE = 'Cannot read from specified file';
+    public const CODE = 0;
 }

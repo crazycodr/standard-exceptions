@@ -25,7 +25,7 @@ Or catch them:
 ```php
 try {
 
-} catch(\Exceptions\Data\NotFoundExceptions $ex){
+} catch(\Exceptions\Data\NotFoundException $ex){
 
 }
 ```
@@ -46,7 +46,14 @@ If you need help upgrading for the old version 1 to this version, see the [Upgra
 
 # Features
 
-* Highly comprehensive list of exceptions and namespaces: [Browse](docs/exceptions/)
+* Highly comprehensive list of exceptions and namespaces:
+  * [collection-exceptions.md](docs/exceptions/collection-exceptions.md)
+  * [data-exceptions.md](docs/exceptions/data-exceptions.md)
+  * [http-client-exceptions.md](docs/exceptions/http-client-exceptions.md)
+  * [http-server-exceptions.md](docs/exceptions/http-server-exceptions.md)
+  * [io-filesystem-exceptions.md](docs/exceptions/io-filesystem-exceptions.md)
+  * [io-network-exceptions.md](docs/exceptions/io-network-exceptions.md)
+  * [operation-exceptions.md](docs/exceptions/operation-exceptions.md)
 * [Tag interfaces](docs/tags.md) to catch common exceptions with similar means but different contexts
 * Exceptions define default messages and error codes using the [DefaultsInterface and DefaultConstructorTrait](docs/helpers.md)
 * Throwing new exceptions from another exception allows easier exception chaining using [FromException helper](docs/helpers.md)

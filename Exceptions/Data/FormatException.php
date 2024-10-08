@@ -15,6 +15,6 @@ use Exceptions\Tag\InvalidDataTag;
  */
 class FormatException extends DataException implements InvalidDataTag
 {
-    const MESSAGE = 'Data provided is not of the expected format or cannot be parsed correctly.';
-    const CODE = 0;
+    public const MESSAGE = 'Data provided is not of the expected format or cannot be parsed correctly.';
+    public const CODE = 0;
 }

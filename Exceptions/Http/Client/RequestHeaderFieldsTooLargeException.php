@@ -20,10 +20,10 @@ class RequestHeaderFieldsTooLargeException extends ClientErrorException implemen
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 431;
+    public const HTTP_CODE = 431;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Request Header Fields Too Large: The request contained too much data in the header fields or one specific field contained too much data in it.';
+    public const HTTP_MESSAGE = 'Request Header Fields Too Large: The request contained too much data in the header fields or one specific field contained too much data in it.';
 }

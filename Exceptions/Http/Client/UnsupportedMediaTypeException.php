@@ -18,10 +18,10 @@ class UnsupportedMediaTypeException extends ClientErrorException implements Inva
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 415;
+    public const HTTP_CODE = 415;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Unsupported Media Type: The server is refusing to service the request because the entity of the request is in a format not supported by the requested resource for the requested method.';
+    public const HTTP_MESSAGE = 'Unsupported Media Type: The server is refusing to service the request because the entity of the request is in a format not supported by the requested resource for the requested method.';
 }

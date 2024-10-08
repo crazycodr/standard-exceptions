@@ -16,10 +16,10 @@ class InternalServerErrorException extends ServerErrorException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 500;
+    public const HTTP_CODE = 500;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Internal Server Error: The server encountered an unexpected condition which prevented it from fulfilling the request.';
+    public const HTTP_MESSAGE = 'Internal Server Error: The server encountered an unexpected condition which prevented it from fulfilling the request.';
 }

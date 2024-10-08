@@ -8,7 +8,7 @@ This document details filesystem IO exceptions such as files not found or disk p
 
 Namespaces: `\Exceptions\IO` and `\Exceptions\IO\Filesystem`
 
-Base classs: `\Exceptions\IO\IOException` and `\Exceptions\IO\Filesystem\FilesystemException`
+Base classes: `\Exceptions\IO\IOException` and `\Exceptions\IO\Filesystem\FilesystemException`
 
 Base interfaces: `\Exceptions\IO\IOExceptionInterface` and `\Exceptions\IO\Filesystem\FilesystemExceptionInterface`
 
@@ -28,7 +28,7 @@ Exceptions:
 
 ### DirectoryAlreadyExistsException
 
-Use this exception when your code tries to create a local directory but it already exists.
+Use this exception when your code tries to create a local directory, but it already exists.
 
 Tags: `\Exceptions\Tag\ExistsTag`
 
@@ -60,7 +60,7 @@ Tags: `\Exceptions\Tag\ForbiddenTag`
 
 ### FileAlreadyExistsException
 
-Use this exception when your code tries to create a file but it already exists.
+Use this exception when your code tries to create a file, but it already exists.
 
 Tags: `\Exceptions\Tag\ExistsTag`
 
@@ -93,8 +93,6 @@ Tags: `\Exceptions\Tag\ForbiddenTag`
 ### NoMoreSpaceException
 
 Use this exception when your code realizes that there is no more space available on the device to write to.
-
-Tags: `\Exceptions\Tag\AbortedTag`
 
 ---
 

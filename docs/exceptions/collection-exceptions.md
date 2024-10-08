@@ -27,7 +27,7 @@ Tags: None
 
 ### FullException
 
-Use this exception when an operation on a collection cannot be achieved because the collection has already reached it's limit and cannot accept more data.
+Use this exception when an operation on a collection cannot be achieved because the collection has already reached its limit and cannot accept more data.
 
 Tags: None
 

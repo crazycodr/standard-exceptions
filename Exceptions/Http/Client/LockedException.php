@@ -19,10 +19,10 @@ class LockedException extends ClientErrorException implements ForbiddenTag
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 423;
+    public const HTTP_CODE = 423;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Locked: The request cannot be completed because the resource you are trying to access is locked by another process.';
+    public const HTTP_MESSAGE = 'Locked: The request cannot be completed because the resource you are trying to access is locked by another process.';
 }
