@@ -32,7 +32,7 @@ try {
 }
 ```
 
-It is that easy!
+It's that easy! Read on in [Usage patterns](patterns.md).
 
 # Digging deeper
 
@@ -112,11 +112,3 @@ These all mean the same thing! You tried to do something on a resource but the u
 The `Tag\` namespace contains different interfaces that help you convey the same means to your exceptions. So even if you throw a `FileNotFoundException`, your users can react on `Tag\NotFoundTag` and still catch anything that can be thrown at them regarding something was not found while processing the request. Now **that is interoperability**.
 
 [Learn more](tags.md)
-
-# Defaults and From helpers
-
-There is no easy way to extract a message from an exception's class nor its error code. When you want to use an exception and just pass on a previous exception into it, the 3rd parameter is the only way to do this. But what if you didn't know what was the original message?
-
-Using the `from` and `defaults` helpers, this problem can be easily solved. All exceptions from this package implement those helpers.
-
-[Learn more](helpers.md)

@@ -14,9 +14,16 @@ use Throwable;
  */
 abstract class OperationException extends RuntimeException implements OperationExceptionInterface, DefaultsInterface
 {
-    public function __construct(string $message = "", int $code = 0, null|Throwable $previous = null)
-    {
-        parent::__construct($message ?: $this->getDefaultMessage(), $code ?: $this->getDefaultCode(), $previous);
+    public function __construct(
+        string         $message = "",
+        int            $code = 0,
+        null|Throwable $previous = null
+    ) {
+        parent::__construct(
+            message:  $message ?: $this->getDefaultMessage(),
+            code:     $code ?: $this->getDefaultCode(),
+            previous: $previous
+        );
     }
 
     /**

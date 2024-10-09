@@ -1,4 +1,4 @@
-[![Latest Stable Version](https://poser.pugx.org/crazycodr/standard-exceptions/version.png)](https://packagist.org/packages/crazycodr/standard-exceptions) [![Monthly Downloads](https://poser.pugx.org/crazycodr/standard-exceptions/d/monthly)](https://packagist.org/packages/crazycodr/standard-exceptions) [![Build Status](https://travis-ci.org/crazycodr/standard-exceptions.png?branch=master)](https://travis-ci.org/crazycodr/standard-exceptions)
+[![Latest Stable Version](https://poser.pugx.org/crazycodr/standard-exceptions/version.png)](https://packagist.org/packages/crazycodr/standard-exceptions) [![Monthly Downloads](https://poser.pugx.org/crazycodr/standard-exceptions/d/monthly)](https://packagist.org/packages/crazycodr/standard-exceptions)
 
 # Standard Exceptions Package
 
@@ -10,6 +10,7 @@ Many exceptions that are missing from the SPL are constantly being reproduced in
 
 * [Getting started](getting-started.md)
     * [Upgrading from version 1 to version 2](upgrade-1-2.md)
+    * [Upgrading from version 2 to version 3](upgrade-2-3.md)
 * Exceptions and namespaces
     * [Collection exceptions](exceptions/collection-exceptions.md)
     * [Data exceptions](exceptions/data-exceptions.md)
@@ -21,5 +22,5 @@ Many exceptions that are missing from the SPL are constantly being reproduced in
         * [Network exceptions](exceptions/io-network-exceptions.md)
     * [Operation exceptions](exceptions/operation-exceptions.md)
 * [Tags](tags.md)
-* [Helpers](helpers.md)
+* [Patterns](patterns.md)
 * [Contributing](contribute.md)
