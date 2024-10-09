@@ -2,7 +2,7 @@
 
 namespace Exceptions\Collection;
 
-use Exceptions\Tag\ExistsTag;
+use Exceptions\Tag\AlreadyExistsTag;
 
 /**
  * Use this exception when an operation on a collection tries to add an element using a key that already exists in the
@@ -11,8 +11,8 @@ use Exceptions\Tag\ExistsTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class KeyAlreadyExistsException extends CollectionException implements ExistsTag
+class KeyAlreadyExistsException extends CollectionException implements AlreadyExistsTag
 {
-    const MESSAGE = 'Key already exists in array/collection';
-    const CODE = 0;
+    public const MESSAGE = 'Key already exists in array/collection';
+    public const CODE = 0;
 }

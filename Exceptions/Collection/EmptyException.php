@@ -10,6 +10,6 @@ namespace Exceptions\Collection;
  */
 class EmptyException extends CollectionException
 {
-    const MESSAGE = 'Array/collection is currently empty';
-    const CODE = 0;
+    public const MESSAGE = 'Array/collection is currently empty';
+    public const CODE = 0;
 }

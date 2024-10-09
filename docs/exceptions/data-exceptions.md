@@ -1,6 +1,6 @@
 # Data exceptions
 
-Data exceptions pertain to all the validation aspect of data and the operations associated to it. They are not stored as `Validation\` exceptions because they do not pertain to validation frameworks but to the integrity and validity of the data itself not to it's validation.
+Data exceptions pertain to all the validation aspect of data and the operations associated to it. They are not stored as `Validation\` exceptions because they do not pertain to validation frameworks but to the integrity and validity of the data itself not to its validation.
 
 ## Classes
 
@@ -31,7 +31,7 @@ Tags: `\Exception\Tag\InvalidDataTag`
 
 ### FoundTooLittleException
 
-Use this exception when the data requested by your code was found but it found actually less than expected. A good use for this is when you are looking for a specific set of items such as 10 items but you end up finding only 9. In this case, you throw this exception.
+Use this exception when the data requested by your code was found, but it found actually less than expected. A good use for this is when you are looking for a specific set of items such as 10 items, but you end up finding only 9. In this case, you throw this exception.
 
 > **IMPORTANT NOTE**: If the code in context is a service provider that queries a database, this would be the right exception to throw and listen for. The controller on the other hand would catch this and throw a NotFoundException from the Http namespace which would be converted to a standardized message in the front controller.
 
@@ -39,7 +39,7 @@ Tags: None
 
 ### FoundTooManyException
 
-Use this exception when the data requested by your code was found and it found actually more than expected. A good use for this is the findSingle usual function we find in many library and orm. If you have more than 1 record found, it might mean that you should send back this exception.
+Use this exception when the data requested by your code was found, and it found actually more than expected. A good use for this is the findSingle usual function we find in many library and orm. If you have more than 1 record found, it might mean that you should send back this exception.
 
 > **IMPORTANT NOTE**: If the code in context is a service provider that queries a database, this would be the right exception to throw and listen for. The controller on the other hand would catch this and throw a NotFoundException from the Http namespace which would be converted to a standardized message in the front controller.
 

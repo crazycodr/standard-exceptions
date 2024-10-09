@@ -21,10 +21,10 @@ class GoneException extends ClientErrorException implements NotFoundTag
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 410;
+    public const HTTP_CODE = 410;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Gone: The request cannot be completed because the resource you are requesting has been moved or has changed state.';
+    public const HTTP_MESSAGE = 'Gone: The request cannot be completed because the resource you are requesting has been moved or has changed state.';
 }

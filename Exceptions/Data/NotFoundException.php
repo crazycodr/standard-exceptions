@@ -18,6 +18,6 @@ use Exceptions\Tag\NotFoundTag;
  */
 class NotFoundException extends DataException implements NotFoundTag
 {
-    const MESSAGE = 'Data requested for cannot be found in the data source.';
-    const CODE = 0;
+    public const MESSAGE = 'Data requested for cannot be found in the data source.';
+    public const CODE = 0;
 }

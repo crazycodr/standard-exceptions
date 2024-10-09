@@ -2,8 +2,6 @@
 
 namespace Exceptions\Operation;
 
-use Exceptions\Tag\AbortedTag;
-
 /**
  * Use this exception when someone is calling a function/method that is not implemented yet. This is a good practice
  * when implementing a lot of new functionality. Coupled to unit tests, you should not miss a NotImplementedException
@@ -12,8 +10,8 @@ use Exceptions\Tag\AbortedTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class NotImplementedException extends OperationException implements AbortedTag
+class NotImplementedException extends OperationException
 {
-    const MESSAGE = 'Feature not implemented yet';
-    const CODE = 0;
+    public const MESSAGE = 'Feature not implemented yet';
+    public const CODE = 0;
 }

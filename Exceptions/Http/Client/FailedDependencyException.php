@@ -18,10 +18,10 @@ class FailedDependencyException extends ClientErrorException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 424;
+    public const HTTP_CODE = 424;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Failed Dependency: The request cannot be completed because an underlying process failed to complete properly or there is a dependency that cannot be met around the process.';
+    public const HTTP_MESSAGE = 'Failed Dependency: The request cannot be completed because an underlying process failed to complete properly or there is a dependency that cannot be met around the process.';
 }

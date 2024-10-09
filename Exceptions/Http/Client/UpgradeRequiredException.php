@@ -21,10 +21,10 @@ class UpgradeRequiredException extends ClientErrorException implements InvalidDa
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 426;
+    public const HTTP_CODE = 426;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Upgrade Required: The request cannot be completed because the request was made using an outdated technology or an outdated message structure.';
+    public const HTTP_MESSAGE = 'Upgrade Required: The request cannot be completed because the request was made using an outdated technology or an outdated message structure.';
 }

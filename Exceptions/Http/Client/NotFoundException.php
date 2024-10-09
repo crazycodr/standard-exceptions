@@ -18,10 +18,10 @@ class NotFoundException extends ClientErrorException implements NotFoundTag
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 404;
+    public const HTTP_CODE = 404;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Not found: The requested entity cannot be found, this may be returned because entity is not accessible using requested credentials, because of a recent state change or because entity cannot be found at all.';
+    public const HTTP_MESSAGE = 'Not found: The requested entity cannot be found, this may be returned because entity is not accessible using requested credentials, because of a recent state change or because entity cannot be found at all.';
 }

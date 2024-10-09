@@ -13,6 +13,6 @@ use Exceptions\Tag\ForbiddenTag;
  */
 class ConnectionRefusedException extends NetworkException implements ForbiddenTag
 {
-    const MESSAGE = 'Connection to remote host was refused';
-    const CODE = 0;
+    public const MESSAGE = 'Connection to remote host was refused';
+    public const CODE = 0;
 }

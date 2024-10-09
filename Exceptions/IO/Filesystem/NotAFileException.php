@@ -12,6 +12,6 @@ use Exceptions\Tag\InvalidDataTag;
  */
 class NotAFileException extends FilesystemException implements InvalidDataTag
 {
-    const MESSAGE = 'Specified path is not a file';
-    const CODE = 0;
+    public const MESSAGE = 'Specified path is not a file';
+    public const CODE = 0;
 }

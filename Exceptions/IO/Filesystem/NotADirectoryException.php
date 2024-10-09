@@ -12,6 +12,6 @@ use Exceptions\Tag\InvalidDataTag;
  */
 class NotADirectoryException extends FilesystemException implements InvalidDataTag
 {
-    const MESSAGE = 'Specified path is not a directory';
-    const CODE = 0;
+    public const MESSAGE = 'Specified path is not a directory';
+    public const CODE = 0;
 }

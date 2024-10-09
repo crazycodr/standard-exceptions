@@ -2,10 +2,9 @@
 
 namespace Exceptions\Http;
 
-use Exceptions\Helpers\DefaultConstructorTrait;
 use Exceptions\Helpers\DefaultsInterface;
-use Exceptions\Helpers\FromException;
-use Exceptions\Helpers\WithContext;
+use RuntimeException;
+use Throwable;
 
 /**
  * This is a tag like class that is used to regroup all Http exceptions under a single base class.
@@ -16,9 +15,19 @@ use Exceptions\Helpers\WithContext;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-abstract class HttpException extends \RuntimeException implements HttpExceptionInterface, DefaultsInterface
+abstract class HttpException extends RuntimeException implements HttpExceptionInterface, DefaultsInterface
 {
-    use FromException, DefaultConstructorTrait, WithContext;
+    public function __construct(
+        string         $message = "",
+        int            $code = 0,
+        null|Throwable $previous = null
+    ) {
+        parent::__construct(
+            message:  $message ?: $this->getDefaultMessage(),
+            code:     $code ?: $this->getDefaultCode(),
+            previous: $previous
+        );
+    }
 
     /**
      * {@inheritdoc}
@@ -39,7 +48,7 @@ abstract class HttpException extends \RuntimeException implements HttpExceptionI
     /**
      * {@inheritdoc}
      */
-    public static function getHttpCode()
+    public static function getHttpCode(): int
     {
         return static::HTTP_CODE;
     }
@@ -47,7 +56,7 @@ abstract class HttpException extends \RuntimeException implements HttpExceptionI
     /**
      * {@inheritdoc}
      */
-    public static function getHttpMessage()
+    public static function getHttpMessage(): string
     {
         return static::HTTP_MESSAGE;
     }

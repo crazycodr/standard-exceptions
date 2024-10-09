@@ -19,10 +19,10 @@ class BadRequestException extends ClientErrorException implements InvalidDataTag
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 400;
+    public const HTTP_CODE = 400;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Bad Request: The request could not be understood by the server due to malformed syntax. The client should not repeat the request without modifications.';
+    public const HTTP_MESSAGE = 'Bad Request: The request could not be understood by the server due to malformed syntax. The client should not repeat the request without modifications.';
 }

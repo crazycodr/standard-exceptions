@@ -17,10 +17,10 @@ class GatewayTimeoutException extends ServerErrorException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 504;
+    public const HTTP_CODE = 504;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Gateway Timeout: This server is acting as a gateway or proxy to another server but the underlying server or process failed to respond in time.';
+    public const HTTP_MESSAGE = 'Gateway Timeout: This server is acting as a gateway or proxy to another server but the underlying server or process failed to respond in time.';
 }

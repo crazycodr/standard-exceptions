@@ -19,10 +19,10 @@ class NotAcceptableException extends ClientErrorException implements InvalidData
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 406;
+    public const HTTP_CODE = 406;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Not Acceptable: The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request.';
+    public const HTTP_MESSAGE = 'Not Acceptable: The resource identified by the request is only capable of generating response entities which have content characteristics not acceptable according to the accept headers sent in the request.';
 }

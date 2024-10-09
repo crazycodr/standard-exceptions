@@ -15,33 +15,21 @@
       "Exceptions\\Helpers\\": "Helpers/"
     }
   },
-  "autoload-dev": {
-    "psr-4": {
-      "Exceptions\\Tests\\": "Tests/"
-    }
-  },
-  "require": {
-    "php": ">=7.1"
-  },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.15",
-    "phpunit/phpunit": "^7.1"
+    "friendsofphp/php-cs-fixer": "*"
   },
   "config": {
     "sort-packages": true,
     "optimize-autoloader": true
   },
   "scripts": {
-    "test": "vendor/bin/phpunit",
     "lint": [
       "vendor/bin/php-cs-fixer --diff --dry-run -v fix Exceptions",
-      "vendor/bin/php-cs-fixer --diff --dry-run -v fix Helpers",
-      "vendor/bin/php-cs-fixer --diff --dry-run -v fix Tests"
+      "vendor/bin/php-cs-fixer --diff --dry-run -v fix Helpers"
     ],
     "fix": [
       "vendor/bin/php-cs-fixer --diff -v fix Exceptions",
-      "vendor/bin/php-cs-fixer --diff -v fix Helpers",
-      "vendor/bin/php-cs-fixer --diff -v fix Tests"
+      "vendor/bin/php-cs-fixer --diff -v fix Helpers"
     ]
   }
 }

@@ -21,23 +21,9 @@ The `Tag\` namespace contains different interfaces that help you convey the same
 
 All tags are found under `\Exceptions\Tag`.
 
-### Aborted tag
+### Already exists tag
 
-The `AbortedTag` interface is assigned to any exception that declares that the operation you tried to execute was aborted due to an underlying failure.
-
-> **DEPRECATION WARNING**: We've been going a little too crazy with the usage of `AbortedTa`g. Because of this, `AbortedTag` is now deprecated with no exact replacement scenario for now. Avoid adding `AbortedTag` to new exceptions you create as it is a little too widespread right now and doesn't convey a proper means vs context.
-
-> **IMPORTANT NOTES**: This was previously named `OperationAbortedException` and was recently renamed. You can still use `OperationAbortedException` to catch exceptions that extend the `AbortedTag` but you cannot use the `AbortedTag` to catch old exceptions you created in your project that implement `OperationAbortedExceptio`n.
->
-> `OperationAbortedException` is deprecated as of the latest version and will be removed in version 3.0
-
-### Exists tag
-
-The `ExistsTag` interface is assigned to any exception that declares that the operation you tried to execute failed because the entity you tried to add to some kind of collection or lot of items already existed.
-
-> **IMPORTANT NOTES**: This was previously named `AlreadyExistsException` and was recently renamed. You can still use `AlreadyExistsException` to catch exceptions that extend the `ExistsTag` but you cannot use the `ExistsTag` to catch old exceptions you created in your project that implement `OperationAbortedExceptio`n.
->
-> `AlreadyExistsException` is deprecated as of the latest version and will be removed in version 3.0
+The `AlreadyExistsTag` interface is assigned to any exception that declares that the operation you tried to execute failed because the entity you tried to add to some kind of collection or a lot of items already existed.
 
 ### Forbidden tag
 
@@ -51,19 +37,11 @@ The `InvalidDataTag` interface is assigned to any exception that declares that t
 
 You should consider mapping this tag to anything that is configuration wise or data type validation wise operations that would fail.
 
-> **IMPORTANT NOTES**: This was previously named `InvalidDataException` and was recently renamed. You can still use `InvalidDataException` to catch exceptions that extend the `InvalidDataTag` but you cannot use the `InvalidDataTag` to catch old exceptions you created in your project that implement `OperationAbortedExceptio`n.
->
-> `InvalidDataException` is deprecated as of the latest version and will be removed in version 3.0
-
 ### Not found tag
 
 The `NotFoundTag` interface is assigned to any exception that declares that the operation you tried to execute was not allowed because the entity you wanted to apply this operation on was not found.
 
 You should consider mapping this tag to anything that is about searching for data and not finding it. It could be database wise, api wise, filesystem wise. Just think: "I could not find that resource".
-
-> **IMPORTANT NOTES**: This was previously named `NotFoundException` and was recently renamed. You can still use `NotFoundException` to catch exceptions that extend the `NotFoundTag` but you cannot use the `NotFoundTag` to catch old exceptions you created in your project that implement `OperationAbortedExceptio`n.
->
-> `NotFoundException` is deprecated as of the latest version and will be removed in version 3.0
 
 ### Unauthorized tag
 

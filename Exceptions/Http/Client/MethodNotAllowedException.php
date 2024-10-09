@@ -18,10 +18,10 @@ class MethodNotAllowedException extends ClientErrorException implements InvalidD
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 405;
+    public const HTTP_CODE = 405;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Method Not Allowed: The method specified in the request is not allowed for the requested resource. The resource was found and is accessible, but cannot be accessed using this method.';
+    public const HTTP_MESSAGE = 'Method Not Allowed: The method specified in the request is not allowed for the requested resource. The resource was found and is accessible, but cannot be accessed using this method.';
 }

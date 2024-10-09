@@ -13,6 +13,6 @@ use Exceptions\Tag\ForbiddenTag;
  */
 class DirectoryNotReadableException extends FilesystemException implements ForbiddenTag
 {
-    const MESSAGE = 'Cannot read from specified directory';
-    const CODE = 0;
+    public const MESSAGE = 'Cannot read from specified directory';
+    public const CODE = 0;
 }

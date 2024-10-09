@@ -20,10 +20,10 @@ class UnauthorizedException extends ClientErrorException implements Unauthorized
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 401;
+    public const HTTP_CODE = 401;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Unauthorized: The request requires user authentication.';
+    public const HTTP_MESSAGE = 'Unauthorized: The request requires user authentication.';
 }

@@ -11,6 +11,6 @@ namespace Exceptions\Collection;
  */
 class ReadOnlyArrayItemException extends CollectionException
 {
-    const MESSAGE = 'Array/Collection item is read-only, you cannot modify it';
-    const CODE = 0;
+    public const MESSAGE = 'Array/Collection item is read-only, you cannot modify it';
+    public const CODE = 0;
 }

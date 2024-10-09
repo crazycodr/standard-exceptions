@@ -5,17 +5,17 @@ Below is a list of changes between version 1 and version 2. You can refer to thi
 Considering this library is not a features library, there is no difference in the usage pattern, there are just different exceptions to thrown or namespaces to use.
 
 ## Namespace rename or change
-| Old | New |
-| --- | --- |
-| StandardExceptions | Exceptions |
-| ArrayExceptions | Collection |
-| HTTPExceptions | Http |
-| IOExceptions | IO |
-| LogicExceptions | Operation |
-| OperationExceptions | Operation |
-| ValidationExceptions | Data |
+| Old                  | New        |
+|----------------------|------------|
+| StandardExceptions   | Exceptions |
+| ArrayExceptions      | Collection |
+| HTTPExceptions       | Http       |
+| IOExceptions         | IO         |
+| LogicExceptions      | Operation  |
+| OperationExceptions  | Operation  |
+| ValidationExceptions | Data       |
 
-## Namespace that have disapeared
+## Namespace that have disappeared
 - LogicExceptions
 
 ## New namespaces
@@ -26,33 +26,33 @@ Considering this library is not a features library, there is no difference in th
 
 ## Exceptions that have moved or renamed
 -------------------------------------
-| Old | New |
-| --- | --- |
-| ArrayExceptions\ArrayIsEmptyException | Collection\EmptyException |
-| ArrayExceptions\ArrayIsFullException | Collection\FullException |
-| HTTPExceptions\BadRequestException | Http\Client\BadRequestException |
-| HTTPExceptions\ForbiddenException | Http\Client\ForbiddenException |
-| HTTPExceptions\MethodNotAllowedException | Http\Client\MethodNotAllowedException |
-| HTTPExceptions\NotAcceptableException | Http\Client\NotAcceptableException |
-| HTTPExceptions\NotFoundException | Http\Client\NotFoundException |
-| HTTPExceptions\UnauthorizedException | Http\Client\UnauthorizedException |
-| HTTPExceptions\UnprocessableEntityException | Http\Client\UnprocessableEntityException |
-| IOExceptions\DirectoryNotFoundException | IO\Filesystem\DirectoryNotFoundException |
-| IOExceptions\DirectoryNotReadableException | IO\Filesystem\DirectoryNotReadableException |
-| IOExceptions\DirectoryNotWritableException | IO\Filesystem\DirectoryNotWritableException |
-| IOExceptions\FileNotFoundException | IO\Filesystem\FileNotFoundException |
-| IOExceptions\FileNotReadableException | IO\Filesystem\FileNotReadableException |
-| IOExceptions\FileNotWritableException | IO\Filesystem\FileNotWritableException |
-| IOExceptions\NotADirectoryException | IO\Filesystem\NotADirectoryException |
-| IOExceptions\NotAFileException | IO\Filesystem\NotAFileException |
-| IOExceptions\ConnectionLostException | IO\Network\ConnectionLostException |
-| IOExceptions\ConnectionRefusedException | IO\Network\ConnectionRefusedException |
-| IOExceptions\UnexpectedResponseException | IO\Network\UnexpectedResponseException |
-| IOExceptions\UnknownHostException | IO\Network\UnknownHostException |
-| OperationExceptions\NotImplementedYetException | Operation\NotImplementedException |
-| OperationExceptions\UnexpectedReturnValueException | Operation\UnexpectedException |
+| Old                                                | New                                         |
+|----------------------------------------------------|---------------------------------------------|
+| ArrayExceptions\ArrayIsEmptyException              | Collection\EmptyException                   |
+| ArrayExceptions\ArrayIsFullException               | Collection\FullException                    |
+| HTTPExceptions\BadRequestException                 | Http\Client\BadRequestException             |
+| HTTPExceptions\ForbiddenException                  | Http\Client\ForbiddenException              |
+| HTTPExceptions\MethodNotAllowedException           | Http\Client\MethodNotAllowedException       |
+| HTTPExceptions\NotAcceptableException              | Http\Client\NotAcceptableException          |
+| HTTPExceptions\NotFoundException                   | Http\Client\NotFoundException               |
+| HTTPExceptions\UnauthorizedException               | Http\Client\UnauthorizedException           |
+| HTTPExceptions\UnprocessableEntityException        | Http\Client\UnprocessableEntityException    |
+| IOExceptions\DirectoryNotFoundException            | IO\Filesystem\DirectoryNotFoundException    |
+| IOExceptions\DirectoryNotReadableException         | IO\Filesystem\DirectoryNotReadableException |
+| IOExceptions\DirectoryNotWritableException         | IO\Filesystem\DirectoryNotWritableException |
+| IOExceptions\FileNotFoundException                 | IO\Filesystem\FileNotFoundException         |
+| IOExceptions\FileNotReadableException              | IO\Filesystem\FileNotReadableException      |
+| IOExceptions\FileNotWritableException              | IO\Filesystem\FileNotWritableException      |
+| IOExceptions\NotADirectoryException                | IO\Filesystem\NotADirectoryException        |
+| IOExceptions\NotAFileException                     | IO\Filesystem\NotAFileException             |
+| IOExceptions\ConnectionLostException               | IO\Network\ConnectionLostException          |
+| IOExceptions\ConnectionRefusedException            | IO\Network\ConnectionRefusedException       |
+| IOExceptions\UnexpectedResponseException           | IO\Network\UnexpectedResponseException      |
+| IOExceptions\UnknownHostException                  | IO\Network\UnknownHostException             |
+| OperationExceptions\NotImplementedYetException     | Operation\NotImplementedException           |
+| OperationExceptions\UnexpectedReturnValueException | Operation\UnexpectedException               |
 
-## Exceptions that have disapeared
+## Exceptions that have disappeared
 - ArrayExceptions\ArrayUnderflowException (Was deprecated, use Collection\EmptyException instead)
 - ArrayExceptions\IndexNotFoundException (Was deprecated, use Collection\KeyNotFoundException instead)
 - ArrayExceptions\InvalidKeyException (Changed for Data\FormatException)

@@ -2,8 +2,6 @@
 
 namespace Exceptions\IO\Network;
 
-use Exceptions\Tag\AbortedTag;
-
 /**
  * Use this exception when an IO network request fails to respond in time. This exception is slightly different
  * from the ConnectionTimeoutException where it is the connection to the host that failed.
@@ -11,8 +9,8 @@ use Exceptions\Tag\AbortedTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class RequestTimeoutException extends NetworkException implements AbortedTag
+class RequestTimeoutException extends NetworkException
 {
-    const MESSAGE = 'Request timed out while waiting for remote party to return response';
-    const CODE = 0;
+    public const MESSAGE = 'Request timed out while waiting for remote party to return response';
+    public const CODE = 0;
 }

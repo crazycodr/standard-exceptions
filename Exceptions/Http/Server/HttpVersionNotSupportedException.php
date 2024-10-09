@@ -16,10 +16,10 @@ class HttpVersionNotSupportedException extends ServerErrorException
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 505;
+    public const HTTP_CODE = 505;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'HTTP Version Not Supported: This server cannot understand the request using the HTTP protocol version you are using.';
+    public const HTTP_MESSAGE = 'HTTP Version Not Supported: This server cannot understand the request using the HTTP protocol version you are using.';
 }

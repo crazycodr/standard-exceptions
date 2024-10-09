@@ -17,7 +17,7 @@ Or catch them:
 ```php
 try {
 
-} catch(\Exceptions\Data\NotFoundExceptions $ex){
+} catch(\Exceptions\Data\NotFoundException $ex){
    
 }
 ```
@@ -32,15 +32,15 @@ try {
 }
 ```
 
-It is that easy!
+It's that easy! Read on in [Usage patterns](patterns.md).
 
 # Digging deeper
 
 ## New exceptions and namespaces
 
-There are many missing runtime exceptions in the default SPL package. There are many exceptions that we often see re-created over and over again across projects and packages and it does not make sense to do that. 
+There are many missing runtime exceptions in the default SPL package. There are many exceptions that we often see re-created over and over again across projects and packages, and it does not make sense to do that. 
 
-The Standard Exceptions package is all about fixing this. It creates a completely new namespace structure that contains all the exceptions you should need (We sure hope so) and adds several if not many new exceptions so you don't have the define yourself.
+The Standard Exceptions package is all about fixing this. It creates a completely new namespace structure that contains all the exceptions you should need (We sure hope so) and adds several if not many new exceptions, so you don't have to define yourself.
 
 ## New namespace structure
 
@@ -66,13 +66,13 @@ There are many array/collection based operations out there, collections classes,
 
 ### Data exceptions
 
-Data exceptions pertain to all the validation aspect of data and the operations associated to it. They are not stored as `Validation\` exceptions because they do not pertain to validation frameworks but to the integrity and validity of the data itself not to it's validation.
+Data exceptions pertain to all the validation aspect of data and the operations associated to it. They are not stored as `Validation\` exceptions because they do not pertain to validation frameworks but to the integrity and validity of the data itself not to its validation.
 
 [Learn more](exceptions/data-exceptions.md)
 
 ### Http exceptions
 
-Many frameworks and applications redefine Http exceptions that map to Http status codes. These should not be redefined or they become different across two projects and portability of your code suffers. This namespace contains most if not all Http exceptions you'll ever need.
+Many frameworks and applications redefine Http exceptions that map to Http status codes. These should not be redefined, or they become different across two projects and portability of your code suffers. This namespace contains most if not all Http exceptions you'll ever need.
 
 You will find two sub namespaces in this namespace namely:
 
@@ -112,11 +112,3 @@ These all mean the same thing! You tried to do something on a resource but the u
 The `Tag\` namespace contains different interfaces that help you convey the same means to your exceptions. So even if you throw a `FileNotFoundException`, your users can react on `Tag\NotFoundTag` and still catch anything that can be thrown at them regarding something was not found while processing the request. Now **that is interoperability**.
 
 [Learn more](tags.md)
-
-# Defaults and From helpers
-
-There is no easy way to extract a message from an exception's class nor its error code. When you want to use an exception and just pass on a previous exception into it, the 3rd parameter is the only way to do this. But what if you didn't know what was the original message?
-
-Using the `from` and `defaults` helpers, this problem can be easily solved. All exceptions from this package implement those helpers.
-
-[Learn more](helpers.md)

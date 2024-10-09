@@ -18,10 +18,10 @@ class PreConditionFailedException extends ClientErrorException implements Invali
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 412;
+    public const HTTP_CODE = 412;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Pre-condition Failed: The request cannot be completed because the server cannot provide content based on the pre-conditions you set.';
+    public const HTTP_MESSAGE = 'Pre-condition Failed: The request cannot be completed because the server cannot provide content based on the pre-conditions you set.';
 }

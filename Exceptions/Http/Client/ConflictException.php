@@ -18,10 +18,10 @@ class ConflictException extends ClientErrorException implements InvalidDataTag
     /**
      * Returns the HTTP error code for that exception.
      */
-    const HTTP_CODE = 409;
+    public const HTTP_CODE = 409;
 
     /**
      * Returns the HTTP error message for that exception.
      */
-    const HTTP_MESSAGE = 'Conflict: The request could not be completed due to a conflict with the current state of the resource. Fix the errors that are producing the conflict and then try again. This error is often caused by desynchronized states between client and server, something changed on one or the other and the resources are out of sync.';
+    public const HTTP_MESSAGE = 'Conflict: The request could not be completed due to a conflict with the current state of the resource. Fix the errors that are producing the conflict and then try again. This error is often caused by desynchronized states between client and server, something changed on one or the other and the resources are out of sync.';
 }

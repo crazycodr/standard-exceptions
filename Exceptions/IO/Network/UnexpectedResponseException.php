@@ -2,8 +2,6 @@
 
 namespace Exceptions\IO\Network;
 
-use Exceptions\Tag\AbortedTag;
-
 /**
  * Use this exception when an IO operation based on a communication protocol receives an unexpected response from
  * the remote host.
@@ -14,8 +12,8 @@ use Exceptions\Tag\AbortedTag;
  * @author   Mathieu Dumoulin <thecrazycodr@gmail.com>
  * @license  MIT
  */
-class UnexpectedResponseException extends NetworkException implements AbortedTag
+class UnexpectedResponseException extends NetworkException
 {
-    const MESSAGE = 'Unexpected response received while communicating with remote host';
-    const CODE = 0;
+    public const MESSAGE = 'Unexpected response received while communicating with remote host';
+    public const CODE = 0;
 }

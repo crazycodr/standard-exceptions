@@ -17,6 +17,6 @@ use Exceptions\Tag\NotFoundTag;
  */
 class KeyNotFoundException extends CollectionException implements NotFoundTag
 {
-    const MESSAGE = 'Key not found in array/collection';
-    const CODE = 0;
+    public const MESSAGE = 'Key not found in array/collection';
+    public const CODE = 0;
 }
